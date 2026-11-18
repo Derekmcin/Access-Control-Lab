@@ -141,9 +141,9 @@ input[type=text],select{width:100%;min-height:48px;border-radius:12px;border:2px
 .hs .hit{fill:rgba(255,176,32,.06);stroke:rgba(255,176,32,.55);stroke-width:2;stroke-dasharray:6 4}
 .hs:hover .hit,.hs:focus .hit{fill:rgba(255,176,32,.22);stroke:var(--amber);stroke-dasharray:none}
 .hs:focus{outline:none}
-.hs .badge circle{fill:var(--amber)}.hs .badge text{font-weight:700;font-size:15px;fill:#1a1200;font-family:Calibri,"Segoe UI",Arial,sans-serif}
+.hs .badge circle{fill:var(--amber)}.hs .badge text{font-weight:700;font-size:18px;fill:#1a1200;font-family:Calibri,"Segoe UI",Arial,sans-serif}
 .hs .orgbox{fill:#2a3d55;stroke:#c4ccd6;stroke-width:2}
-.hs .rev{display:none;font-size:12px;font-weight:700;fill:#fff;paint-order:stroke;stroke:#0b1422;stroke-width:3px;font-family:Calibri,"Segoe UI",Arial,sans-serif}
+.hs .rev{display:none;font-size:13px;font-weight:700;fill:#fff;paint-order:stroke;stroke:#0b1422;stroke-width:3px;font-family:Calibri,"Segoe UI",Arial,sans-serif}
 .revealed .hs .rev{display:inline}
 .hs.right .hit{fill:rgba(46,204,113,.35);stroke:var(--green);stroke-dasharray:none;stroke-width:4}
 .hs.wrong .hit{fill:rgba(255,107,107,.35);stroke:var(--red);stroke-dasharray:none;stroke-width:4}
@@ -215,6 +215,49 @@ h1[tabindex="-1"]:focus,h2[tabindex="-1"]:focus{outline:none}
 .diagram svg{max-width:560px;margin:0 auto}
 .stage .door{width:52px;flex:0 0 52px}
 @media(max-width:520px){.obtns{flex-direction:column}.oitem{padding:6px 6px 6px 8px;gap:8px}}
+/* ---- v2 clarity additions ---- */
+.hbtns{display:flex;gap:6px}
+.iconbtn.help b{display:inline-flex;width:22px;height:22px;border-radius:50%;background:var(--amber);color:#1a1200;align-items:center;justify-content:center;font-size:.9rem}
+@media(max-width:420px){.iconbtn span{display:none}.iconbtn.help span,.iconbtn#soundBtn span{display:none}}
+.mode{cursor:default;transform:none!important}
+.mode:hover{border-color:var(--line)}
+.mode h3{margin:0;color:var(--text);font-size:1.15rem}
+.mode p.d{margin:2px 0;color:var(--muted);font-size:.92rem}
+.mode .startbtn{width:100%;margin-top:8px}
+.mode label.small{font-size:.85rem;margin:8px 0 4px;color:var(--text)}
+.mode select{min-height:48px}
+.pointsline{font-size:.9rem;margin:10px 2px}
+.howto{background:#2e2608;border:2px solid var(--amber);color:#ffe7a8;border-radius:12px;padding:8px 12px;margin:0 0 12px;font-size:.95rem}
+.howto b{color:var(--amber)}
+.tfpre{color:var(--amber)}
+.checkhint{margin:10px 0 0;font-size:.9rem;color:#ffc9c9;font-weight:700}
+.checkhint.ready{color:#a8f5c6}
+.selnow{margin:10px 0 0;font-size:.95rem;color:#ffe7a8;min-height:1.4em}
+.colhead{font-size:.8rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+.match>div>.colhead{margin-top:2px}
+.def .tag{white-space:normal}
+.endlab{font-size:.85rem;font-weight:700;color:var(--amber);margin:4px 0}
+.endlab.bot{margin-top:6px}
+.ores.ok{color:#a8f5c6}
+.fbhead{margin:8px 0 2px;font-weight:700}
+.detwrap{margin-top:8px}
+.det{margin:4px 0 0;padding-left:0;list-style:none;display:grid;gap:4px}
+.det li{padding:6px 8px;border-radius:8px;background:rgba(0,0,0,.25);font-size:.92rem}
+.det li.ok{border-left:4px solid var(--green)}.det li.no{border-left:4px solid var(--red)}.det li.miss{border-left:4px dashed var(--green)}
+.detp{margin:4px 0 0}
+.corrlist{margin:4px 0 0;padding-left:1.4em}
+.corrlist li{margin:2px 0}
+.expl b{color:var(--text)}
+.overlay{position:fixed;inset:0;z-index:50;background:rgba(5,10,18,.82);display:flex;align-items:flex-start;justify-content:center;padding:16px 12px;overflow-y:auto}
+.dialog{background:var(--panel);border:2px solid var(--amber);border-radius:18px;max-width:620px;width:100%;padding:18px 16px;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+.dialog h2{font-size:1.4rem}
+.steps{padding-left:1.3em;margin:0 0 10px}.steps li{margin:6px 0}
+.legend{background:#0f1c30;border-radius:12px;padding:8px 12px;font-size:.92rem;margin-bottom:12px}
+.legend p{margin:6px 0}
+.dialog .btn{width:100%}
+.stage{margin:6px 0 0}.stage .door{width:40px;flex:0 0 40px}
+.howto{font-size:.92rem;padding:7px 11px}
+button,.hs{-webkit-tap-highlight-color:transparent}
 </style>
 </head>
 <body>
@@ -223,9 +266,29 @@ h1[tabindex="-1"]:focus,h2[tabindex="-1"]:focus{outline:none}
   <a href="#" class="brand" id="homeLink" aria-label="Access Granted quiz home">
     <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="7.5" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M12 12h10M18 12v4M21 12v3" stroke="currentColor" stroke-width="2.5"/></svg>
     <span>ACCESS GRANTED<small>J7X2 33 · Outcome 1</small></span></a>
-  <button type="button" class="iconbtn" id="soundBtn" aria-pressed="false" aria-label="Sound effects"></button>
+  <span class="hbtns"><button type="button" class="iconbtn help" id="helpBtn" aria-label="How to play" aria-haspopup="dialog"><b aria-hidden="true">?</b><span>How to play</span></button>
+  <button type="button" class="iconbtn" id="soundBtn" aria-pressed="false" aria-label="Sound effects"></button></span>
 </header>
 <div id="live" class="sr" aria-live="polite"></div>
+<div class="overlay" id="howto" hidden>
+ <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="howtoH">
+  <h2 id="howtoH" tabindex="-1">How to play</h2>
+  <ol class="steps">
+   <li><b>Type your first name</b> and pick a mode: Quick Fire, Full Mission or Practice.</li>
+   <li><b>Read the question.</b> The yellow <b>How to answer</b> line under each question tells you exactly what to tap.</li>
+   <li><b>One-tap questions</b> (multiple choice, true or false, diagram) are marked as soon as you tap. <b>Select-all, matching and ordering</b> questions are marked when you tap <b>Check</b>.</li>
+   <li><b>Green ACCESS GRANTED</b> means right. <b>Red ACCESS DENIED</b> means wrong. Either way you see the correct answer and why. Tap <b>Next</b> to carry on.</li>
+   <li><b>At the end</b> you get your rank (Visitor, Keyholder, Supervisor or Master Key), the topics to revise, and a results card to screenshot for your lecturer.</li>
+  </ol>
+  <div class="legend">
+   <p><b>Points:</b> 100 per right answer. <b>Streak:</b> +10 bonus for each answer in a row (up to +50). <b>Quick Fire:</b> up to +50 extra for answering fast.</p>
+   <p><b>Full Mission:</b> 3 or more right out of 5 unlocks a door (1 to 3 stars). Shields protect your streak from a wrong answer.</p>
+   <p class="muted">The timer pauses while this box is open. Open it again any time with the <b>?</b> button at the top.</p>
+  </div>
+  <button type="button" class="btn primary" id="howtoClose">Got it, let's play</button>
+ </div>
+</div>
+
 
 <main>
 <section class="screen" id="home" hidden>
@@ -240,19 +303,22 @@ h1[tabindex="-1"]:focus,h2[tabindex="-1"]:focus{outline:none}
     <p id="nameNote" class="muted" style="font-size:.85rem;margin:6px 0 0">First name only. It stays on this device and is only used for your results card and the high-score table.</p>
     <p id="nameErr" class="err" hidden>Pop your first name in to start.</p>
   </div>
-  <h2 id="homeH" tabindex="-1">Choose your mission</h2>
+  <h2 id="homeH" tabindex="-1">Choose your mode</h2>
   <div class="modes">
-    <button type="button" class="mode quick" data-mode="quick"><span class="mi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z" fill="currentColor"/></svg><b>Quick Fire</b></span><span class="d">10 random questions against the clock. Answer fast for speed bonus points.</span></button>
-    <button type="button" class="mode mission" data-mode="mission"><span class="mi"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="1" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="15" cy="12" r="1.6" fill="currentColor"/></svg><b>Full Mission</b></span><span class="d">7 doors, one per Outcome 1 topic, 5 questions each. Earn stars and keep your 3 shields.</span></button>
-    <button type="button" class="mode practice" data-mode="practice"><span class="mi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h7a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H4zM20 4h-5a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h6z" fill="none" stroke="currentColor" stroke-width="2"/></svg><b>Practice</b></span><span class="d">No timer and no pressure. Pick a topic below, then tap here.</span></button>
+    <div class="mode quick"><div class="mi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z" fill="currentColor"/></svg><h3>Quick Fire</h3></div>
+      <p class="d">10 random questions against the clock (20 to 45 seconds each). Faster correct answers earn up to 50 bonus points. If the timer runs out, it counts as wrong.</p>
+      <button type="button" class="btn primary startbtn" data-mode="quick">Start Quick Fire</button></div>
+    <div class="mode mission"><div class="mi"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="1" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="15" cy="12" r="1.6" fill="currentColor"/></svg><h3>Full Mission</h3></div>
+      <p class="d">35 questions: 7 doors (one per topic), 5 questions each. Get 3 or more right to unlock a door and earn up to 3 stars. No timer.</p>
+      <p class="d">You have 3 shields. A shield takes the hit for a wrong answer so your streak is not lost. You win a shield back for every 5 right in a row.</p>
+      <button type="button" class="btn primary startbtn" data-mode="mission">Start Full Mission</button></div>
+    <div class="mode practice"><div class="mi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h7a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H4zM20 4h-5a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h6z" fill="none" stroke="currentColor" stroke-width="2"/></svg><h3>Practice</h3></div>
+      <p class="d">No timer, no pressure. Choose one topic or all of them, and see the answer and explanation after each question. Tap End whenever you want to stop.</p>
+      <label for="topicSel" class="small">Choose a topic to practise</label><select id="topicSel"></select>
+      <button type="button" class="btn primary startbtn" data-mode="practice">Start Practice</button></div>
   </div>
-  <div class="card practice-pick"><label for="topicSel">Practice topic</label><select id="topicSel"></select></div>
+  <p class="muted pointsline"><b>Points:</b> 100 for each right answer, plus a streak bonus of +10 for every answer in a row (up to +50). Your rank at the end depends on your %.</p>
   <div class="card"><h2>High scores <small class="muted" style="font-weight:400">(this device only)</small></h2><div id="boards"></div></div>
-  <div class="card"><h2>How it works</h2><ul class="muted" style="margin:0;padding-left:1.2em">
-    <li>Six question types: multiple choice, true or false, select all, tap-to-match, put in order and label the diagram, plus site scenarios.</li>
-    <li>Every answer is marked straight away with a short explanation from your notes.</li>
-    <li>Streaks earn bonus points. In Full Mission, a shield protects your streak from one wrong answer, and you win one back for every 5 in a row.</li>
-    <li>At the end you get your rank (Visitor, Keyholder, Supervisor or Master Key), topics to revise, and a results card to screenshot for your lecturer.</li></ul></div>
 </section>
 
 <section class="screen" id="play" hidden>
@@ -276,253 +342,139 @@ h1[tabindex="-1"]:focus,h2[tabindex="-1"]:focus{outline:none}
 </main>
 <footer class="foot">New College Lanarkshire · PDA Electronic Fire &amp; Security · J7X2 33 Access Control Systems Installation, Outcome 1. Based on the Outcome 1 learner notes. Works offline. Nothing leaves this device.</footer>
 </div>
-<script>/* Question bank — J7X2 33 Outcome 1. Convention: for "mc" the FIRST option is correct (shuffled at runtime).
-   multi: a = indices of correct options. order: items listed in the correct order. match: [term, description] pairs. */
+<script>/* Question bank: J7X2 33 Outcome 1. Convention: for "mc" the FIRST option is correct (shuffled at runtime).
+   multi: a = indices of correct options. order: items listed in the correct order; ends = labels for top/bottom. match: [term, description] pairs. */
 const TOPICS = {
-  design:   {name:"Design & Installation", short:"Design", notes:"Notes sections 1–2: What is an ACS? / Installation and design", door:1},
-  standards:{name:"Standards & Codes of Practice", short:"Standards", notes:"Notes section 3: Current industry standards and codes of practice", door:2},
-  ncp:      {name:"Threat, People Flow & Evacuation", short:"NCP 109 risk", notes:"Notes section 4: NCP 109 threat assessment, people flow and emergency evacuation", door:3},
-  purpose:  {name:"Purpose of Access Control", short:"Purpose", notes:"Notes section 5: Purpose of access control security systems", door:4},
-  classes:  {name:"System Classifications", short:"Classes", notes:"Notes section 6: System classifications", door:5},
-  bodies:   {name:"Inspectorates & Trade Bodies", short:"NSI/SSAIB/BSIA", notes:"Notes section 7: Trade associations and inspectorate bodies", door:6},
-  law:      {name:"Legislation & the Equality Act", short:"Legislation", notes:"Notes section 8: Current legislation", door:7}
+ "design": {
+  "name": "Design & Installation",
+  "short": "Design",
+  "notes": "Notes sections 1–2: What is an ACS? / Installation and design",
+  "door": 1
+ },
+ "standards": {
+  "name": "Standards & Codes of Practice",
+  "short": "Standards",
+  "notes": "Notes section 3: Current industry standards and codes of practice",
+  "door": 2
+ },
+ "ncp": {
+  "name": "Threat, People Flow & Evacuation",
+  "short": "NCP 109 risk",
+  "notes": "Notes section 4: NCP 109 threat assessment, people flow and emergency evacuation",
+  "door": 3
+ },
+ "purpose": {
+  "name": "Purpose of Access Control",
+  "short": "Purpose",
+  "notes": "Notes section 5: Purpose of access control security systems",
+  "door": 4
+ },
+ "classes": {
+  "name": "System Classifications",
+  "short": "Classes",
+  "notes": "Notes section 6: System classifications",
+  "door": 5
+ },
+ "bodies": {
+  "name": "Inspectorates & Trade Bodies",
+  "short": "NSI/SSAIB/BSIA",
+  "notes": "Notes section 7: Trade associations and inspectorate bodies",
+  "door": 6
+ },
+ "law": {
+  "name": "Legislation & the Equality Act",
+  "short": "Legislation",
+  "notes": "Notes section 8: Current legislation",
+  "door": 7
+ }
 };
 const BANK = [
-/* ---------- DESIGN & INSTALLATION ---------- */
-{id:"d01",t:"design",type:"mc",q:"NCP 109 says an access control system consists of credential recognition equipment and user interfaces, electronically activated entrance release hardware and, in certain systems, what else?",
- o:["A means of central control and/or monitoring","A fire alarm control panel","A CCTV video recorder","An intruder alarm sounder"],
- x:"NCP 109 describes an ACS as credential recognition equipment and user interfaces, electronically activated release hardware and, in certain systems, a means of central control and/or monitoring."},
-{id:"d02",t:"design",type:"hotspot",d:"acs",a:"acu",q:"Tap the part that processes the data from the reader and DECIDES whether to grant or deny access.",
- x:"The access control unit (ACU), or controller, processes data from the reader and makes the decision to grant or deny access."},
-{id:"d03",t:"design",type:"hotspot",d:"acs",a:"contact",q:"Tap the sensor that monitors the door for open, forced and held-open conditions.",
- x:"The door contact is the sensor that monitors open, forced and held-open conditions."},
-{id:"d04",t:"design",type:"hotspot",d:"acs",a:"rex",q:"Tap the request-to-exit (REX) device.",
- x:"Request-to-exit (REX) devices are listed with the sensors in the main components. They let a person on the inside signal that they want to leave."},
-{id:"d05",t:"design",type:"match",q:"Match each key term from the standards to its meaning.",
- p:[["Credential","A token, memorised information or biometric used to identify a person"],["Access level","The rules deciding where and when a credential is allowed through"],["Time zone","A period when operating rules change, e.g. no access outside working hours"],["Degraded mode","Not all processing rules are being applied, e.g. after a communications failure"]],
- x:"These definitions are summarised from NCP 109 Issue 3 (clause 3) and BS EN 60839-11-2 (clause 3)."},
-{id:"d06",t:"design",type:"order",q:"Put the BS EN 60839-11-2 sequence for providing an access control system in order (first at the top).",
- o:["Risk assessment and security grading","System and component selection","Operational considerations","System installation","System handover","System operation and maintenance"],
- x:"BS EN 60839-11-2 lists: risk assessment and security grading → system and component selection → operational considerations → installation → handover → operation and maintenance."},
-{id:"d07",t:"design",type:"mc",q:"How often does NCP 109 Issue 3 require preventive maintenance?",
- o:["Every 12 months (± 1 month) from the month of commissioning","Every 6 months from the date of handover","Every 3 years","Only when the customer reports a fault"],
- x:"Preventive maintenance is every twelve months (plus or minus one month) from the month of commissioning. The risk assessment or environment may call for more often."},
-{id:"d09",t:"design",type:"tf",a:false,q:"Default passwords can be left in place at handover, as long as the customer is told what they are.",
- x:"False. NCP 109 says default passwords must be changed before handover."},
-{id:"d10",t:"design",type:"multi",q:"Which of these are commissioning checks required by NCP 109? Select ALL that apply.",
- o:["Emergency release works, including under fire alarm conditions","Standby power duration","Unused network ports and protocols are closed","Release times","The customer's buildings insurance policy","The colour of the door paint"],a:[0,1,2,3],
- x:"Commissioning checks include terminations, voltages and resistances, door hardware alignment, emergency release (including under fire alarm), reader operation, release times, event notifications, standby power duration, software versions and closing unused network ports."},
-{id:"d11",t:"design",type:"mc",s:true,q:"You are installing the mains supply for an ACS power supply unit in an office. What does NCP 109 expect?",
- o:["A dedicated, un-switched fused spur, with the PSU in a controlled area secure from tampering","Plug the PSU into the nearest double socket","A switched spur beside the door on the public side so it is easy to isolate","Take the supply from the lighting circuit"],
- x:"NCP 109 asks for a dedicated, un-switched fused spur, with power supplies located in controlled areas and secure from tampering."},
-{id:"d13",t:"design",type:"mc",s:true,q:"A client wants the system to raise an alert AND refuse entry when a card is used to get in a second time without being used to leave. Which feature do you recommend?",
- o:["Hard anti-pass back","Soft anti-pass back","Degraded mode","A longer release time"],
- x:"Anti-pass back stops a credential being used to enter again before it has left. Soft only raises an alert. Hard raises an alert AND denies further access."},
-/* ---------- STANDARDS & CODES ---------- */
-{id:"s01",t:"standards",type:"mc",q:"Which part of the BS EN 60839-11 series gives APPLICATION GUIDELINES for planning, installation, commissioning, maintenance and documentation?",
- o:["BS EN 60839-11-2:2015","BS EN 60839-11-1:2013","BS EN IEC 60839-11-5:2020","BS 8418:2021"],
- x:"BS EN 60839-11-2:2015 is the application guidelines part. Part 11-1 covers system and component requirements."},
-{id:"s02",t:"standards",type:"mc",q:"What does BS EN 60839-11-1:2013 cover?",
- o:["System and component requirements: minimum functionality, performance and test methods","Remotely monitored CCTV systems","The electrical actuation of door releases in a fire","Panic exit devices for public areas"],
- x:"Part 11-1 specifies minimum functionality, performance requirements and test methods for electronic access control systems and components. It defines four security grades."},
-{id:"s03",t:"standards",type:"tf",a:false,q:"BS EN 60839-11-1 includes the requirements for access point actuators (locks) and sensors.",
- x:"False. Part 11-1 does NOT include requirements for locks and sensors. Other standards cover those."},
-{id:"s04",t:"standards",type:"mc",q:"According to NCP 109, which older series of standards was withdrawn and replaced by BS EN 60839-11?",
- o:["BS EN 50133","BS 7671","BS 7273","BS 8418"],
- x:"The older BS EN 50133 series was withdrawn and replaced by the BS EN 60839-11 series."},
-{id:"s05",t:"standards",type:"mc",q:"What is BS 8418:2021?",
- o:["A code of practice for detection-activated, remotely monitored video surveillance (CCTV)","The main European access control standard","The NSI code of practice for access control","The UK wiring regulations"],
- x:"BS 8418 is a CCTV code of practice for detection-activated video surveillance systems monitored by a Remote Video Response Centre (RVRC). It is not an access control standard."},
-{id:"s06",t:"standards",type:"mc",s:true,q:"Your access-controlled vehicle gate is on a site that also has a remotely monitored BS 8418 CCTV system. Why do you need to know about BS 8418?",
- o:["The ACS may share equipment, networks or alarm events with the CCTV, so you must understand both sets of recommendations","BS 8418 sets the holding force for the gate lock","BS 8418 replaces NCP 109 on sites with CCTV","BS 8418 decides the Equality Act adjustments"],
- x:"Access control is often installed alongside, or integrated with, remotely monitored CCTV. Where they share equipment, networks or alarm events, the installer needs to understand both."},
-{id:"s09",t:"standards",type:"match",q:"Match each standard to what it covers.",
- p:[["BS EN 179","Emergency exit devices (lever or push pad) for trained staff"],["BS EN 1125","Panic exit devices (horizontal bar) for public areas"],["BS EN 13637","Electrically controlled exit systems"],["BS 7273-4","Actuation of door release mechanisms in the event of fire"]],
- x:"BS EN 179 is for emergency exit devices, BS EN 1125 for panic bars, BS EN 13637 for electrically controlled exit systems, and BS 7273-4 for fire-actuated door release."},
-{id:"s10",t:"standards",type:"mc",q:"Which issue of NCP 109 is now current?",
- o:["Issue 4: Issue 3 was withdrawn on 30 September 2025","Issue 3: it is mandatory until 2030","Issue 2","Issue 5, published in 2026"],
- x:"NSI advised installers of Issue 4 in October 2024, and Issue 3 was withdrawn on 30 September 2025. The unit spec names Issue 3, but centres must use current standards."},
-{id:"s12",t:"standards",type:"match",q:"Match each BS 7273-4 actuation category to its description.",
- p:[["Category A","Critical: fail-safe for ANY fault affecting release in a fire, any fault on the critical signal path, and power failure"],["Category B","Standard: fail-safe for a fault on the critical signal path or power failure"],["Category C","Indirect: fail-safe for faults on the critical signal path up to the interface with the access controller"]],
- x:"A = critical, B = standard, C = indirect actuation. The category depends on where the door is, and if more than one description fits, the highest category applies."},
-{id:"s13",t:"standards",type:"tf",a:false,q:"Release mechanisms for electronically secured doors on escape routes should be triggered by an acoustic signal (the sound of the fire alarm).",
- x:"False. BS 7273-4 guidance is that these release mechanisms should NOT be actuated by an acoustic signal."},
-{id:"s14",t:"standards",type:"mc",q:"Which statement about NCP 109 scope is correct? NCP 109 does NOT certificate…",
- o:["A door entry telephone where a person decides who may enter","A networked system with card readers on several doors","A system with biometric readers and a central database","A system with time zones and anti-pass back"],
- x:"Out of scope: systems where a person decides who enters (e.g. door entry phone), a lock triggered by a manual button, a single self-contained unit with no interconnection, and purely mechanical locks."},
-/* ---------- NCP 109: THREAT, PEOPLE FLOW, EVACUATION ---------- */
-{id:"n01",t:"ncp",type:"order",q:"Put the key risk assessment considerations (NCP 109 Figure 1) in order, starting at the top.",
- o:["Asset: what is to be protected","Threat: against what (who, what and when)","Risk: chance of a vulnerability being exploited, and possible loss","What to do: make it improbable, detect it, limit impact, plan response"],
- x:"Asset → Threat → Risk → What to do. The outcome is a classification for each access point."},
-{id:"n02",t:"ncp",type:"mc",q:"What is the OUTCOME of an NCP 109 threat/risk assessment?",
- o:["A classification for each access point","One security grade for the whole building","A list of the cheapest readers","The fire evacuation plan"],
- x:"The outcome of the risk assessment is a classification for each access point. Classification is per access point, not per building."},
-{id:"n03",t:"ncp",type:"tf",a:false,q:"The risk assessment only needs to consider intruders, not the threat of the access control system itself being compromised.",
- x:"False. It must also consider the ACS being compromised: vandalised cables or door hardware, loss of power, remote access, unauthorised access to the software, and cyber threats."},
-{id:"n04",t:"ncp",type:"mc",s:true,q:"A college main entrance has 400 people arriving between 08:30 and 09:00. The client wants PIN + card on that door. What is the main problem?",
- o:["Slow credentials at a busy door cause queues and encourage tailgating or propped-open doors","PIN + card is not allowed by the Equality Act","PIN + card cannot be used with a door contact","There is no problem at all"],
- x:"People flow matters. Slow or complex credentials at a busy door cause queues and encourage tailgating or propping doors open. High-traffic doors need fast recognition and heavy-duty hardware."},
-{id:"n05",t:"ncp",type:"mc",q:"What does “singularisation” mean in NCP 109 people flow?",
- o:["Detecting or preventing two or more people entering together","Giving every user a single PIN","Having only one door in a building","Using a single power supply"],
- x:"Singularisation is detecting or preventing two or more people entering together. It is recommended where anti-tailgating is needed."},
-{id:"n06",t:"ncp",type:"hotspot",d:"escape",a:"edr",q:"This door is on an escape route. Tap the MANUAL EMERGENCY DOOR RELEASE.",
- x:"The green single-action emergency door release sits on the secure (escape) side. It must be clearly distinguishable from a red fire alarm call point."},
-{id:"n07",t:"ncp",type:"hotspot",d:"escape",a:"mag",q:"Tap the device that holds this escape door locked, and so MUST release on a fire signal, on loss of power and from the emergency door release.",
- x:"The magnetic lock holds the door. It must release on a fire signal, on loss of power and from the emergency door release, so the door opens with one simple action."},
-{id:"n08",t:"ncp",type:"multi",q:"An electrically locked door on an escape route must release when… Select ALL that apply.",
- o:["The fire alarm signal operates","Power is lost","The manual emergency door release is operated","A valid card is shown on the outside only","The time zone ends at 17:00"],a:[0,1,2],
- x:"An electrically locked escape door must release on a fire signal, on loss of power and from the emergency door release."},
-{id:"n09",t:"ncp",type:"tf",a:false,q:"Manual emergency release controls should look the same as fire alarm call points so that people recognise them.",
- x:"False. NCP 109 says manual emergency release controls should be clearly DISTINGUISHABLE from fire alarm call points."},
-{id:"n10",t:"ncp",type:"mc",q:"The methods used to release access points in an emergency must be agreed and recorded in…",
- o:["The design proposal and the as-fitted document","The customer's staff handbook only","The BS 8418 URN application","Nowhere: they are decided on site"],
- x:"Release methods (e.g. green single-action buttons or break glass units on the secure side) must be agreed and recorded in the design proposal and as-fitted document."},
-{id:"n11",t:"ncp",type:"mc",s:true,q:"An escape door already has a BS EN 1125 panic bar. The client wants a magnetic lock added so people must press an exit button and THEN push the bar. What do you advise?",
- o:["It would not comply: escape must always be by a single, simple action","It is fine as magnetic locks are banned anyway","It is fine if a sign explains the two steps","It is fine because the panic bar is still there"],
- x:"NSI guidance on Issue 4: magnetic locks are not banned, but adding one that needs a second action on a door with BS EN 179 or BS EN 1125 hardware would not comply."},
-/* ---------- PURPOSE ---------- */
-{id:"p01",t:"purpose",type:"match",q:"Match each of the six purposes of access control to its meaning.",
- p:[["Prevent","Avoid undesirable events occurring"],["Detect","Identify undesirable events that have occurred"],["Correct","Correct undesirable events that have occurred"],["Deter","Discourage security violations"],["Recover","Restore resources and capabilities"],["Compensate","Provide alternatives to other controls"]],
- x:"The unit specification groups the purposes into six types of control: prevent, detect, correct, deter, recover and compensate."},
-{id:"p02",t:"purpose",type:"mc",q:"A lost card is cancelled immediately and a leaver's access rights are removed. Which purpose is this?",
- o:["Correct","Deter","Recover","Compensate"],
- x:"Correct: fixing undesirable events that have occurred, e.g. cancelling a lost card or changing rights when staff leave."},
-{id:"p03",t:"purpose",type:"mc",q:"Standby batteries keep the doors working during a mains failure. Which purpose is this?",
- o:["Compensate","Prevent","Detect","Deter"],
- x:"Compensate: providing alternatives to other controls, e.g. standby batteries, key override, or a guard while the system is faulty."},
-{id:"p04",t:"purpose",type:"mc",q:"Events stored at a door controller during a communications failure are sent to the central system when communications come back. Which purpose?",
- o:["Recover","Correct","Deter","Prevent"],
- x:"Recover: restoring resources and capabilities, e.g. buffered events uploaded, automatic restart after power loss, database back-ups."},
-{id:"p05",t:"purpose",type:"mc",q:"Visible readers and signage put off casual intruders. Which purpose?",
- o:["Deter","Detect","Recover","Compensate"],
- x:"Deter: discouraging security violations. Users also know every transaction is logged against their credential."},
-{id:"p06",t:"purpose",type:"mc",q:"Access levels and time zones stop users going into areas, or at times, they are not authorised for. Which purpose?",
- o:["Prevent","Recover","Compensate","Correct"],
- x:"Prevent: avoiding undesirable events. This includes locked doors until a valid credential, access levels, time zones and anti-pass back."},
-{id:"p07",t:"purpose",type:"mc",q:"Door forced alarms, tamper detection and repeated invalid attempt alerts are examples of which purpose?",
- o:["Detect","Deter","Compensate","Recover"],
- x:"Detect: identifying undesirable events that have occurred, along with event logs showing who went where and when."},
-{id:"p08",t:"purpose",type:"tf",a:false,q:"A stand-alone keypad with a common code can detect, correct and recover just as well as a networked system with unique tokens and event logging.",
- x:"False. A stand-alone keypad with a common code mainly PREVENTS casual entry. A networked system with unique tokens, logging and alarm monitoring can also detect, correct and recover."},
-{id:"p09",t:"purpose",type:"multi",q:"Which of these are examples of RECOVER? Select ALL that apply.",
- o:["Automatic restart after a total loss of power","Regular database back-ups","Uploading events stored at the controller once comms return","Signage at the entrance","Anti-pass back"],a:[0,1,2],
- x:"Recover examples: automatic restart after power loss (with a trouble condition if not fully restored), uploading buffered events, and database back-ups."},
-{id:"p10",t:"purpose",type:"mc",s:true,q:"A biometric reader on a lab door fails to recognise a member of staff. A supervisor uses an intercom to let them in. Which purpose does this arrangement serve?",
- o:["Compensate","Deter","Detect","Prevent"],
- x:"Compensate: a key override on critical doors, or a supervisor and intercom if a biometric reader fails, provides an alternative control."},
-/* ---------- CLASSIFICATIONS ---------- */
-{id:"c01",t:"classes",type:"tf",a:false,q:"Access control is graded per building: the whole building gets one grade.",
- x:"False. Access control is classified per ACCESS POINT. Each door, gate or barrier gets a grade (BS EN 60839-11) or class (NCP 109)."},
-{id:"c02",t:"classes",type:"mc",q:"A controller serves a Grade 2 door and a Grade 3 door. Which grade must the controller (common equipment) meet?",
- o:["Grade 3, the highest grade it serves","Grade 2, the lowest grade it serves","Grade 1","It does not need a grade"],
- x:"Common components must meet the requirements of the highest grade they serve."},
-{id:"c03",t:"classes",type:"order",q:"Put these adversary descriptions in order from Grade 1 (lowest risk) to Grade 4 (highest risk).",
- o:["Little knowledge of the ACS and a limited range of easily available tools","Limited knowledge of the ACS and a general range of tools and portable instruments","Conversant with the ACS, with a comprehensive range of tools and portable electronic equipment","Can plan in detail, with a full range of equipment including the means to substitute components"],
- x:"Grade 1 low risk, Grade 2 low to medium, Grade 3 medium to high, Grade 4 high risk (BS EN 60839-11-2)."},
-{id:"c04",t:"classes",type:"match",q:"Match each NCP 109 access point class to its mandatory recognition method (Table 2).",
- p:[["Class I","Common code or PIN of at least 10,000 differs (4-digit)"],["Class II","PIN of at least 1,000,000 differs (6-digit), or a valid unique token"],["Class III","PIN (10,000 differs) AND a unique token, or a valid biometric"],["Class IV","Biometric AND a unique RFID token, or biometric + token + PIN"]],
- x:"NCP 109 Table 2 sets the mandatory recognition method for each class. More factors are needed as the class rises."},
-{id:"c05",t:"classes",type:"mc",q:"What is the typical holding force for a powered lock on an NCP 109 Class III door?",
- o:["7 kN (700 kg) or more","3 kN (300 kg) or more","5 kN (500 kg) or more","10 kN (1000 kg) or more"],
- x:"Class I 3 kN, Class II 5 kN, Class III 7 kN, Class IV 10 kN or more (NCP 109 clause 6.2)."},
-{id:"c06",t:"classes",type:"tf",a:false,q:"A credential that is only permitted at Class II can also be used on a Class IV door.",
- x:"False. Credentials permitted at a higher class can be used at a lower class, but NOT the other way round."},
-{id:"c07",t:"classes",type:"match",q:"Match each credential factor to an example.",
- p:[["Something you know","A PIN entered on a keypad"],["Something you have","An RFID fob or NFC mobile credential"],["Something you are","A fingerprint, face or iris"]],
- x:"Know = code/PIN, have = token, are = biometric. Combining two or more (multi-factor) gives higher security."},
-{id:"c08",t:"classes",type:"mc",q:"For biometric readers, the false acceptance rate (FAR) and false rejection rate (FRR) are balanced by…",
- o:["The decision threshold, which should be discussed with the user","The door holding force","The IP rating of the enclosure","The anti-pass back setting"],
- x:"FAR and FRR are balanced by the decision threshold, and this should be discussed with the user."},
-{id:"c09",t:"classes",type:"mc",s:true,q:"The risk assessment says a door needs Class III hardware, but the door and frame are too weak to take it. What should happen?",
- o:["Reinforce the door, or reduce the class, and record it in the design proposal, as-fitted document and risk assessment","Fit the Class III lock anyway and say nothing","Fit a Class I lock without telling anyone","Remove the door"],
- x:"If the door and frame can't take hardware of the required class, reinforce the door or reduce the class, and record it in the design proposal, as-fitted document and risk assessment."},
-{id:"c10",t:"classes",type:"tf",a:false,q:"An RFID system can rely on recognising the card's chip serial number (CSN) only.",
- x:"False. NCP 109 says RFID systems must NOT rely on recognising the chip serial number (CSN) only."},
-{id:"c11",t:"classes",type:"mc",q:"At which NCP 109 class does anti-passback become mandatory?",
- o:["Class IV","Class I","Class II","It is never mandatory"],
- x:"Anti-passback becomes mandatory at Class IV. Access point status, held-open and forced monitoring, and standby power supplies, become mandatory at Classes III and IV."},
-{id:"c12",t:"classes",type:"mc",q:"A reader is fitted on a gate post, outdoors and fully exposed to the weather. Which BS EN 60839-11-2 environmental class is this?",
- o:["Class IV","Class I","Class II","Class III"],
- x:"Class I indoor office, Class II indoor general, Class III outdoor sheltered or indoor extreme, Class IV outdoor fully exposed."},
-{id:"c15",t:"classes",type:"order",q:"Put these credentials in order of the NCP 109 class they meet, from Class I (top) to Class IV (bottom).",
- o:["A common 4-digit code","A 6-digit PIN","A 4-digit PIN plus a unique token","A biometric plus a unique RFID token"],
- x:"4-digit code = Class I, 6-digit PIN = Class II, PIN + token = Class III, biometric + unique RFID token = Class IV."},
-/* ---------- BODIES ---------- */
-{id:"b01",t:"bodies",type:"mc",q:"Which organisation accredits NSI and SSAIB, checking that certification bodies are competent and impartial?",
- o:["UKAS (United Kingdom Accreditation Service)","BSIA","BSI","The Health and Safety Executive"],
- x:"NSI and SSAIB are both accredited by UKAS, which checks that certification bodies are competent and impartial."},
-{id:"b02",t:"bodies",type:"hotspot",d:"bodies",a:"bsia",q:"This diagram shows how the industry fits together. Tap the box for the TRADE ASSOCIATION (BSIA).",
- x:"The BSIA is the trade association. It represents and supports its member companies but does not certify them."},
-{id:"b03",t:"bodies",type:"hotspot",d:"bodies",a:"ukas",q:"Same diagram. Tap the box for the body that ACCREDITS the certification bodies.",
- x:"UKAS sits at the top: it accredits the certification bodies (NSI and SSAIB), which then audit and certify installers."},
-{id:"b04",t:"bodies",type:"tf",a:false,q:"The BSIA is a certification body that audits and certifies access control companies.",
- x:"False. The BSIA is a TRADE ASSOCIATION. NSI and SSAIB are the independent certification bodies."},
-{id:"b05",t:"bodies",type:"mc",q:"Which of these are NSI approval schemes?",
- o:["NSI NACOSS Gold and NSI Systems Silver","Type A and Type A+","Class I and Class IV","BS EN 179 and BS EN 1125"],
- x:"NSI approval schemes include NACOSS Gold (which includes an ISO 9001 quality management system) and Systems Silver."},
-{id:"b07",t:"bodies",type:"tf",a:true,q:"A company can hold NSI or SSAIB certification AND be a member of the BSIA.",
- x:"True. Certification (NSI/SSAIB) and trade association membership (BSIA) are different things, and a company can have both."},
-{id:"b08",t:"bodies",type:"match",q:"Match each organisation to its role.",
- p:[["NSI","Certification body that publishes NCP 109 for access control"],["SSAIB","Certification body founded in 1994, runs an Access Control Systems scheme"],["BSIA","Trade association representing the professional security industry"],["UKAS","Accredits the certification bodies"]],
- x:"NSI and SSAIB are UKAS-accredited certification bodies. The BSIA is the trade association."},
-{id:"b09",t:"bodies",type:"mc",q:"Installer members of the BSIA Access and Asset Protection section must hold…",
- o:["UKAS-accredited ISO 9001 certification, and screen and train their staff","A BS 8418 Unique Reference Number","An NSI Certificate of Compliance for every door","Nothing: membership is open to anyone"],
- x:"Installer members must hold UKAS-accredited ISO 9001 certification and must screen and train staff (BS 7858 screening may be appropriate)."},
-{id:"b10",t:"bodies",type:"mc",s:true,q:"A housing association asks why it should choose an NSI- or SSAIB-certificated installer. What is the best answer?",
- o:["Independent third-party certification lets customers, insurers and police identify competent companies","It means the installer is the cheapest","It means the installer doesn't need to follow standards","Certification is a legal requirement for all electricians"],
- x:"Third-party certification lets customers, insurers and the police identify competent companies. SSAIB notes that some market sectors may require it."},
-{id:"b11",t:"bodies",type:"mc",q:"What does an NSI approved company issue at handover of an access control system (NCP 109 clause 8.2)?",
- o:["An NSI Certificate of Compliance","A UKAS accreditation","A BSIA membership card","A BS 8418 URN"],
- x:"NSI approved companies issue an NSI Certificate of Compliance at handover."},
-/* ---------- LEGISLATION ---------- */
-{id:"l01",t:"law",type:"mc",q:"How many protected characteristics are there in the Equality Act 2010?",
- o:["Nine","Four","Six","Twelve"],
- x:"There are nine: age, disability, gender reassignment, marriage and civil partnership, pregnancy and maternity, race, religion or belief, sex, and sexual orientation."},
-{id:"l02",t:"law",type:"mc",q:"Which protected characteristic MOST affects access control design?",
- o:["Disability","Age","Religion or belief","Marriage and civil partnership"],
- x:"Disability affects access control design most. Readers, keypads, intercoms and locked doors are physical features."},
-{id:"l03",t:"law",type:"mc",s:true,q:"A shop owner says: “We'll lower the card reader if a wheelchair user ever complains.” Is that OK under the Equality Act 2010?",
- o:["No: the service provider duty is anticipatory, so they must think ahead about disabled people's needs","Yes: they only need to act once someone complains","Yes: shops are exempt from the Equality Act","No: wheelchair users must be given a key instead"],
- x:"For service providers the duty to make reasonable adjustments is anticipatory. They should plan ahead for disabled people in general, not wait for someone to ask."},
-{id:"l05",t:"law",type:"hotspot",d:"keypad",a:"k5",q:"Scottish guidance recommends a 12-button telephone-layout keypad. Tap the key that should carry an EMBOSSED LOCATOR for people with visual impairments.",
- x:"The central “5” key carries the embossed locator. Controls should also contrast with their background."},
-{id:"l06",t:"law",type:"match",q:"Match each user to a suitable reasonable adjustment.",
- p:[["Wheelchair user","Reader at an accessible height, clear of the door swing, with a longer release time"],["Visually impaired visitor","Proximity token, with audible as well as visual granted/denied indication"],["Hearing aid user at the intercom","Inductive coupler for the hearing aid “T” setting, plus a visual call indicator"],["Staff member who can't enrol a fingerprint","An alternative credential such as a card or fob"]],
- x:"Each adjustment comes from the notes' Equality Act scenarios: reach, sight, hearing and biometrics."},
-{id:"l07",t:"law",type:"mc",q:"In Scotland, which legislation includes Regulation 13 on means of escape?",
- o:["The Fire Safety (Scotland) Regulations 2006","The Data Protection Act 2018","The Electricity at Work Regulations 1989","The Equality Act 2010"],
- x:"The Fire (Scotland) Act 2005 and the Fire Safety (Scotland) Regulations 2006 apply. Regulation 13 covers means of escape. England and Wales use Article 14 of the Regulatory Reform (Fire Safety) Order 2005."},
-{id:"l08",t:"law",type:"tf",a:false,q:"Sliding or revolving doors may be used for exits specifically intended as emergency exits.",
- x:"False. Regulation 13 says sliding or revolving doors are not to be used for exits specifically intended as emergency exits."},
-{id:"l09",t:"law",type:"mc",q:"Scottish Technical Handbook 2.9: fail unlocked electric locks (e.g. magnetic locks) should NOT be used on…",
- o:["A public door serving more than 60 people","An internal office door","A store cupboard","A door with a door contact"],
- x:"They should not be used on, for example, the only escape route, a door serving the only escape stair, or a public door serving more than 60 people."},
-{id:"l10",t:"law",type:"mc",q:"Approved Document M recommends manual controls for powered entrance doors are mounted…",
- o:["Between 750 mm and 1000 mm above floor level, operable with a closed fist","Between 1400 mm and 1800 mm above floor level","At any height, as long as they are lit","Below 500 mm above floor level"],
- x:"Approved Document M recommends 750 mm to 1000 mm above floor level, operable with a closed fist."},
-{id:"l11",t:"law",type:"mc",q:"Under UK GDPR, biometric data used to identify a person uniquely is…",
- o:["Special category data","Not personal data at all","Public data","Only covered if it is printed"],
- x:"Biometric data used to identify a person uniquely is special category data under UK GDPR."},
-{id:"l12",t:"law",type:"multi",q:"An employer wants fingerprint readers for staff. Following ICO guidance, which should they do? Select ALL that apply.",
- o:["Carry out a data protection impact assessment (DPIA) first","Offer an alternative such as a card or PIN, without disadvantage","Store biometric templates securely and no longer than necessary","Keep the templates forever just in case","Make fingerprints compulsory for everyone"],a:[0,1,2],
- x:"ICO: do a DPIA first, identify a lawful basis, offer an alternative without disadvantage, store templates securely and no longer than necessary, and provide a manual review."},
-{id:"l13",t:"law",type:"mc",q:"Martyn's Law (Terrorism (Protection of Premises) Act 2025) is expected by NSI to…",
- o:["Increase the focus on security risk assessment and lockdown, without relaxing escape requirements","Allow escape doors to stay locked during a lockdown","Replace the Equality Act 2010","Ban magnetic locks"],
- x:"It received Royal Assent on 3 April 2025. NSI expects more focus on security risk assessment and lockdown procedures, without relaxing escape requirements."},
-{id:"l14",t:"law",type:"mc",s:true,q:"A care home wants to stop residents with dementia leaving unsupervised, but residents must still escape in a fire. What do NSI notes point to?",
- o:["BS EN 13637 electrically controlled exit systems","Fail-secure locks with no override","BS 8418 CCTV instead of locks","Removing the fire exits"],
- x:"Controlled egress may be needed to keep vulnerable people safe, but escape in a fire must still be possible. NSI points to BS EN 13637 electrically controlled exit systems."},
-{id:"l15",t:"law",type:"mc",q:"Under the Scottish Technical Handbook, a door worked by a code, swipe card, proximity card or biometric on an escape route must…",
- o:["Be capable of being overridden from the side people approach when escaping","Only open with a valid credential","Be a revolving door","Have a 6-digit PIN"],
- x:"It must be capable of being overridden from the escape side, without a key or token and without operating more than one mechanism."},
-{id:"l17",t:"law",type:"mc",q:"Under section 20 of the Equality Act 2010, which is the THIRD requirement of the duty to make reasonable adjustments?",
- o:["Provide an auxiliary aid where one is needed","Change a provision, criterion or practice","Take reasonable steps about a physical feature","Ask the disabled person to pay"],
- x:"1st: change a provision, criterion or practice. 2nd: deal with physical features. 3rd: provide an auxiliary aid."}
+{"id":"d01","t":"design","type":"mc","q":"NCP 109 says an access control system is made up of: (1) credential readers and user interfaces, (2) electrically released door hardware and, in some systems, a third part. What is that third part?","o":["A means of central control and/or monitoring","A fire alarm control panel","A CCTV video recorder","An intruder alarm sounder"],"x":"NCP 109 describes an ACS as credential recognition equipment and user interfaces, electronically activated release hardware and, in certain systems, a means of central control and/or monitoring."},
+{"id":"d02","t":"design","type":"hotspot","d":"acs","a":"acu","q":"Which letter on the diagram shows the access control unit (controller)? It is the box that takes the data from the reader and decides whether to grant or deny access.","x":"The access control unit (ACU), or controller, processes data from the reader and makes the decision to grant or deny access."},
+{"id":"d03","t":"design","type":"hotspot","d":"acs","a":"contact","q":"Which letter on the diagram shows the door contact? It is the sensor that tells the system whether the door is open, forced or held open.","x":"The door contact is the sensor that monitors open, forced and held-open conditions."},
+{"id":"d04","t":"design","type":"hotspot","d":"acs","a":"rex","q":"Which letter on the diagram shows the request-to-exit (REX) button, used on the inside to let a person out?","x":"Request-to-exit (REX) devices are listed with the sensors in the main components. They let a person on the inside signal that they want to leave."},
+{"id":"d05","t":"design","type":"match","q":"Match each access control term to what it means.","p":[["Credential","A card, fob, PIN or biometric that identifies a person to the system"],["Access level","The rules for where and when a credential is allowed through"],["Time zone","A time period when the rules change, e.g. no access outside working hours"],["Degraded mode","When not all the rules are being applied, e.g. after a communications failure"]],"x":"These definitions are summarised from NCP 109 Issue 3 (clause 3) and BS EN 60839-11-2 (clause 3)."},
+{"id":"d06","t":"design","type":"order","q":"Put the stages of providing an access control system (BS EN 60839-11-2) in order. Top = first stage, bottom = last stage.","o":["Risk assessment and security grading","System and component selection","Operational considerations","System installation","System handover","System operation and maintenance"],"x":"BS EN 60839-11-2 lists: risk assessment and security grading → system and component selection → operational considerations → installation → handover → operation and maintenance.","ends":["First stage","Last stage"]},
+{"id":"d07","t":"design","type":"mc","q":"Under NCP 109 Issue 3, how often must preventive maintenance be carried out?","o":["Every 12 months (± 1 month) from the month of commissioning","Every 6 months from the date of handover","Every 3 years","Only when the customer reports a fault"],"x":"Preventive maintenance is every twelve months (plus or minus one month) from the month of commissioning. The risk assessment or environment may call for more often."},
+{"id":"d09","t":"design","type":"tf","a":false,"q":"At handover, it is OK to leave the default passwords in place as long as the customer is told what they are.","x":"False. NCP 109 says default passwords must be changed before handover."},
+{"id":"d10","t":"design","type":"multi","q":"Which of these must be checked at commissioning under NCP 109? Select ALL that apply (4 correct answers).","o":["Emergency release works, including under fire alarm conditions","Standby power duration","Unused network ports and protocols are closed","Release times","The customer's buildings insurance policy","The colour of the door paint"],"a":[0,1,2,3],"x":"Commissioning checks include terminations, voltages and resistances, door hardware alignment, emergency release (including under fire alarm), reader operation, release times, event notifications, standby power duration, software versions and closing unused network ports."},
+{"id":"d11","t":"design","type":"mc","s":true,"q":"You are fitting the mains supply for an access control power supply unit (PSU) in an office. How does NCP 109 say it should be supplied?","o":["A dedicated, un-switched fused spur, with the PSU in a controlled area secure from tampering","Plug the PSU into the nearest double socket","A switched spur beside the door on the public side so it is easy to isolate","Take the supply from the lighting circuit"],"x":"NCP 109 asks for a dedicated, un-switched fused spur, with power supplies located in controlled areas and secure from tampering."},
+{"id":"d13","t":"design","type":"mc","s":true,"q":"A client wants the system to raise an alert AND refuse entry if a card is used to go IN twice without being used to come OUT in between. Which feature should you recommend?","o":["Hard anti-pass back","Soft anti-pass back","Degraded mode","A longer release time"],"x":"Anti-pass back stops a credential being used to enter again before it has left. Soft only raises an alert. Hard raises an alert AND denies further access."},
+{"id":"s01","t":"standards","type":"mc","q":"Which part of the BS EN 60839-11 series gives the APPLICATION GUIDELINES: how to plan, install, commission, maintain and document a system?","o":["BS EN 60839-11-2:2015","BS EN 60839-11-1:2013","BS EN IEC 60839-11-5:2020","BS 8418:2021"],"x":"BS EN 60839-11-2:2015 is the application guidelines part. Part 11-1 covers system and component requirements."},
+{"id":"s02","t":"standards","type":"mc","q":"What does BS EN 60839-11-1:2013 cover?","o":["System and component requirements: minimum functionality, performance and test methods","Remotely monitored CCTV systems","The electrical actuation of door releases in a fire","Panic exit devices for public areas"],"x":"Part 11-1 specifies minimum functionality, performance requirements and test methods for electronic access control systems and components. It defines four security grades."},
+{"id":"s03","t":"standards","type":"tf","a":false,"q":"BS EN 60839-11-1 includes the requirements for the locks and door sensors themselves.","x":"False. Part 11-1 does NOT include requirements for locks (access point actuators) and sensors. Other standards cover those."},
+{"id":"s04","t":"standards","type":"mc","q":"NCP 109 says an older series of standards was withdrawn and replaced by BS EN 60839-11. Which series was it?","o":["BS EN 50133","BS 7671","BS 7273","BS 8418"],"x":"The older BS EN 50133 series was withdrawn and replaced by the BS EN 60839-11 series."},
+{"id":"s05","t":"standards","type":"mc","q":"What is BS 8418:2021?","o":["A code of practice for detection-activated, remotely monitored video surveillance (CCTV)","The main European access control standard","The NSI code of practice for access control","The UK wiring regulations"],"x":"BS 8418 is a CCTV code of practice for detection-activated video surveillance systems monitored by a Remote Video Response Centre (RVRC). It is not an access control standard."},
+{"id":"s06","t":"standards","type":"mc","s":true,"q":"Your access-controlled vehicle gate is on a site that also has a remotely monitored BS 8418 CCTV system. Why do you need to understand BS 8418 as well?","o":["The ACS may share equipment, networks or alarm events with the CCTV, so you must understand both sets of recommendations","BS 8418 sets the holding force for the gate lock","BS 8418 replaces NCP 109 on sites with CCTV","BS 8418 decides the Equality Act adjustments"],"x":"Access control is often installed alongside, or integrated with, remotely monitored CCTV. Where they share equipment, networks or alarm events, the installer needs to understand both."},
+{"id":"s09","t":"standards","type":"match","q":"Match each standard to what it covers.","p":[["BS EN 179","Emergency exit devices (lever or push pad) for trained staff"],["BS EN 1125","Panic exit devices (horizontal bar) for public areas"],["BS EN 13637","Electrically controlled exit systems"],["BS 7273-4","Actuation of door release mechanisms in the event of fire"]],"x":"BS EN 179 is for emergency exit devices, BS EN 1125 for panic bars, BS EN 13637 for electrically controlled exit systems, and BS 7273-4 for fire-actuated door release."},
+{"id":"s10","t":"standards","type":"mc","q":"Which issue of NCP 109 is the current one?","o":["Issue 4 (Issue 3 was withdrawn on 30 September 2025)","Issue 3 (it stays current until 2030)","Issue 2","Issue 5 (published in 2026)"],"x":"NSI advised installers of Issue 4 in October 2024, and Issue 3 was withdrawn on 30 September 2025. The unit spec names Issue 3, but centres must use current standards."},
+{"id":"s12","t":"standards","type":"match","q":"Match each BS 7273-4 actuation category to its description.","p":[["Category A","Critical: fail-safe for ANY fault affecting release in a fire, any fault on the critical signal path, and power failure"],["Category B","Standard: fail-safe for a fault on the critical signal path, or power failure"],["Category C","Indirect: fail-safe for faults on the critical signal path up to the access controller interface"]],"x":"A = critical, B = standard, C = indirect actuation. The category depends on where the door is, and if more than one description fits, the highest category applies."},
+{"id":"s13","t":"standards","type":"tf","a":false,"q":"Release mechanisms for electronically secured doors on escape routes should be triggered by an acoustic signal (that is, by detecting the sound of the fire alarm).","x":"False. BS 7273-4 guidance is that these release mechanisms should NOT be actuated by an acoustic signal."},
+{"id":"s14","t":"standards","type":"mc","q":"Which ONE of these systems is OUTSIDE the scope of NCP 109 (not covered by it)?","o":["A door entry telephone where a person decides who may enter","A networked system with card readers on several doors","A system with biometric readers and a central database","A system with time zones and anti-pass back"],"x":"Outside NCP 109: systems where a person decides who enters (e.g. a door entry phone), a lock released by a manual button, a single self-contained unit with no connection to anything else, and purely mechanical locks."},
+{"id":"n01","t":"ncp","type":"order","q":"Put the four parts of an NCP 109 risk assessment in a logical order, starting with what you are protecting. Top = first, bottom = last.","o":["Asset: what is to be protected","Threat: against what (who, what and when)","Risk: chance of a vulnerability being exploited, and possible loss","What to do: make it improbable, detect it, limit impact, plan response"],"x":"Asset → Threat → Risk → What to do. The outcome is a classification for each access point.","ends":["First","Last"]},
+{"id":"n02","t":"ncp","type":"mc","q":"What is the OUTCOME of an NCP 109 threat/risk assessment?","o":["A classification for each access point","One security grade for the whole building","A list of the cheapest readers","The fire evacuation plan"],"x":"The outcome of the risk assessment is a classification for each access point. Classification is per access point, not per building."},
+{"id":"n03","t":"ncp","type":"tf","a":true,"q":"The risk assessment must also consider the access control system itself being attacked or damaged, for example cut cables, loss of power or remote hacking.","x":"True. The assessment must consider the ACS itself being compromised: vandalised cables or door hardware, loss of power, remote access, unauthorised access to the software, and cyber threats."},
+{"id":"n04","t":"ncp","type":"mc","s":true,"q":"A college main entrance has 400 people arriving between 08:30 and 09:00. The client wants PIN + card on that door. What is the main risk with doing this?","o":["Slow credentials at a busy door cause queues and encourage tailgating or propped-open doors","PIN + card is not allowed by the Equality Act","PIN + card cannot be used with a door contact","There is no problem at all"],"x":"People flow matters. Slow or complex credentials at a busy door cause queues and encourage tailgating or propping doors open. High-traffic doors need fast recognition and heavy-duty hardware."},
+{"id":"n05","t":"ncp","type":"mc","q":"In NCP 109 people flow, what does “singularisation” mean?","o":["Detecting or preventing two or more people entering together","Giving every user a single PIN","Having only one door in a building","Using a single power supply"],"x":"Singularisation is detecting or preventing two or more people entering together. It is recommended where anti-tailgating is needed."},
+{"id":"n06","t":"ncp","type":"hotspot","d":"escape","a":"edr","q":"This door is on an escape route. Which letter shows the MANUAL EMERGENCY DOOR RELEASE (the button a person uses to unlock the door to get out)?","x":"The green single-action emergency door release sits on the secure (escape) side. It must be clearly distinguishable from a red fire alarm call point."},
+{"id":"n07","t":"ncp","type":"hotspot","d":"escape","a":"mag","q":"Which letter shows the lock that holds this escape door shut? (This is the device that must release on a fire signal, on loss of power and from the emergency door release.)","x":"The magnetic lock holds the door. It must release on a fire signal, on loss of power and from the emergency door release, so the door opens with one simple action."},
+{"id":"n08","t":"ncp","type":"multi","q":"For safe escape, an electrically locked door on an escape route must unlock when… Select ALL that apply (3 correct answers).","o":["The fire alarm signal operates","Power is lost","The manual emergency door release is operated","The door has been shut for more than 10 minutes","The building lights are switched off"],"a":[0,1,2],"x":"An electrically locked escape door must release on a fire signal, on loss of power and from the emergency door release."},
+{"id":"n09","t":"ncp","type":"tf","a":false,"q":"Emergency door release buttons should look the same as fire alarm call points, so people recognise them.","x":"False. NCP 109 says manual emergency release controls should be clearly DISTINGUISHABLE from fire alarm call points."},
+{"id":"n10","t":"ncp","type":"mc","q":"Where must the methods used to release doors in an emergency be agreed and recorded?","o":["The design proposal and the as-fitted document","The customer's staff handbook only","The BS 8418 URN application","Nowhere: they are decided on site"],"x":"Release methods (e.g. green single-action buttons or break glass units on the secure side) must be agreed and recorded in the design proposal and as-fitted document."},
+{"id":"n11","t":"ncp","type":"mc","s":true,"q":"An escape door already has a BS EN 1125 panic bar. The client wants a magnetic lock added so people must press an exit button and THEN push the bar. What do you advise?","o":["It would not comply: escape must always be by a single, simple action","It is not allowed because magnetic locks are banned","It is fine if a sign explains the two steps","It is fine because the panic bar is still there"],"x":"NSI guidance on Issue 4: magnetic locks are not banned, but adding one that needs a second action on a door with BS EN 179 or BS EN 1125 hardware would not comply."},
+{"id":"p01","t":"purpose","type":"match","q":"Match each of the six purposes of access control to its meaning.","p":[["Prevent","Avoid undesirable events occurring"],["Detect","Identify undesirable events that have occurred"],["Correct","Correct undesirable events that have occurred"],["Deter","Discourage security violations"],["Recover","Restore resources and capabilities"],["Compensate","Provide alternatives to other controls"]],"x":"The unit specification groups the purposes into six types of control: prevent, detect, correct, deter, recover and compensate."},
+{"id":"p02","t":"purpose","type":"mc","q":"A lost card is cancelled straight away, and a leaver's access rights are removed. Which of the six purposes of access control does this BEST match?","o":["Correct","Deter","Recover","Compensate"],"x":"Correct: fixing undesirable events that have occurred, e.g. cancelling a lost card or changing rights when staff leave."},
+{"id":"p03","t":"purpose","type":"mc","q":"Standby batteries keep the doors working during a mains failure. Which of the six purposes does this BEST match?","o":["Compensate","Prevent","Detect","Deter"],"x":"Compensate: providing alternatives to other controls, e.g. standby batteries, key override, or a guard while the system is faulty."},
+{"id":"p04","t":"purpose","type":"mc","q":"A door controller stores events during a communications failure, then sends them to the central system when communications come back. Which of the six purposes does this BEST match?","o":["Recover","Correct","Deter","Prevent"],"x":"Recover: restoring resources and capabilities, e.g. buffered events uploaded, automatic restart after power loss, database back-ups."},
+{"id":"p05","t":"purpose","type":"mc","q":"Visible readers and signage put off casual intruders. Which of the six purposes does this BEST match?","o":["Deter","Detect","Recover","Compensate"],"x":"Deter: discouraging security violations. Users also know every transaction is logged against their credential."},
+{"id":"p06","t":"purpose","type":"mc","q":"Access levels and time zones stop users going into areas, or at times, they are not allowed. Which of the six purposes does this BEST match?","o":["Prevent","Recover","Compensate","Correct"],"x":"Prevent: avoiding undesirable events. This includes locked doors until a valid credential, access levels, time zones and anti-pass back."},
+{"id":"p07","t":"purpose","type":"mc","q":"Door forced alarms, tamper detection and alerts for repeated wrong attempts are examples of which of the six purposes?","o":["Detect","Deter","Compensate","Recover"],"x":"Detect: identifying undesirable events that have occurred, along with event logs showing who went where and when."},
+{"id":"p08","t":"purpose","type":"tf","a":true,"q":"A stand-alone keypad with one shared code mainly just PREVENTS casual entry. It cannot detect, correct or recover in the way a networked system with event logging can.","x":"True. A stand-alone keypad with a common code mainly prevents casual entry. A networked system with unique tokens, logging and alarm monitoring can also detect, correct and recover."},
+{"id":"p09","t":"purpose","type":"multi","q":"Which of these are examples of the RECOVER purpose? Select ALL that apply (3 correct answers).","o":["Automatic restart after a total loss of power","Regular database back-ups","Uploading events stored at the controller once comms return","Signage at the entrance","Anti-pass back"],"a":[0,1,2],"x":"Recover examples: automatic restart after power loss (with a trouble condition if not fully restored), uploading buffered events, and database back-ups."},
+{"id":"p10","t":"purpose","type":"mc","s":true,"q":"A biometric reader on a lab door fails to recognise a member of staff, so a supervisor uses an intercom to let them in. Which of the six purposes does this arrangement BEST match?","o":["Compensate","Deter","Detect","Prevent"],"x":"Compensate: a key override on critical doors, or a supervisor and intercom if a biometric reader fails, provides an alternative control."},
+{"id":"c01","t":"classes","type":"tf","a":false,"q":"Access control is graded per building: the whole building gets one grade.","x":"False. Access control is classified per ACCESS POINT. Each door, gate or barrier gets a grade (BS EN 60839-11) or class (NCP 109)."},
+{"id":"c02","t":"classes","type":"mc","q":"One controller serves a Grade 2 door and a Grade 3 door. Which grade must the controller meet?","o":["Grade 3, the highest grade it serves","Grade 2, the lowest grade it serves","Grade 1","It does not need a grade"],"x":"Common components must meet the requirements of the highest grade they serve."},
+{"id":"c03","t":"classes","type":"order","q":"Put these attacker (adversary) descriptions in order. Top = Grade 1 (lowest risk), bottom = Grade 4 (highest risk).","o":["Little knowledge of the ACS and a limited range of easily available tools","Limited knowledge of the ACS and a general range of tools and portable instruments","Conversant with the ACS, with a comprehensive range of tools and portable electronic equipment","Can plan in detail, with a full range of equipment including the means to substitute components"],"x":"Grade 1 low risk, Grade 2 low to medium, Grade 3 medium to high, Grade 4 high risk (BS EN 60839-11-2).","ends":["Grade 1 (lowest risk)","Grade 4 (highest risk)"]},
+{"id":"c04","t":"classes","type":"match","q":"Match each NCP 109 access point class to the recognition method it needs (NCP 109 Table 2).","p":[["Class I","Common code or PIN of at least 10,000 differs (4-digit)"],["Class II","PIN of at least 1,000,000 differs (6-digit), or a valid unique token"],["Class III","PIN (10,000 differs) AND a unique token, or a valid biometric"],["Class IV","Biometric AND a unique RFID token, or biometric + token + PIN"]],"x":"NCP 109 Table 2 sets the mandatory recognition method for each class. More factors are needed as the class rises."},
+{"id":"c05","t":"classes","type":"mc","q":"What is the typical holding force for a powered lock on an NCP 109 Class III door?","o":["7 kN (700 kg) or more","3 kN (300 kg) or more","5 kN (500 kg) or more","10 kN (1000 kg) or more"],"x":"Class I 3 kN, Class II 5 kN, Class III 7 kN, Class IV 10 kN or more (NCP 109 clause 6.2)."},
+{"id":"c06","t":"classes","type":"tf","a":false,"q":"A credential that is only good enough for Class II can also be used on a Class IV door.","x":"False. Credentials permitted at a higher class can be used at a lower class, but NOT the other way round."},
+{"id":"c07","t":"classes","type":"match","q":"Match each type of credential to an example.","p":[["Something you know","A PIN entered on a keypad"],["Something you have","An RFID fob or NFC mobile credential"],["Something you are","A fingerprint, face or iris"]],"x":"Know = code/PIN, have = token, are = biometric. Combining two or more (multi-factor) gives higher security."},
+{"id":"c08","t":"classes","type":"mc","q":"For biometric readers, what is used to balance the false acceptance rate (FAR) against the false rejection rate (FRR)?","o":["The decision threshold, which should be discussed with the user","The door holding force","The IP rating of the enclosure","The anti-pass back setting"],"x":"FAR and FRR are balanced by the decision threshold, and this should be discussed with the user."},
+{"id":"c09","t":"classes","type":"mc","s":true,"q":"The risk assessment says a door needs Class III hardware, but the door and frame are too weak to take it. What should happen?","o":["Reinforce the door, or reduce the class, and record it in the design proposal, as-fitted document and risk assessment","Fit the Class III lock anyway and say nothing","Fit a Class I lock without telling anyone","Remove the door"],"x":"If the door and frame can't take hardware of the required class, reinforce the door or reduce the class, and record it in the design proposal, as-fitted document and risk assessment."},
+{"id":"c10","t":"classes","type":"tf","a":false,"q":"It is acceptable for an RFID system to check ONLY the card's chip serial number (CSN).","x":"False. NCP 109 says RFID systems must NOT rely on recognising the chip serial number (CSN) only."},
+{"id":"c11","t":"classes","type":"mc","q":"At which NCP 109 class does anti-passback become mandatory (required)?","o":["Class IV","Class I","Class II","It is never mandatory"],"x":"Anti-passback becomes mandatory at Class IV. Access point status, held-open and forced monitoring, and standby power supplies, become mandatory at Classes III and IV."},
+{"id":"c12","t":"classes","type":"mc","q":"A reader is fitted on a gate post, outdoors and fully exposed to the weather. Which BS EN 60839-11-2 environmental class is this?","o":["Class IV","Class I","Class II","Class III"],"x":"Class I indoor office, Class II indoor general, Class III outdoor sheltered or indoor extreme, Class IV outdoor fully exposed."},
+{"id":"c15","t":"classes","type":"order","q":"Put these credentials in order of the HIGHEST NCP 109 class each one meets. Top = Class I (lowest), bottom = Class IV (highest).","o":["A common 4-digit code","A 6-digit PIN","A 4-digit PIN plus a unique token","A biometric plus a unique RFID token"],"x":"4-digit code = Class I, 6-digit PIN = Class II, PIN + token = Class III, biometric + unique RFID token = Class IV.","ends":["Class I (lowest)","Class IV (highest)"]},
+{"id":"b01","t":"bodies","type":"mc","q":"Which organisation accredits NSI and SSAIB, checking that certification bodies are competent and impartial?","o":["UKAS (United Kingdom Accreditation Service)","BSIA","BSI","The Health and Safety Executive"],"x":"NSI and SSAIB are both accredited by UKAS, which checks that certification bodies are competent and impartial."},
+{"id":"b02","t":"bodies","type":"hotspot","d":"bodies","a":"bsia","q":"The diagram shows how the industry fits together. Which letter shows the BSIA, the TRADE ASSOCIATION?","x":"The BSIA is the trade association. It represents and supports its member companies but does not certify them."},
+{"id":"b03","t":"bodies","type":"hotspot","d":"bodies","a":"ukas","q":"Which letter on the same diagram shows UKAS, the body that ACCREDITS (approves) the certification bodies?","x":"UKAS sits at the top: it accredits the certification bodies (NSI and SSAIB), which then audit and certify installers."},
+{"id":"b04","t":"bodies","type":"tf","a":false,"q":"The BSIA is a certification body that audits and certifies access control companies.","x":"False. The BSIA is a TRADE ASSOCIATION. NSI and SSAIB are the independent certification bodies."},
+{"id":"b05","t":"bodies","type":"mc","q":"Which option lists two NSI approval schemes?","o":["NSI NACOSS Gold and NSI Systems Silver","Type A and Type A+","Class I and Class IV","BS EN 179 and BS EN 1125"],"x":"NSI approval schemes include NACOSS Gold (which includes an ISO 9001 quality management system) and Systems Silver."},
+{"id":"b07","t":"bodies","type":"tf","a":true,"q":"A company can hold NSI or SSAIB certification AND be a member of the BSIA.","x":"True. Certification (NSI/SSAIB) and trade association membership (BSIA) are different things, and a company can have both."},
+{"id":"b08","t":"bodies","type":"match","q":"Match each organisation to its role.","p":[["NSI","Certification body that publishes NCP 109 for access control"],["SSAIB","Certification body founded in 1994, runs an Access Control Systems scheme"],["BSIA","Trade association representing the professional security industry"],["UKAS","Accredits the certification bodies"]],"x":"NSI and SSAIB are UKAS-accredited certification bodies. The BSIA is the trade association."},
+{"id":"b09","t":"bodies","type":"mc","q":"What must installer members of the BSIA Access and Asset Protection section have?","o":["UKAS-accredited ISO 9001 certification, plus staff screening and training","A BS 8418 Unique Reference Number","An NSI Certificate of Compliance for every door","Nothing: membership is open to anyone"],"x":"Installer members must hold UKAS-accredited ISO 9001 certification and must screen and train staff (BS 7858 screening may be appropriate)."},
+{"id":"b10","t":"bodies","type":"mc","s":true,"q":"A housing association asks why it should choose an NSI- or SSAIB-certificated installer. What is the best answer to give them?","o":["Independent third-party certification lets customers, insurers and police identify competent companies","It means the installer is the cheapest","It means the installer doesn't need to follow standards","Certification is a legal requirement for all electricians"],"x":"Third-party certification lets customers, insurers and the police identify competent companies. SSAIB notes that some market sectors may require it."},
+{"id":"b11","t":"bodies","type":"mc","q":"What does an NSI approved company issue at handover of an access control system (NCP 109 clause 8.2)?","o":["An NSI Certificate of Compliance","A UKAS accreditation","A BSIA membership card","A BS 8418 URN"],"x":"NSI approved companies issue an NSI Certificate of Compliance at handover."},
+{"id":"l01","t":"law","type":"mc","q":"How many protected characteristics are there in the Equality Act 2010?","o":["Nine","Four","Six","Twelve"],"x":"There are nine: age, disability, gender reassignment, marriage and civil partnership, pregnancy and maternity, race, religion or belief, sex, and sexual orientation."},
+{"id":"l02","t":"law","type":"mc","q":"Which protected characteristic MOST affects access control design?","o":["Disability","Age","Religion or belief","Marriage and civil partnership"],"x":"Disability affects access control design most. Readers, keypads, intercoms and locked doors are physical features."},
+{"id":"l03","t":"law","type":"mc","s":true,"q":"A shop owner says: “We'll lower the card reader if a wheelchair user ever complains.” Is that OK under the Equality Act 2010?","o":["No: the service provider duty is anticipatory, so they must think ahead about disabled people's needs","Yes: they only need to act once someone complains","Yes: shops are exempt from the Equality Act","No: wheelchair users must be given a key instead"],"x":"For service providers the duty to make reasonable adjustments is anticipatory. They should plan ahead for disabled people in general, not wait for someone to ask."},
+{"id":"l05","t":"law","type":"hotspot","d":"keypad","a":"k5","q":"Which key on this 12-button keypad should have a raised (embossed) marker, so people with visual impairments can find their way around the keys?","x":"The central “5” key carries the embossed locator. Controls should also contrast with their background."},
+{"id":"l06","t":"law","type":"match","q":"Match each user to a suitable reasonable adjustment.","p":[["Wheelchair user","Reader at an accessible height, clear of the door swing, with a longer release time"],["Visually impaired visitor","Proximity token, with audible as well as visual granted/denied indication"],["Hearing aid user at the intercom","Inductive coupler for the hearing aid “T” setting, plus a visual call indicator"],["Staff member who can't enrol a fingerprint","An alternative credential such as a card or fob"]],"x":"Each adjustment comes from the notes' Equality Act scenarios: reach, sight, hearing and biometrics."},
+{"id":"l07","t":"law","type":"mc","q":"In Scotland, which legislation contains Regulation 13 on means of escape?","o":["The Fire Safety (Scotland) Regulations 2006","The Data Protection Act 2018","The Electricity at Work Regulations 1989","The Equality Act 2010"],"x":"The Fire (Scotland) Act 2005 and the Fire Safety (Scotland) Regulations 2006 apply. Regulation 13 covers means of escape. England and Wales use Article 14 of the Regulatory Reform (Fire Safety) Order 2005."},
+{"id":"l08","t":"law","type":"tf","a":false,"q":"Sliding or revolving doors may be used for exits specifically intended as emergency exits.","x":"False. Regulation 13 says sliding or revolving doors are not to be used for exits specifically intended as emergency exits."},
+{"id":"l09","t":"law","type":"mc","q":"Which ONE of these doors should NOT have a fail unlocked electric lock (such as a magnetic lock), according to the Scottish Technical Handbook (clause 2.9)?","o":["A public door serving more than 60 people","An internal office door","A store cupboard","A door with a door contact"],"x":"They should not be used on, for example, the only escape route, a door serving the only escape stair, or a public door serving more than 60 people."},
+{"id":"l10","t":"law","type":"mc","q":"Approved Document M recommends a height for the manual controls of powered entrance doors. What is it?","o":["Between 750 mm and 1000 mm above floor level, operable with a closed fist","Between 1400 mm and 1800 mm above floor level","At any height, as long as they are lit","Below 500 mm above floor level"],"x":"Approved Document M recommends 750 mm to 1000 mm above floor level, operable with a closed fist."},
+{"id":"l11","t":"law","type":"mc","q":"Under UK GDPR, what type of data is biometric data that identifies a person uniquely?","o":["Special category data","Not personal data at all","Public data","Only covered if it is printed"],"x":"Biometric data used to identify a person uniquely is special category data under UK GDPR."},
+{"id":"l12","t":"law","type":"multi","q":"An employer wants fingerprint readers for staff. Following ICO guidance, what should they do? Select ALL that apply (3 correct answers).","o":["Carry out a data protection impact assessment (DPIA) first","Offer an alternative such as a card or PIN, without disadvantage","Store biometric templates securely and no longer than necessary","Keep the templates forever just in case","Make fingerprints compulsory for everyone"],"a":[0,1,2],"x":"ICO: do a DPIA first, identify a lawful basis, offer an alternative without disadvantage, store templates securely and no longer than necessary, and provide a manual review."},
+{"id":"l13","t":"law","type":"mc","q":"What does NSI expect Martyn's Law (the Terrorism (Protection of Premises) Act 2025) to do?","o":["Increase the focus on security risk assessment and lockdown, without relaxing escape requirements","Allow escape doors to stay locked during a lockdown","Replace the Equality Act 2010","Ban magnetic locks"],"x":"It received Royal Assent on 3 April 2025. NSI expects more focus on security risk assessment and lockdown procedures, without relaxing escape requirements."},
+{"id":"l14","t":"law","type":"mc","s":true,"q":"A care home wants to stop residents with dementia leaving unsupervised, but residents must still be able to escape in a fire. What type of system does NSI guidance point to?","o":["BS EN 13637 electrically controlled exit systems","Fail-secure locks with no override","BS 8418 CCTV instead of locks","Removing the fire exits"],"x":"Controlled egress may be needed to keep vulnerable people safe, but escape in a fire must still be possible. NSI points to BS EN 13637 electrically controlled exit systems."},
+{"id":"l15","t":"law","type":"mc","q":"Scottish Technical Handbook: a door on an escape route that opens with a code, swipe card, proximity card or biometric must…","o":["Be capable of being overridden from the side people approach when escaping","Only open with a valid credential","Be a revolving door","Have a 6-digit PIN"],"x":"It must be capable of being overridden from the escape side, without a key or token and without operating more than one mechanism."},
+{"id":"l17","t":"law","type":"mc","q":"Section 20 of the Equality Act 2010 sets out three requirements for reasonable adjustments. What is the THIRD one?","o":["Provide an auxiliary aid where one is needed","Change a provision, criterion or practice","Take reasonable steps about a physical feature","Ask the disabled person to pay"],"x":"1st: change a provision, criterion or practice. 2nd: deal with physical features. 3rd: provide an auxiliary aid."}
 ];
 
 /* Inline SVG diagrams for hotspot questions. Each hotspot: id, letter, name (revealed after answering), box [x,y,w,h]. */
 const DIAGRAMS = {
- acs: { title:"Typical access-controlled door", vb:"0 0 420 250", hs:[
+ acs: { title:"Typical access-controlled door (schematic, not to scale)", vb:"0 0 420 250", hs:[
    {id:"pc",L:"A",s:"PC",name:"Management software / central PC",b:[10,8,100,84]},
    {id:"reader",L:"B",s:"Reader",name:"Reader (credential input)",b:[54,104,66,76]},
    {id:"lock",L:"C",s:"Lock",name:"Lock (access point hardware)",b:[128,24,80,40]},
@@ -606,7 +558,7 @@ const DIAGRAMS = {
    <path d="M180 58 L110 96"/><path d="M240 58 L310 96"/><path d="M100 148 L180 190"/><path d="M320 148 L240 190"/><path d="M270 217 L298 217"/></g>
   <path d="M150 217 L122 217" stroke="#ffb020" stroke-width="2.5" stroke-dasharray="6 4"/>
   <defs><marker id="ah" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#8fa7c4"/></marker></defs>
-  <g font-size="12" fill="#dbe6f3" font-family="Calibri,'Segoe UI',Arial,sans-serif" text-anchor="middle">
+  <g font-size="14" font-weight="700" fill="#dbe6f3" font-family="Calibri,'Segoe UI',Arial,sans-serif" text-anchor="middle">
    <text x="118" y="72">accredits</text><text x="302" y="72">accredits</text>
    <text x="78" y="178">audits &amp;</text><text x="78" y="190">certifies</text><text x="342" y="178">audits &amp;</text><text x="342" y="190">certifies</text>
    <text x="285" y="262">installs for</text><text x="136" y="262" fill="#ffd36b">member of</text></g>`}
@@ -620,7 +572,7 @@ const reduceMotion=window.matchMedia&&window.matchMedia("(prefers-reduced-motion
 const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const TOPIC_KEYS=Object.keys(TOPICS);
-const TYPE_LABEL={mc:"Multiple choice",tf:"True or false",multi:"Select all that apply",match:"Tap to match",order:"Put in order",hotspot:"Label the diagram",scenario:"Site scenario"};
+const TYPE_LABEL={mc:"Multiple choice",tf:"True or false",multi:"Select all that apply",match:"Tap to match",order:"Put in order",hotspot:"Diagram: pick a letter",scenario:"Site scenario"};
 const qType=q=>q.type==="mc"&&q.s?"scenario":q.type;
 
 /* ---------- sound (off by default) ---------- */
@@ -691,6 +643,17 @@ function roundOf(i){ if(!S.rounds) return 0; let c=0; for(let r=0;r<S.rounds.len
 
 /* ---------- question rendering ---------- */
 let cur=null;
+const plural=(n,w)=>n+" "+w+(n===1?"":"s");
+function howTo(q){
+  const ty=qType(q);
+  if(ty==="mc") return "Pick ONE answer. It is marked as soon as you tap it.";
+  if(ty==="scenario") return "Read the situation, then pick the ONE best answer. It is marked as soon as you tap it.";
+  if(ty==="tf") return "Tap True or False. It is marked as soon as you tap.";
+  if(ty==="multi") return `Tap the ${q.a.length} correct answers (tap again to untick), then tap Check.`;
+  if(ty==="match") return `Tap a term, then tap the description that matches it. Tap a matched description to undo it. Match all ${q.p.length}, then tap Check.`;
+  if(ty==="order"){ const e=q.ends||["First","Last"]; return `Use the ▲ ▼ buttons to move items. Top = ${e[0]}, bottom = ${e[1]}. Then tap Check.`; }
+  if(ty==="hotspot") return DIAGRAMS[q.d].keypad?"Tap ONE key. It is marked as soon as you tap.":"Tap ONE part on the diagram, or its yellow letter button below. It is marked as soon as you tap.";
+}
 function renderQ(){
   const q=S.queue[S.idx]; cur={q,answered:false,t0:performance.now()};
   setDoor("idle");
@@ -698,7 +661,8 @@ function renderQ(){
   const box=$("#qbox");
   box.innerHTML=`<div class="qmeta"><span class="chip topic">${esc(tp.name)}</span><span class="chip type">${TYPE_LABEL[ty]}</span></div>
    ${ty==="scenario"?'<div class="scen-tag">SITE SCENARIO</div>':""}
-   <h2 id="qtext" class="qtext" tabindex="-1">${esc(q.q)}</h2><div id="qbody"></div>`;
+   <h2 id="qtext" class="qtext" tabindex="-1">${ty==="tf"?'<span class="tfpre">True or false?</span> ':""}${esc(q.q)}</h2>
+   <div class="howto" id="howtoLine"><b>How to answer:</b> ${esc(howTo(q))}</div><div id="qbody"></div>`;
   $("#feedback").hidden=true; $("#feedback").className="feedback";
   const body=$("#qbody");
   ({mc:rMC,tf:rTF,multi:rMulti,match:rMatch,order:rOrder,hotspot:rHot})[q.type](q,body);
@@ -709,58 +673,73 @@ function renderQ(){
 function optBtn(html,cls,attrs){return `<button type="button" class="opt ${cls||""}" ${attrs||""}>${html}</button>`;}
 function rMC(q,body){
   cur.order=shuffle(q.o.map((_,i)=>i));
-  body.innerHTML=`<div class="opts" role="group" aria-label="Answer options">${cur.order.map((oi,k)=>optBtn(`<span class="key">${"ABCD"[k]}</span><span>${esc(q.o[oi])}</span>`,"",`data-i="${oi}"`)).join("")}</div>`;
-  $$(".opt",body).forEach(b=>b.onclick=()=>{ const i=+b.dataset.i; markOpts(body,i===0?[b]:[b],i); finish(i===0,q.o[i],q.o[0]); });
+  body.innerHTML=`<div class="opts" role="group" aria-label="Answer options. Pick one.">${cur.order.map((oi,k)=>optBtn(`<span class="key">${"ABCD"[k]}</span><span>${esc(q.o[oi])}</span>`,"",`data-i="${oi}"`)).join("")}</div>`;
+  $$(".opt",body).forEach(b=>b.onclick=()=>{ if(cur.answered) return; const i=+b.dataset.i; markOpts(body,[b]); finish(i===0,q.o[i],q.o[0]); });
 }
-function markOpts(body,chosen,i){ $$(".opt",body).forEach(b=>{b.disabled=true; if(+b.dataset.i===0) b.classList.add("right");}); chosen.forEach(b=>{ if(+b.dataset.i!==0) b.classList.add("wrong"); b.classList.add("chosen");}); }
+function markOpts(body,chosen){ $$(".opt",body).forEach(b=>{b.disabled=true; if(+b.dataset.i===0) b.classList.add("right");}); chosen.forEach(b=>{ if(+b.dataset.i!==0) b.classList.add("wrong"); b.classList.add("chosen");}); }
 function rTF(q,body){
   body.innerHTML=`<div class="opts tf" role="group" aria-label="True or false">${optBtn("<span class='key'>T</span><span>True</span>","",'data-v="1"')}${optBtn("<span class='key'>F</span><span>False</span>","",'data-v="0"')}</div>`;
-  $$(".opt",body).forEach(b=>b.onclick=()=>{ const v=b.dataset.v==="1", ok=v===q.a;
+  $$(".opt",body).forEach(b=>b.onclick=()=>{ if(cur.answered) return; const v=b.dataset.v==="1", ok=v===q.a;
     $$(".opt",body).forEach(x=>{x.disabled=true; if((x.dataset.v==="1")===q.a) x.classList.add("right");}); b.classList.add("chosen"); if(!ok) b.classList.add("wrong");
     finish(ok,v?"True":"False",q.a?"True":"False"); });
 }
 function rMulti(q,body){
-  cur.order=shuffle(q.o.map((_,i)=>i)); const sel=new Set();
-  body.innerHTML=`<p class="hint">Tap every correct answer, then press Check.</p><div class="opts" role="group" aria-label="Select all that apply">${cur.order.map(oi=>optBtn(`<span class="tick" aria-hidden="true"></span><span>${esc(q.o[oi])}</span>`,"multi",`data-i="${oi}" aria-pressed="false"`)).join("")}</div>
-   <button type="button" class="btn primary check" disabled>Check answer</button>`;
-  const chk=$(".check",body);
-  $$(".opt",body).forEach(b=>b.onclick=()=>{ const i=+b.dataset.i; sel.has(i)?sel.delete(i):sel.add(i); b.setAttribute("aria-pressed",sel.has(i)); b.classList.toggle("on",sel.has(i)); chk.disabled=!sel.size; });
+  cur.order=shuffle(q.o.map((_,i)=>i)); const sel=new Set(), need=q.a.length;
+  body.innerHTML=`<div class="opts" role="group" aria-label="Select ${need} answers">${cur.order.map(oi=>optBtn(`<span class="tick" aria-hidden="true"></span><span>${esc(q.o[oi])}</span>`,"multi",`data-i="${oi}" aria-pressed="false"`)).join("")}</div>
+   <p class="checkhint" id="chkHint" aria-live="polite"></p><button type="button" class="btn primary check" disabled aria-describedby="chkHint">Check answer</button>`;
+  const chk=$(".check",body), hint=$("#chkHint");
+  const upd=()=>{ const n=sel.size; chk.disabled=n!==need;
+    hint.textContent=n<need?`Picked ${n} of ${need}. Pick ${need-n} more to unlock Check.`:n>need?`You have picked ${n}, but only ${need} are correct. Untick ${n-need} to unlock Check.`:`Picked ${n} of ${need}. Tap Check when you are ready.`;
+    hint.classList.toggle("ready",n===need); };
+  upd();
+  $$(".opt",body).forEach(b=>b.onclick=()=>{ const i=+b.dataset.i; sel.has(i)?sel.delete(i):sel.add(i); b.setAttribute("aria-pressed",sel.has(i)); b.classList.toggle("on",sel.has(i)); upd(); });
   chk.onclick=()=>{ const right=new Set(q.a), ok=sel.size===right.size&&[...sel].every(i=>right.has(i));
     $$(".opt",body).forEach(b=>{ const i=+b.dataset.i; b.disabled=true; if(right.has(i)) b.classList.add("right"); if(sel.has(i)&&!right.has(i)) b.classList.add("wrong"); if(!sel.has(i)&&right.has(i)) b.classList.add("missed"); });
-    chk.hidden=true; finish(ok,[...sel].map(i=>q.o[i]).join("; ")||"(nothing)",q.a.map(i=>q.o[i]).join("; ")); };
+    chk.hidden=true; hint.hidden=true;
+    const det=`<ul class="det">${cur.order.map(i=>{const r=right.has(i),s=sel.has(i); if(!r&&!s) return ""; const cls=r&&s?"ok":s?"no":"miss"; const lab=r&&s?"✓ Correct, and you picked it":s?"✗ You picked this, but it is NOT correct":"! Missed: this one IS correct"; return `<li class="${cls}"><b>${lab}:</b> ${esc(q.o[i])}</li>`;}).join("")}</ul>`;
+    finish(ok,[...sel].map(i=>q.o[i]).join("; ")||"(nothing)",q.a.map(i=>q.o[i]).join("; "),false,det,`<ul class="corrlist">${q.a.map(i=>`<li>${esc(q.o[i])}</li>`).join("")}</ul>`); };
 }
 const PAIRCOL=["#ffb020","#5aa9ff","#ff7ab6","#2ecc71","#b48cff","#36d6d6"];
 function rMatch(q,body){
   const n=q.p.length, terms=shuffle(q.p.map((_,i)=>i)), defs=shuffle(q.p.map((_,i)=>i));
   const pair={}; let selT=null;
-  body.innerHTML=`<p class="hint">Tap a term, then tap the description it matches. Tap a matched item again to change it.</p>
-   <div class="match"><div class="terms" role="group" aria-label="Terms">${terms.map(i=>`<button type="button" class="term" data-t="${i}" aria-pressed="false"><span class="dot" aria-hidden="true"></span>${esc(q.p[i][0])}</button>`).join("")}</div>
-   <div class="defs" role="group" aria-label="Descriptions">${defs.map(i=>`<button type="button" class="def" data-d="${i}"><span class="tag" aria-hidden="true"></span><span class="dtext">${esc(q.p[i][1])}</span><span class="res"></span></button>`).join("")}</div></div>
-   <div class="row"><button type="button" class="btn ghost clear">Clear</button><button type="button" class="btn primary check" disabled>Check answer</button></div>`;
+  body.innerHTML=`<div class="match"><div><div class="colhead">1. Tap a term</div><div class="terms" role="group" aria-label="Terms">${terms.map(i=>`<button type="button" class="term" data-t="${i}" aria-pressed="false"><span class="dot" aria-hidden="true"></span>${esc(q.p[i][0])}</button>`).join("")}</div></div>
+   <div><div class="colhead">2. Then tap the description it matches</div><div class="defs" role="group" aria-label="Descriptions">${defs.map(i=>`<button type="button" class="def" data-d="${i}"><span class="tag" aria-hidden="true"></span><span class="dtext">${esc(q.p[i][1])}</span><span class="res"></span></button>`).join("")}</div></div></div>
+   <p class="selnow" id="selNow" aria-live="polite"></p>
+   <p class="checkhint" id="chkHint"></p>
+   <div class="row"><button type="button" class="btn ghost clear">Clear all</button><button type="button" class="btn primary check" disabled aria-describedby="chkHint">Check answer</button></div>`;
   const colOf=t=>PAIRCOL[terms.indexOf(t)%PAIRCOL.length];
   function paint(){
     $$(".term",body).forEach(b=>{const t=+b.dataset.t, d=Object.keys(pair).find(k=>pair[k]===t); b.classList.toggle("sel",selT===t); b.setAttribute("aria-pressed",selT===t);
-      b.classList.toggle("paired",d!==undefined); b.style.setProperty("--pc",colOf(t)); b.setAttribute("aria-label",q.p[t][0]+(d!==undefined?" (matched)":"")); });
+      b.classList.toggle("paired",d!==undefined); b.style.setProperty("--pc",colOf(t)); b.setAttribute("aria-label",q.p[t][0]+(d!==undefined?" (matched)":"")+(selT===t?" (selected)":"")); });
     $$(".def",body).forEach(b=>{const d=+b.dataset.d, t=pair[d]; const tag=$(".tag",b);
-      if(t!==undefined){b.classList.add("paired");b.style.setProperty("--pc",colOf(t));tag.textContent=q.p[t][0];b.setAttribute("aria-label",q.p[d][1]+". Matched to "+q.p[t][0]);}
+      if(t!==undefined){b.classList.add("paired");b.style.setProperty("--pc",colOf(t));tag.textContent="Matched to: "+q.p[t][0];b.setAttribute("aria-label",q.p[d][1]+". Matched to "+q.p[t][0]+". Tap to undo.");}
       else {b.classList.remove("paired");tag.textContent="";b.setAttribute("aria-label",q.p[d][1]+(selT!==null?". Tap to match with "+q.p[selT][0]:""));} });
-    $(".check",body).disabled=Object.keys(pair).length<n;
+    const done=Object.keys(pair).length;
+    $("#selNow").innerHTML=selT!==null?`Selected term: <b>${esc(q.p[selT][0])}</b>. Now tap its description.`:(done<n?"Tap a term to select it.":"");
+    const h=$("#chkHint"); h.textContent=done<n?`${done} of ${n} matched. Match all ${n} to unlock Check.`:`All ${n} matched. Tap Check when you are ready.`; h.classList.toggle("ready",done===n);
+    $(".check",body).disabled=done<n;
   }
-  $$(".term",body).forEach(b=>b.onclick=()=>{ const t=+b.dataset.t; selT=t; paint(); });
+  $$(".term",body).forEach(b=>b.onclick=()=>{ selT=+b.dataset.t; paint(); });
   $$(".def",body).forEach(b=>b.onclick=()=>{ const d=+b.dataset.d;
-    if(selT===null){ if(pair[d]!==undefined){ selT=pair[d]; delete pair[d]; } paint(); return; }
-    Object.keys(pair).forEach(k=>{ if(pair[k]===selT) delete pair[k]; }); pair[d]=selT;
+    if(pair[d]!==undefined){ selT=pair[d]; delete pair[d]; paint(); return; } /* tapping a matched description undoes it */
+    if(selT===null){ paint(); return; }
+    Object.keys(pair).forEach(k=>{ if(pair[k]===selT) delete pair[k]; });
+    pair[d]=selT;
     const next=terms.find(t=>!Object.values(pair).includes(t)); selT=next===undefined?null:next; paint(); });
   $(".clear",body).onclick=()=>{ Object.keys(pair).forEach(k=>delete pair[k]); selT=terms[0]; paint(); };
   selT=terms[0]; paint();
   $(".check",body).onclick=()=>{ let ok=true;
-    $$(".def",body).forEach(b=>{ const d=+b.dataset.d, good=pair[d]===d; if(!good) ok=false; b.disabled=true; b.classList.add(good?"right":"wrong"); $(".res",b).textContent=good?"✓ Correct":"✗ Answer: "+q.p[d][0]; });
-    $$(".term",body).forEach(b=>b.disabled=true); $(".row",body).hidden=true;
-    finish(ok,defs.map(d=>`${q.p[pair[d]][0]} → ${q.p[d][1]}`).join("; "),q.p.map(p=>`${p[0]} → ${p[1]}`).join("; ")); };
+    $$(".def",body).forEach(b=>{ const d=+b.dataset.d, good=pair[d]===d; if(!good) ok=false; b.disabled=true; b.classList.add(good?"right":"wrong"); $(".res",b).textContent=good?"✓ Correct":"✗ Should be: "+q.p[d][0]; });
+    $$(".term",body).forEach(b=>b.disabled=true); $(".row",body).hidden=true; $("#selNow").hidden=true; $("#chkHint").hidden=true;
+    const det=`<ul class="det">${defs.map(d=>{const good=pair[d]===d; return `<li class="${good?"ok":"no"}">“${esc(q.p[d][1])}”<br><b>${good?"✓ You chose "+esc(q.p[pair[d]][0])+". Correct.":"✗ You chose "+esc(q.p[pair[d]][0])+". Correct: "+esc(q.p[d][0])}</b></li>`;}).join("")}</ul>`;
+    finish(ok,defs.map(d=>`${q.p[pair[d]][0]} → ${q.p[d][1]}`).join("; "),q.p.map(p=>`${p[0]} → ${p[1]}`).join("; "),false,det,`<ul class="corrlist">${q.p.map(p=>`<li><b>${esc(p[0])}</b> → ${esc(p[1])}</li>`).join("")}</ul>`); };
 }
 function rOrder(q,body){
   let ord=shuffle(q.o.map((_,i)=>i)); while(ord.every((v,i)=>v===i)) ord=shuffle(ord);
-  body.innerHTML=`<p class="hint">Use the arrow buttons to move each step. First at the top.</p><ol class="order" aria-label="Items to put in order"></ol><button type="button" class="btn primary check">Check order</button>`;
+  const ends=q.ends||["First","Last"];
+  body.innerHTML=`<div class="endlab top">▲ TOP = ${esc(ends[0])}</div><ol class="order" aria-label="Items to put in order. Top is ${esc(ends[0])}, bottom is ${esc(ends[1])}."></ol><div class="endlab bot">▼ BOTTOM = ${esc(ends[1])}</div>
+   <p class="checkhint ready" id="chkHint">Move the items, then tap Check when you are happy with the order.</p><button type="button" class="btn primary check" aria-describedby="chkHint">Check order</button>`;
   const ol=$(".order",body);
   function paint(focusIdx,dir){
     ol.innerHTML=ord.map((oi,k)=>`<li class="oitem" data-i="${oi}"><span class="onum" aria-hidden="true">${k+1}</span><span class="otext">${esc(q.o[oi])}</span><span class="obtns">
@@ -771,43 +750,48 @@ function rOrder(q,body){
   }
   paint();
   $(".check",body).onclick=()=>{ const ok=ord.every((v,i)=>v===i);
-    $$(".oitem",ol).forEach((li,k)=>{ const good=+li.dataset.i===k; li.classList.add(good?"right":"wrong"); if(!good) li.insertAdjacentHTML("beforeend",`<span class="ores">Should be position ${(+li.dataset.i)+1}</span>`); });
-    $$(".mv",ol).forEach(b=>b.disabled=true); $(".check",body).hidden=true;
-    finish(ok,ord.map(i=>q.o[i]).join(" → "),q.o.join(" → ")); };
+    $$(".oitem",ol).forEach((li,k)=>{ const good=+li.dataset.i===k; li.classList.add(good?"right":"wrong"); li.insertAdjacentHTML("beforeend",good?`<span class="ores ok">✓ Right place</span>`:`<span class="ores">✗ Should be number ${(+li.dataset.i)+1}</span>`); });
+    $$(".mv",ol).forEach(b=>b.disabled=true); $(".check",body).hidden=true; $("#chkHint").hidden=true;
+    const nRight=ord.filter((v,i)=>v===i).length;
+    const det=`<p class="detp">${nRight} of ${ord.length} items were in the right place.</p>`;
+    finish(ok,ord.map(i=>q.o[i]).join(" → "),q.o.join(" → "),false,det,`<ol class="corrlist">${q.o.map(t=>`<li>${esc(t)}</li>`).join("")}</ol>`); };
 }
 function svgDiagram(d,key){
   const boxes=key==="bodies";
   const hs=d.hs.map(h=>{ const [x,y,w,ht]=h.b;
     if(d.keypad) return `<g class="hs key" role="button" tabindex="0" data-h="${h.id}" aria-label="Key ${h.L}"><rect x="${x}" y="${y}" width="${w}" height="${ht}" rx="10" class="keycap"/><text x="${x+w/2}" y="${y+ht/2+10}" text-anchor="middle" class="keytxt">${h.L}</text></g>`;
+    const bx=boxes?x+w/2:x+14, by=boxes?y+18:y+14;
     return `<g class="hs" role="button" tabindex="0" data-h="${h.id}" aria-label="Part ${h.L}">
      ${boxes?`<rect x="${x}" y="${y}" width="${w}" height="${ht}" rx="8" class="orgbox"/>`:""}
      <rect x="${x}" y="${y}" width="${w}" height="${ht}" rx="8" class="hit"/>
-     <g class="badge"><circle cx="${boxes?x+w/2:x+12}" cy="${boxes?y+ht/2:y+12}" r="${boxes?16:12}"/><text x="${boxes?x+w/2:x+12}" y="${boxes?y+ht/2+6:y+17}" text-anchor="middle">${h.L}</text></g>
-     <text class="rev" x="${x+w/2}" y="${boxes?y+ht-5:y+ht-5}" text-anchor="middle">${esc(h.s||h.name)}</text></g>`; }).join("");
+     <g class="badge"><circle cx="${bx}" cy="${by}" r="${boxes?15:14}"/><text x="${bx}" y="${by+6.5}" text-anchor="middle">${h.L}</text></g>
+     <text class="rev" x="${x+w/2}" y="${y+ht-4}" text-anchor="middle">${esc(h.s||h.name)}</text></g>`; }).join("");
   return `<figure class="diagram"><svg viewBox="${d.vb}" role="group" aria-label="${esc(d.title)}">${d.art}${hs}</svg><figcaption>${esc(d.title)}</figcaption></figure>`;
 }
 function rHot(q,body){
   const d=DIAGRAMS[q.d];
-  body.innerHTML=svgDiagram(d,q.d)+(d.keypad?"":`<div class="hsbtns" role="group" aria-label="Or tap a letter">${d.hs.map(h=>`<button type="button" class="hsb" data-h="${h.id}"><b>${h.L}</b><span class="hsn"></span></button>`).join("")}</div>`);
+  body.innerHTML=svgDiagram(d,q.d)+(d.keypad?"":`<div class="colhead">Or tap a letter:</div><div class="hsbtns" role="group" aria-label="Letter buttons. Pick one.">${d.hs.map(h=>`<button type="button" class="hsb" data-h="${h.id}" aria-label="Part ${h.L}"><b>${h.L}</b><span class="hsn"></span></button>`).join("")}</div>`);
   const pick=id=>{ if(cur.answered) return; const ok=id===q.a, svg=$("svg",body); svg.classList.add("revealed");
     $$(".hs",body).forEach(g=>{ g.setAttribute("tabindex","-1"); if(g.dataset.h===q.a) g.classList.add("right"); else if(g.dataset.h===id) g.classList.add("wrong"); });
     $$(".hsb",body).forEach(b=>{ b.disabled=true; const h=d.hs.find(x=>x.id===b.dataset.h); $(".hsn",b).textContent=h.name; if(h.id===q.a) b.classList.add("right"); else if(h.id===id) b.classList.add("wrong"); });
-    const nm=id2=>{const h=d.hs.find(x=>x.id===id2);return (d.keypad?"":h.L+": ")+h.name;};
+    const nm=id2=>{const h=d.hs.find(x=>x.id===id2);return (d.keypad?"Key ":h.L+": ")+(d.keypad?h.L:h.name);};
     finish(ok,nm(id),nm(q.a)); };
   $$(".hs",body).forEach(g=>{ g.addEventListener("click",()=>pick(g.dataset.h)); g.addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key===" "){e.preventDefault();pick(g.dataset.h);} }); });
   $$(".hsb",body).forEach(b=>b.onclick=()=>pick(b.dataset.h));
 }
 
-/* ---------- timer ---------- */
+/* ---------- timer (pausable, e.g. while How to play is open) ---------- */
+let tState=null;
 function startTimer(q){
-  stopTimer(); const tw=$("#timer"); if(!MODES[S.mode].timer){ tw.hidden=true; return; }
-  tw.hidden=false; const lim=timeLimit(q)*1000, t0=performance.now(); let lastSec=null;
-  const tick=()=>{ const left=Math.max(0,lim-(performance.now()-t0)); cur.left=left/lim;
-    $("#timerFill").style.width=(100*left/lim)+"%"; $("#timerFill").classList.toggle("low",left<5000);
-    const sec=Math.ceil(left/1000); $("#timerText").textContent=sec+"s"; if(sec<=5&&sec!==lastSec&&sec>0){SFX.tick();} lastSec=sec;
-    if(left<=0){ stopTimer(); timeout(); } };
-  tick(); timerId=setInterval(tick,100);
+  stopTimer(); const tw=$("#timer"); if(!MODES[S.mode].timer){ tw.hidden=true; tState=null; return; }
+  tw.hidden=false; tState={lim:timeLimit(q)*1000,left:timeLimit(q)*1000,last:performance.now(),lastSec:null}; runTimer();
 }
+function runTimer(){ if(!tState) return; tState.last=performance.now(); const tick=()=>{ const now=performance.now(); tState.left=Math.max(0,tState.left-(now-tState.last)); tState.last=now; cur.left=tState.left/tState.lim;
+    $("#timerFill").style.width=(100*tState.left/tState.lim)+"%"; $("#timerFill").classList.toggle("low",tState.left<5000);
+    const sec=Math.ceil(tState.left/1000); $("#timerText").textContent=sec+"s"; if(sec<=5&&sec!==tState.lastSec&&sec>0){SFX.tick();} tState.lastSec=sec;
+    if(tState.left<=0){ stopTimer(); timeout(); } };
+  tick(); timerId=setInterval(tick,100); }
+function pauseTimer(){ if(timerId){ clearInterval(timerId); timerId=null; return true; } return false; }
 function stopTimer(){ if(timerId){clearInterval(timerId);timerId=null;} }
 function timeout(){ if(cur.answered) return; const q=cur.q;
   $$("#qbody button, #qbody .hs").forEach(b=>{b.disabled=true;b.setAttribute&&b.setAttribute("tabindex","-1");});
@@ -815,33 +799,41 @@ function timeout(){ if(cur.answered) return; const q=cur.q;
   if(q.type==="tf") $$('#qbody .opt[data-v="'+(q.a?1:0)+'"]').forEach(b=>b.classList.add("right"));
   if(q.type==="multi") q.a.forEach(i=>$$('#qbody .opt[data-i="'+i+'"]').forEach(b=>b.classList.add("right")));
   if(q.type==="hotspot"){ const sv=$("#qbody svg"); sv&&sv.classList.add("revealed"); $$('#qbody [data-h="'+q.a+'"]').forEach(g=>g.classList.add("right")); }
-  finish(false,"(time ran out)",correctText(q),true); }
+  ["#chkHint","#selNow"].forEach(s=>{const e=$(s); if(e) e.hidden=true;}); $$("#qbody .check, #qbody .row").forEach(e=>e.hidden=true);
+  let corrHTML=null;
+  if(q.type==="match") corrHTML=`<ul class="corrlist">${q.p.map(p=>`<li><b>${esc(p[0])}</b> → ${esc(p[1])}</li>`).join("")}</ul>`;
+  if(q.type==="order") corrHTML=`<ol class="corrlist">${q.o.map(t=>`<li>${esc(t)}</li>`).join("")}</ol>`;
+  if(q.type==="multi") corrHTML=`<ul class="corrlist">${q.a.map(i=>`<li>${esc(q.o[i])}</li>`).join("")}</ul>`;
+  finish(false,"(time ran out)",correctText(q),true,"",corrHTML); }
 function correctText(q){ if(q.type==="mc") return q.o[0]; if(q.type==="tf") return q.a?"True":"False"; if(q.type==="multi") return q.a.map(i=>q.o[i]).join("; ");
-  if(q.type==="match") return q.p.map(p=>`${p[0]} → ${p[1]}`).join("; "); if(q.type==="order") return q.o.join(" → "); const h=DIAGRAMS[q.d].hs.find(x=>x.id===q.a); return (DIAGRAMS[q.d].keypad?"":h.L+": ")+h.name; }
+  if(q.type==="match") return q.p.map(p=>`${p[0]} → ${p[1]}`).join("; "); if(q.type==="order") return q.o.join(" → "); const D=DIAGRAMS[q.d], h=D.hs.find(x=>x.id===q.a); return D.keypad?"Key "+h.L:h.L+": "+h.name; }
 
 /* ---------- marking & feedback ---------- */
-function finish(ok,given,correct,timedOut){
+function finish(ok,given,correct,timedOut,detailHTML,correctHTML){
   if(cur.answered) return; cur.answered=true; stopTimer();
   const q=cur.q, secs=(performance.now()-cur.t0)/1000; let pts=0, note="";
   if(ok){ S.streak++; S.best=Math.max(S.best,S.streak); pts=100;
-    if(MODES[S.mode].timer){ const sb=Math.round(50*(cur.left||0)); pts+=sb; if(sb) note+=`+${sb} speed `; }
-    const st=10*Math.min(S.streak-1,5); if(st){pts+=st; note+=`+${st} streak `;}
-    if(MODES[S.mode].shields&&S.streak>0&&S.streak%5===0&&S.shields<3){S.shields++; note+="· Shield recharged! ";}
+    if(MODES[S.mode].timer){ const sb=Math.round(50*(cur.left||0)); pts+=sb; if(sb) note+=`+${sb} speed bonus `; }
+    const st=10*Math.min(S.streak-1,5); if(st){pts+=st; note+=`+${st} streak bonus `;}
+    if(MODES[S.mode].shields&&S.streak>0&&S.streak%5===0&&S.shields<3){S.shields++; note+="· 5 in a row: shield recharged! ";}
     if(S.streak>=5) S.badges.add("streak5"); if(S.streak>=10) S.badges.add("streak10");
     SFX.ok(); setDoor("open");
   } else {
-    if(MODES[S.mode].shields&&S.shields>0){ S.shields--; note="Your shield took the hit, so your streak is safe."; }
-    else S.streak=0;
+    if(MODES[S.mode].shields&&S.shields>0){ S.shields--; note="A shield took the hit, so your streak is safe. Shields left: "+S.shields+"."; }
+    else { if(S.streak>0) note="Streak reset to 0."; S.streak=0; }
     SFX.bad(); setDoor("denied");
   }
   S.score+=pts;
   S.answers.push({q,ok,given,correct,secs,timedOut:!!timedOut});
   const fb=$("#feedback"); fb.hidden=false; fb.className="feedback "+(ok?"good":"bad")+(reduceMotion?"":" pop");
   const isLast=S.idx>=S.queue.length-1, endOfRound=S.rounds&&!isLast&&roundOf(S.idx)!==roundOf(S.idx+1);
+  const head=ok?"Correct!":timedOut?"Time ran out, so this counts as wrong.":(q.type==="match"||q.type==="order"||q.type==="multi")?"Not quite. See which parts were right and wrong below.":"Not this time.";
   fb.innerHTML=`<div class="stamp">${ok?"ACCESS GRANTED":(timedOut?"TIME OUT: ACCESS DENIED":"ACCESS DENIED")}</div>
+   <p class="fbhead">${esc(head)}</p>
    ${ok?`<div class="pts">+${pts} points ${note?`<small>${esc(note)}</small>`:""}</div>`:(note?`<div class="pts"><small>${esc(note)}</small></div>`:"")}
-   ${!ok?`<div class="corr"><b>Correct answer:</b> ${esc(correct)}</div>`:""}
-   <p class="expl">${esc(q.x)}</p>
+   ${(!ok&&detailHTML)?`<div class="detwrap"><b>Your answer:</b>${detailHTML}</div>`:""}
+   <div class="corr"><b>${ok?"The answer:":"Correct answer:"}</b> ${correctHTML||esc(correct)}</div>
+   <p class="expl"><b>Why:</b> ${esc(q.x)}</p>
    <button type="button" class="btn primary next" id="nextBtn">${isLast?"See my results":endOfRound?"Open the next door":"Next question"} →</button>`;
   $("#live").textContent=(ok?"Correct. ":"Incorrect. Correct answer: "+correct+". ")+q.x;
   renderHUD();
@@ -926,17 +918,25 @@ function init(){
   $("#soundBtn").onclick=()=>setSound(!soundOn); setSound(soundOn);
   const nm=$("#name"); nm.value=LS.get("name","");
   $("#topicSel").innerHTML=`<option value="all">All topics (${BANK.length} questions)</option>`+TOPIC_KEYS.map(t=>`<option value="${t}">${esc(TOPICS[t].name)} (${BANK.filter(q=>q.t===t).length})</option>`).join("");
-  $$(".mode").forEach(b=>b.onclick=()=>{ const n=cleanName(nm.value); if(!n){ $("#nameErr").hidden=false; nm.focus(); return; } $("#nameErr").hidden=true; nm.value=n; LS.set("name",n);
+  $$(".startbtn").forEach(b=>b.onclick=()=>{ const n=cleanName(nm.value); if(!n){ $("#nameErr").hidden=false; nm.focus(); return; } $("#nameErr").hidden=true; nm.value=n; LS.set("name",n);
     playerName=n; const mode=b.dataset.mode; start(mode,mode==="practice"?$("#topicSel").value:null); });
   nm.addEventListener("input",()=>{$("#nameErr").hidden=true;});
   $("#quitBtn").onclick=()=>{ const b=$("#quitBtn"); if(b.dataset.confirm){ delete b.dataset.confirm; b.textContent="End"; if(S.answers.length) endGame(); else home(); } else { b.dataset.confirm="1"; b.textContent="Tap again to end"; setTimeout(()=>{delete b.dataset.confirm;b.textContent="End";},3000);} };
   $("#homeLink").onclick=e=>{e.preventDefault(); home();};
-  document.addEventListener("keydown",e=>{ if($("#play").hidden||!cur||e.target.tagName==="INPUT"||e.target.tagName==="SELECT"||e.ctrlKey||e.metaKey||e.altKey) return;
+  document.addEventListener("keydown",e=>{ if(!$("#howto").hidden||$("#play").hidden||!cur||e.target.tagName==="INPUT"||e.target.tagName==="SELECT"||e.ctrlKey||e.metaKey||e.altKey) return;
     if(cur.answered) return; const k=e.key.toUpperCase();
     if(cur.q.type==="mc"){ const i="ABCD1234".indexOf(k); if(i>=0){ const b=$$("#qbody .opt")[i%4]; b&&b.click(); } }
     if(cur.q.type==="tf"){ if(k==="T") $$("#qbody .opt")[0].click(); if(k==="F") $$("#qbody .opt")[1].click(); } });
   $("#qcount").textContent=BANK.length;
+  let wasRunning=false, lastFocus=null;
+  const openHow=()=>{ lastFocus=document.activeElement; wasRunning=pauseTimer(); $("#howto").hidden=false; $("#howtoH").focus(); };
+  const closeHow=()=>{ $("#howto").hidden=true; LS.set("howto_seen",true); if(wasRunning&&cur&&!cur.answered) runTimer(); wasRunning=false; if(lastFocus&&lastFocus.focus) lastFocus.focus({preventScroll:true}); };
+  $("#helpBtn").onclick=openHow; $("#howtoClose").onclick=closeHow;
+  $("#howto").addEventListener("click",e=>{ if(e.target.id==="howto") closeHow(); });
+  document.addEventListener("keydown",e=>{ if(e.key==="Escape"&&!$("#howto").hidden) closeHow(); });
+  $("#howto").addEventListener("keydown",e=>{ if(e.key!=="Tab") return; const f=$$("#howto button, #howto [tabindex='-1']"); const btn=$("#howtoClose"); e.preventDefault(); btn.focus(); });
   home();
+  if(!LS.get("howto_seen",false)) openHow();
 }
 document.addEventListener("DOMContentLoaded",init);
 window.__quiz={get S(){return S;},BANK,DIAGRAMS,start};
