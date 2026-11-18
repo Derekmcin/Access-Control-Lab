@@ -18,7 +18,7 @@
   --warn: #8a5a10;
   --line: #d9d0c1;
   --shadow: 0 8px 24px rgba(40, 30, 15, .12);
-  font-family: Calibri, Carlito, Candara, "Segoe UI", Tahoma, sans-serif;
+  font-family: Calibri, "Segoe UI", Arial, sans-serif;
 }
 * { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; background: var(--paper); color: var(--ink); }
@@ -152,6 +152,201 @@ footer.site { padding: 12px 18px 24px; color: #5c564c; font-size: 14px; }
   body { background: white; }
   .layout { display: block; }
   main { padding: 0; }
+}
+
+
+/* Phone-first wiring bench. The page itself does not scroll sideways. */
+html, body { overflow-x: hidden; max-width: 100%; }
+body { font-family: Calibri, "Segoe UI", Arial, sans-serif; }
+button, .term, label, summary { touch-action: manipulation; }
+input, select, textarea { font-size: 16px; max-width: 100%; min-height: 44px; }
+input[type="checkbox"], input[type="radio"] { min-height: 22px; width: 22px; height: 22px; flex: none; }
+.layout, main, .nav, .card, .work, .board-wrap, .aside { min-width: 0; max-width: 100%; }
+.nav button { min-height: 44px; }
+.btn, .toolbar button, .tray button, .tabs button {
+  min-height: 44px;
+  padding: 8px 12px;
+}
+.q label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  min-height: 44px;
+  padding: 10px;
+  margin: 6px 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: white;
+}
+.grid-missions { grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); }
+.board-wrap { overflow: visible; max-width: 100%; }
+.board {
+  position: relative;
+  min-height: 0;
+  min-width: 0 !important;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+}
+.wires { z-index: 1; }
+.wires path.vis { stroke-width: 4; }
+.wires path.hit { stroke-width: 22; }
+.dev {
+  position: relative;
+  width: auto;
+  max-width: 100%;
+  left: auto;
+  top: auto;
+  z-index: 2;
+}
+.dev header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: space-between;
+  align-items: flex-start;
+  cursor: default;
+}
+.dev header small { font-size: 13px; line-height: 1.35; }
+.dev-title { flex: 1 1 160px; min-width: 0; }
+.nudge { display: flex; flex-wrap: wrap; gap: 4px; }
+.nudge .btn { background: #fff; color: #1c1915; }
+.terms { gap: 8px; padding: 0 10px 10px; }
+.term {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 8px 12px;
+  font-size: 16px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  scroll-margin-top: 120px;
+  scroll-margin-bottom: 16px;
+}
+.term.hot { outline: 4px solid #c2410c; background: #ffe0b2; }
+.term.aim { outline: 3px solid #0b6b4f; }
+.pips { display: flex; gap: 3px; }
+.pip-wire {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid #333;
+}
+.wirebar { margin-bottom: 8px; }
+.tool-block { margin-bottom: 6px; }
+.tool-label { display: block; font-size: 13px; font-weight: 700; color: #5c564c; letter-spacing: .04em; text-transform: uppercase; }
+.tool-row { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 6px; }
+.swatch {
+  width: auto;
+  height: auto;
+  min-height: 44px;
+  min-width: 44px;
+  border-radius: 10px;
+  padding: 8px 12px;
+  font-size: 15px;
+  font-weight: 700;
+}
+.btn.cable.on, .swatch.on { outline: 3px solid #0b6b4f; outline-offset: 2px; }
+.btn.cable.on { background: var(--green); color: white; border-color: var(--green); }
+.wire-status {
+  position: sticky;
+  top: 0;
+  z-index: 6;
+  background: #fffdf8;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  box-shadow: var(--shadow);
+}
+.wire-status.pending { border-color: #c2410c; background: #fff4e8; }
+.status-meta { display: block; margin-top: 4px; color: #5c564c; font-size: 14px; }
+.jump { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+.wire-list h3, .check-panel h3, .kb-wire summary { margin: 0 0 6px; }
+.wire-row {
+  display: flex;
+  width: 100%;
+  text-align: left;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  margin: 0 0 6px;
+  padding: 8px 10px;
+  background: white;
+  border: 1px solid #c9bfae;
+  border-radius: 8px;
+}
+.wire-row span { flex: 1; min-width: 0; }
+.kb-wire { margin-top: 8px; }
+.kb-wire summary { min-height: 44px; display: flex; align-items: center; font-weight: 700; cursor: pointer; }
+.kb-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: end; }
+.kb-row label { display: flex; flex-direction: column; gap: 4px; flex: 1 1 180px; }
+.kb-row select { width: 100%; }
+.check-panel { margin-top: 8px; }
+.bench-empty { margin: 8px; background: rgba(255,255,255,.75); border-radius: 8px; padding: 10px; }
+.chain-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.chain-box {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.25;
+}
+.chain-box small { display: block; font-weight: 500; color: #e7d7a8; }
+.chain-box.g { background: #1c3d34; }
+.chain-box.d { background: #2a2a28; }
+.chain-box.e { background: #1b5e20; }
+.chain-box.f { background: #b71c1c; }
+.chain-box.m { background: #4e342e; }
+.table-wrap { width: 100%; max-width: 100%; overflow-x: auto; }
+table { min-width: 100%; }
+.log { overflow-wrap: anywhere; white-space: pre-wrap; }
+.kp-grid { display: grid; grid-template-columns: repeat(3, 48px); gap: 6px; }
+.kp { width: 48px; height: 48px; min-height: 48px; padding: 0; }
+.kp-buffer { font-family: Consolas, "Courier New", monospace; font-size: 22px; letter-spacing: .2em; }
+.chip { min-height: 44px; padding: 10px 12px; max-width: 100%; }
+.id-card { padding: 12px; }
+.who-mode-btn { min-height: 44px; background: transparent; color: #f6f1e6; border: 1px solid #e7d7a8; border-radius: 8px; padding: 8px 12px; }
+#pin-row { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+#pin-row input { width: min(100%, 200px); }
+@media (min-width: 900px) {
+  .board {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    align-items: start;
+  }
+}
+.dev .blurb { margin: 0 10px 10px; font-size: 14px; }
+.dev .blurb summary { min-height: 44px; display: flex; align-items: center; font-weight: 700; cursor: pointer; }
+.who-fields { display: flex; flex-wrap: wrap; gap: 8px; align-items: end; justify-content: flex-end; }
+.who-fields label { display: flex; flex-direction: column; gap: 2px; font-size: 14px; }
+.who-fields input { width: 160px; }
+@media (max-width: 720px) {
+  .top h1 { font-size: 22px; }
+  .top { padding: 12px; }
+  .who { text-align: left; }
+  .who-fields { justify-content: stretch; }
+  .who-fields label { flex: 1 1 140px; }
+  .who-fields input { width: 100% !important; }
+  main { padding: 12px 12px 48px; }
+  h2 { font-size: 22px; }
+  .work.tasks-first { display: flex; flex-direction: column; }
+  .work.tasks-first .aside { order: -1; }
+  input[type="text"], input:not([type]), input[type="password"], input[type="number"], select {
+    max-width: 100%;
+  }
+  input[type="number"] { width: 6.5rem !important; }
+}
+@media (max-width: 1100px) {
+  .nav button { min-height: 44px; }
 }
 
 </style>
@@ -2829,7 +3024,13 @@ footer.site { padding: 12px 18px 24px; color: #5c564c; font-size: 14px; }
     newCommission: newCommission,
     commissionAct: commissionAct,
     commRead: commRead,
-    dayName: dayName
+    dayName: dayName,
+    sha256: sha256hex,
+    correctText: function (q) {
+      if (!q || !q.options) return "";
+      for (var i = 0; i < q.options.length; i++) if (ah(q.options[i]) === q.ah) return q.options[i];
+      return "";
+    }
   };
 });
 
@@ -2839,6 +3040,8 @@ footer.site { padding: 12px 18px 24px; color: #5c564c; font-size: 14px; }
   var E = window.ACLEngine;
   var M = window.ACLMissions;
   var KEY = "ncl-acl-v1";
+  var EDITION = "student";
+  var PIN_HASH = "";
 
   var COLOURS = [
     ["red", "#d32f2f"], ["black", "#222222"], ["blue", "#1565c0"], ["yellow", "#f9a825"],
@@ -2903,7 +3106,13 @@ footer.site { padding: 12px 18px 24px; color: #5c564c; font-size: 14px; }
     idState: { labels: {}, modes: {}, answers: [] },
     arm: null,
     armFn: null,
-    armMode: null
+    armMode: null,
+    undo: [],
+    wireCheck: null,
+    focusMode: false,
+    focusId: null,
+    lecturer: false,
+    note: ""
   };
 
   function esc(s) {
@@ -2958,14 +3167,20 @@ footer.site { padding: 12px 18px 24px; color: #5c564c; font-size: 14px; }
   }
 
   function renderShell() {
+    var title = EDITION === "classroom" ? "The Access Control Lab" : "The Access Control Lab — Student edition";
+    var whoWord = EDITION === "classroom" ? "Lecturer" : "Tutor";
+    var mode = EDITION === "classroom"
+      ? '<button type="button" class="who-mode-btn" id="who-mode" data-act="mode">Student mode</button>' +
+        '<div id="pin-row" hidden><label>PIN <input id="pin-input" type="password" autocomplete="off" placeholder="Lecturer PIN"></label> <button type="button" class="btn" data-act="pin-go">Unlock</button> <span id="pin-msg"></span></div>'
+      : '<div id="who-mode" style="margin-top:4px">Student edition</div>';
     document.getElementById("app").innerHTML =
       '<header class="top"><div class="row"><div><p class="kicker" style="color:#e7d7a8">New College Lanarkshire · Modern Apprenticeship</p>' +
-      "<h1>The Access Control Lab — Student edition</h1>" +
+      "<h1>" + title + "</h1>" +
       "<p>J7X2 33 Electronic Fire and Security Systems: Access Control Systems Installation · SCQF level 6</p></div>" +
-      '<div class="who"><div>Tutor <strong>Derek McInally</strong></div>' +
-      '<div style="margin-top:6px"><label>Apprentice <input id="who-name" value="' + esc(S.name) + '" placeholder="Your name" style="width:160px"></label> ' +
-      '<label>Class <input id="who-class" value="' + esc(S.className) + '" placeholder="Class" style="width:90px"></label></div>' +
-      '<div id="who-mode" style="margin-top:4px">Student edition</div></div></div></header>' +
+      '<div class="who"><div>' + whoWord + " <strong>Derek McInally</strong></div>" +
+      '<div class="who-fields" style="margin-top:6px"><label>Apprentice <input id="who-name" value="' + esc(S.name) + '" placeholder="Your name"></label> ' +
+      '<label>Class <input id="who-class" value="' + esc(S.className) + '" placeholder="Class"></label></div>' +
+      mode + "</div></div></header>" +
       '<div class="layout"><nav class="nav" id="nav"></nav><main id="main"></main></div>' +
       '<div id="print-sheet"></div>' +
       '<footer class="site">Formative practice for the workshop. It is not the SQA closed-book assessment and it does not replace the assessor checklist. ' +
@@ -2998,7 +3213,7 @@ footer.site { padding: 12px 18px 24px; color: #5c564c; font-size: 14px; }
       b.classList.toggle("on", !!on);
     });
     var mode = document.getElementById("who-mode");
-    if (mode) mode.textContent = "Student edition";
+    if (mode) mode.textContent = EDITION === "classroom" ? (S.lecturer ? "Lecturer mode" : "Student mode") : "Student edition";
   }
 
   function go(id) {
@@ -3015,6 +3230,11 @@ footer.site { padding: 12px 18px 24px; color: #5c564c; font-size: 14px; }
     S.arm = null;
     S.tool = "wire";
     S.lastReport = null;
+    S.undo = [];
+    S.wireCheck = null;
+    S.focusMode = false;
+    S.focusId = null;
+    S.note = "";
     S.sim = freshSim();
     S.world = E.createWorld();
     S.p07 = { stage: "A", partA: null };
@@ -3037,6 +3257,7 @@ footer.site { padding: 12px 18px 24px; color: #5c564c; font-size: 14px; }
       x = 20 + (n % 4) * 230;
       y = 24 + Math.floor(n / 4) * 210;
     }
+    pushUndo();
     var c = E.addComponent(S.world, type, x, y, st);
     S.selected = { kind: "comp", id: c.id };
     S.lastReport = null;
@@ -3058,6 +3279,7 @@ footer.site { padding: 12px 18px 24px; color: #5c564c; font-size: 14px; }
   }
 
   function draw() {
+    var keepY = window.scrollY;
     paintNav();
     var main = document.getElementById("main");
     if (!main) return;
@@ -3073,6 +3295,8 @@ footer.site { padding: 12px 18px 24px; color: #5c564c; font-size: 14px; }
     layoutWires();
     var clock = document.getElementById("attempt-clock");
     if (clock) clock.textContent = fmtTime(elapsed());
+    if (Math.abs(window.scrollY - keepY) > 1) window.scrollTo(0, keepY);
+    requestAnimationFrame(function () { layoutWires(); });
   }
 
   function viewHome() {
@@ -3092,11 +3316,13 @@ footer.site { padding: 12px 18px 24px; color: #5c564c; font-size: 14px; }
 
   function viewHelp() {
     return '<p class="kicker">Bench notes</p><h2>How to use the wiring bench</h2><div class="card prose">' +
-      "<ol><li>Add parts from the tray. Drag a part by its black header to move it. Select it and press Delete to remove it, wires and all.</li>" +
-      "<li>Choose a wire colour and a cable type. Click a terminal, then click the terminal it lands on. With Cat5e twisted pair or Audio pair selected, the next two cores share a pair number.</li>" +
-      "<li>Click a wire to select it, then Remove. Power up only when the wiring is finished. If the fuse opens, find the short before you replace it.</li>" +
-      "<li>Switch the tool to Meter to probe terminals. Voltage with the supply on. Continuity and resistance with the supply isolated.</li>" +
-      "<li>Operate the switch, the exit button, the EDRU or the fire interface from the part itself. Then Mark. Hints cost 10 marks each. The timer is optional and does not change the score.</li></ol>" +
+      "<ol><li>Add parts from the tray. On a phone they stack down the page, so you only scroll up and down. Up and Down change the order. Choose One part at a time if the bench feels crowded: Previous and Next move between parts, and a half-landed core is remembered.</li>" +
+      "<li>Choose a colour and a cable from the buttons. Tap a terminal, then tap the terminal that core lands on. The first one stays highlighted until you land it, tap it again, or press Cancel. With Twisted pair or Audio pair selected, the next two cores share a pair number.</li>" +
+      "<li>Tap a core in the list under the bench to remove it. Undo puts the last change back. Escape cancels a half-landed core. Ctrl+Z (or Cmd+Z) undoes.</li>" +
+      "<li>Wire with the keyboard does the same job from two lists, for a keyboard or a screen reader.</li>" +
+      "<li>Check my wiring says which cores match the drawing and which electrical checks already pass. It does not write the scoreboard. Mark does, and hints still cost 10.</li>" +
+      "<li>Power up only when the wiring is finished. Voltage with the supply on. Continuity and ohms with the supply isolated: tap the red probe, then the black.</li>" +
+      "<li>Operate the switch, the exit button, the EDRU or the fire interface from the part itself. The timer is optional and does not change the score.</li></ol>" +
       "<p>A diode band is the cathode and goes to the positive side of a coil. The wrong way round is a short, and the 2 A fuse opens. A maglock locks only while it has power. A fail-secure strike does the opposite. An exit button is not an emergency release. A green EDRU in the lock supply is.</p>" +
       "</div>";
   }
@@ -3156,6 +3382,10 @@ footer.site { padding: 12px 18px 24px; color: #5c564c; font-size: 14px; }
       var why = "";
       if (S.result && !S.result.partial && S.result.questions && S.result.questions.detail && S.result.questions.detail[i]) {
         why = S.result.questions.detail[i].ok ? '<p class="msg ok">Correct.</p>' : '<p class="msg">Not this time.</p>';
+        if (S.lecturer && M.correctText) {
+          var right = M.correctText(q);
+          if (right) why += '<p class="msg"><strong>Lecturer.</strong> ' + esc(right) + "</p>";
+        }
       }
       return '<div class="q"><strong>' + (i + 1) + ". " + esc(q.q) + "</strong>" + opts + why + "</div>";
     }).join("");
@@ -3178,30 +3408,6 @@ footer.site { padding: 12px 18px 24px; color: #5c564c; font-size: 14px; }
     var m = mission();
     extra += '<p class="msg"><strong>Debrief.</strong> Practical ' + esc(m.practical) + " — " + esc(m.outcome) + ". " + esc(NOTES[m.id] || "") + " " + esc(m.nos) + ". This score is formative. The summative assessment for J7X2 33 is closed-book. On site, follow the manufacturer’s instructions for the unit you are fitting.</p>";
     return head + extra + "<table><tr><th></th><th>Check</th><th></th><th>Detail</th></tr>" + rows + "</table>";
-  }
-
-  function toolbarHTML() {
-    var swatches = COLOURS.map(function (c) {
-      return '<button type="button" class="swatch' + (S.colour === c[0] ? " on" : "") + '" data-act="colour" data-colour="' + c[0] + '" style="background:' + c[1] + '" title="' + c[0] + '"></button>';
-    }).join("");
-    var cables = '<select id="cable-type" data-act="cable">' + CABLES.map(function (c) {
-      return '<option value="' + c[0] + '"' + (S.cable === c[0] ? " selected" : "") + ">" + esc(c[1]) + "</option>";
-    }).join("") + "</select>";
-    var meterModes = ["V", "cont", "ohm"].map(function (mode) {
-      var label = mode === "V" ? "V dc" : mode === "cont" ? "Continuity" : "Ω";
-      return '<button type="button" class="btn' + (S.tool === "meter" && S.meter.mode === mode ? " primary" : "") + '" data-act="meter-mode" data-mode="' + mode + '">' + label + "</button>";
-    }).join("");
-    return '<div class="toolbar no-print"><span>Wire</span>' + swatches + cables +
-      '<button type="button" class="btn' + (S.tool === "wire" ? " primary" : "") + '" data-act="tool" data-tool="wire">Wire</button>' +
-      meterModes +
-      '<span class="meter-read" id="meter-read">' + esc(S.meter.text) + "</span>" +
-      '<button type="button" class="btn primary" data-act="power">Power up</button>' +
-      '<button type="button" class="btn" data-act="isolate">Isolate</button>' +
-      '<button type="button" class="btn" data-act="fuse">Replace fuse</button>' +
-      '<button type="button" class="btn" data-act="remove">Remove selected</button>' +
-      '<button type="button" class="btn" data-act="advance" data-sec="1">+1 s</button>' +
-      '<button type="button" class="btn" data-act="advance" data-sec="5">+5 s</button>' +
-      "</div>";
   }
 
   function trayHTML() {
@@ -3271,6 +3477,205 @@ footer.site { padding: 12px 18px 24px; color: #5c564c; font-size: 14px; }
     return S.world && S.world.components.some(function (c) { return c.type === type; });
   }
 
+  function colourName(id) {
+    return id ? id.charAt(0).toUpperCase() + id.slice(1) : "";
+  }
+  function cableName(id) {
+    for (var i = 0; i < CABLES.length; i++) if (CABLES[i][0] === id) return CABLES[i][1];
+    return id || "";
+  }
+  function cableShort(id) {
+    return ({ "4core": "4-core", pair: "Twisted pair", screened: "Screened", audio: "Audio pair", single: "Single", t568b: "T568B" })[id] || cableName(id);
+  }
+  function termName(key) {
+    if (!key) return "";
+    var dot = key.indexOf(".");
+    var id = dot < 0 ? key : key.slice(0, dot);
+    var term = dot < 0 ? "" : key.slice(dot + 1);
+    var c = byId(id);
+    if (!c) return key;
+    var label = term;
+    (TERM_LABEL[c.type] || []).forEach(function (t) { if (t[0] === term) label = t[1]; });
+    return E.CATALOGUE[c.type].name + " " + label;
+  }
+  function endOf(key) {
+    var dot = key.indexOf(".");
+    if (dot < 0) return null;
+    var c = byId(key.slice(0, dot));
+    if (!c) return null;
+    return { id: c.id, type: c.type, term: key.slice(dot + 1) };
+  }
+  function wireMatches(w, pair) {
+    var a = endOf(w.a), b = endOf(w.b);
+    if (!a || !b) return false;
+    return (a.type === pair[0] && a.term === pair[1] && b.type === pair[2] && b.term === pair[3]) ||
+      (b.type === pair[0] && b.term === pair[1] && a.type === pair[2] && a.term === pair[3]);
+  }
+  function pushUndo() {
+    S.undo.push({
+      wires: JSON.parse(JSON.stringify(S.world.wires)),
+      components: JSON.parse(JSON.stringify(S.world.components)),
+      nextWire: S.world.nextWire,
+      nextPair: S.world.nextPair,
+      nextId: S.world.nextId,
+      openPair: S.openPair,
+      fuse: S.world.fuseBlown
+    });
+    if (S.undo.length > 40) S.undo.shift();
+  }
+  function undo() {
+    var snap = S.undo.pop();
+    if (!snap || !S.world) return;
+    S.world.wires = snap.wires;
+    S.world.components = snap.components;
+    S.world.nextWire = snap.nextWire;
+    S.world.nextPair = snap.nextPair;
+    S.world.nextId = snap.nextId;
+    S.world.fuseBlown = snap.fuse;
+    S.openPair = snap.openPair;
+    S.pending = null;
+    S.selected = null;
+    S.wireCheck = null;
+    S.lastReport = null;
+    S.note = "Last change undone.";
+    draw();
+  }
+  function land(a, b) {
+    if (!S.world || !a || !b) return;
+    if (a === b) { S.pending = null; S.note = "A core needs two different terminals."; draw(); return; }
+    var dup = S.world.wires.some(function (w) { return (w.a === a && w.b === b) || (w.a === b && w.b === a); });
+    if (dup) { S.pending = null; S.note = "That core is already landed."; draw(); return; }
+    pushUndo();
+    var pair = null;
+    if (S.cable === "pair" || S.cable === "audio") {
+      if (!S.openPair) { S.openPair = "pair" + S.world.nextPair++; pair = S.openPair; }
+      else { pair = S.openPair; S.openPair = null; }
+    }
+    E.addWire(S.world, a, b, S.colour, S.cable, pair);
+    S.pending = null;
+    S.note = "Landed " + colourName(S.colour) + " from " + termName(a) + " to " + termName(b) + ".";
+    S.lastReport = null;
+    S.wireCheck = null;
+    draw();
+  }
+
+  var WIRE_EXPECT = {
+    p01: { need: [["psu", "p12", "sw", "c"], ["sw", "l1", "strikeFS", "p"], ["strikeFS", "n", "psu", "v0"], ["diode", "k", "strikeFS", "p"], ["diode", "a", "strikeFS", "n"]] },
+    p02: { need: [["psu", "p12", "pte", "com"], ["pte", "no", "strikeFS", "p"], ["strikeFS", "n", "psu", "v0"], ["diode", "k", "strikeFS", "p"], ["diode", "a", "strikeFS", "n"]] },
+    p03: { need: [["psu", "p12", "keypad", "p12"], ["psu", "v0", "keypad", "v0"], ["psu", "p12", "keypad", "com"], ["keypad", "no", "strikeFS", "p"], ["strikeFS", "n", "psu", "v0"], ["pte", "com", "keypad", "rex"], ["pte", "no", "keypad", "rex0"], ["diode", "k", "strikeFS", "p"], ["diode", "a", "strikeFS", "n"]] },
+    p04: { need: [["psu", "p12", "pte", "com"], ["pte", "nc", "mag", "p"], ["mag", "n", "psu", "v0"], ["led", "a", "mag", "p"], ["led", "k", "mag", "n"]] },
+    p05: { alts: [
+      { need: [["psu", "p12", "edru", "c"], ["edru", "nc", "mag", "p"], ["mag", "n", "psu", "v0"], ["led", "a", "mag", "p"], ["led", "k", "mag", "n"]] },
+      { need: [["psu", "p12", "edru2", "c1"], ["edru2", "nc1", "mag", "p"], ["mag", "n", "psu", "v0"], ["led", "a", "mag", "p"], ["led", "k", "mag", "n"]] },
+      { need: [["psu", "p12", "edru2", "c1"], ["edru2", "nc1", "mag", "p"], ["mag", "n", "edru2", "c2"], ["edru2", "nc2", "psu", "v0"], ["led", "a", "mag", "p"], ["led", "k", "mag", "n"]] }
+    ] },
+    p06: { need: [["psu", "p12", "edru", "c"], ["edru", "nc", "relay", "a1"], ["relay", "a2", "psu", "v0"], ["psu", "p12", "relay", "com"], ["relay", "no", "mag", "p"], ["mag", "n", "psu", "v0"], ["relay", "nc", "led", "a"], ["led", "k", "psu", "v0"], ["diode", "k", "relay", "a1"], ["diode", "a", "relay", "a2"]] },
+    p07A: { need: [["psu", "p12", "edru", "c"], ["edru", "no", "relay", "a1"], ["relay", "a2", "psu", "v0"], ["psu", "p12", "relay", "com"], ["relay", "no", "strikeFS", "p"], ["strikeFS", "n", "psu", "v0"]], optional: [["diode", "k", "strikeFS", "p"], ["diode", "a", "strikeFS", "n"], ["diode", "k", "relay", "a1"], ["diode", "a", "relay", "a2"]] },
+    p07C: { need: [["psu", "p12", "edru", "c"], ["edru", "nc", "relay", "a1"], ["relay", "a2", "psu", "v0"], ["psu", "p12", "relay", "com"], ["relay", "no", "strikeFU", "p"], ["strikeFU", "n", "psu", "v0"]], optional: [["diode", "k", "strikeFU", "p"], ["diode", "a", "strikeFU", "n"], ["diode", "k", "relay", "a1"], ["diode", "a", "relay", "a2"]] },
+    p08: { need: [["psu", "p12", "pte", "com"], ["pte", "no", "relay", "a1"], ["relay", "a2", "psu", "v0"], ["psu", "p12", "edru", "c"], ["edru", "nc", "relay", "com"], ["relay", "nc", "mag", "p"], ["mag", "n", "psu", "v0"]], optional: [["diode", "k", "relay", "a1"], ["diode", "a", "relay", "a2"]] },
+    p09: { need: [["psu", "p12", "panel", "p12"], ["psu", "v0", "panel", "v0"], ["panel", "r", "handset", "r"], ["panel", "v0", "handset", "o"], ["panel", "t", "handset", "t"], ["panel", "i", "handset", "i"], ["panel", "h", "strikeFS", "p"], ["strikeFS", "n", "handset", "z"]] }
+  };
+
+  function drawingFor(id) {
+    if (id === "p07") return S.p07.stage === "C" ? WIRE_EXPECT.p07C : WIRE_EXPECT.p07A;
+    var spec = WIRE_EXPECT[id];
+    if (!spec) return null;
+    if (!spec.alts) return spec;
+    var best = spec.alts[0], bestN = -1;
+    spec.alts.forEach(function (alt) {
+      var n = alt.need.filter(function (pair) { return S.world.wires.some(function (w) { return wireMatches(w, pair); }); }).length;
+      if (n > bestN) { bestN = n; best = alt; }
+    });
+    return best;
+  }
+  function netFind() {
+    var parent = {};
+    function add(k) { if (!parent[k]) parent[k] = k; }
+    function find(k) { add(k); while (parent[k] !== k) { parent[k] = parent[parent[k]]; k = parent[k]; } return k; }
+    function union(a, b) { a = find(a); b = find(b); if (a !== b) parent[b] = a; }
+    (S.world.wires || []).forEach(function (w) { union(w.a, w.b); });
+    return find;
+  }
+  function linkState(pair) {
+    if (S.world.wires.some(function (w) { return wireMatches(w, pair); })) return "direct";
+    var find = netFind();
+    var As = S.world.components.filter(function (c) { return c.type === pair[0]; });
+    var Bs = S.world.components.filter(function (c) { return c.type === pair[2]; });
+    for (var i = 0; i < As.length; i++) {
+      for (var j = 0; j < Bs.length; j++) {
+        if (find(As[i].id + "." + pair[1]) === find(Bs[j].id + "." + pair[3])) return "joined";
+      }
+    }
+    return "missing";
+  }
+  function pairFeedback() {
+    var id = S.mission;
+    if (id === "p01") {
+      var lock = null;
+      S.world.components.forEach(function (c) { if (c.type === "strikeFS" && E.isWired(S.world, c.id)) lock = c; });
+      if (!lock) return "Put the fail-secure strike on the bench and land + and −.";
+      return E.pairSharesLock(S.world, lock.id)
+        ? "Lock + and lock − are one Cat5e twisted pair."
+        : "Lock + and lock − are not the same twisted pair yet. Choose Twisted pair, then land those two cores one after the other.";
+    }
+    if (id === "p09") {
+      var panel = null, hs = null, ok = false;
+      S.world.components.forEach(function (c) { if (c.type === "panel") panel = c; if (c.type === "handset") hs = c; });
+      if (panel && hs) {
+        var groups = {};
+        S.world.wires.forEach(function (wire) {
+          if (!wire.pairId) return;
+          if (!groups[wire.pairId]) groups[wire.pairId] = [];
+          groups[wire.pairId].push(wire);
+        });
+        Object.keys(groups).forEach(function (gid) {
+          var wires = groups[gid];
+          if (wires.length < 2) return;
+          var touchR = wires.some(function (wire) { return wire.a.indexOf(panel.id + ".r") === 0 || wire.b.indexOf(panel.id + ".r") === 0 || wire.a.indexOf(hs.id + ".r") === 0 || wire.b.indexOf(hs.id + ".r") === 0; });
+          var touchO = wires.some(function (wire) { return wire.a.indexOf(hs.id + ".o") === 0 || wire.b.indexOf(hs.id + ".o") === 0 || wire.a.indexOf(panel.id + ".v0") === 0 || wire.b.indexOf(panel.id + ".v0") === 0; });
+          if (touchR && touchO && wires.every(function (w) { return w.cable === "pair" || w.cable === "audio"; })) ok = true;
+        });
+      }
+      return ok ? "R and O are one twisted pair, the way Bell ask." : "R and O are not one twisted pair yet. Choose Twisted pair before you land those two cores.";
+    }
+    return "";
+  }
+  function checkWiring() {
+    var m = mission();
+    if (!m || m.kind !== "wire") return;
+    var drawing = drawingFor(m.id) || { need: [], optional: [] };
+    var optional = drawing.optional || [];
+    var byId = {};
+    S.world.wires.forEach(function (w) {
+      var on = drawing.need.some(function (pair) { return wireMatches(w, pair); }) || optional.some(function (pair) { return wireMatches(w, pair); });
+      if (on) byId[w.id] = "ok";
+      else {
+        var a = endOf(w.a), b = endOf(w.b);
+        if ((a && (a.type === "jb" || a.type === "reel")) || (b && (b.type === "jb" || b.type === "reel"))) byId[w.id] = "joint";
+        else byId[w.id] = "extra";
+      }
+    });
+    var missing = [], joined = [];
+    drawing.need.forEach(function (pair) {
+      var st = linkState(pair);
+      var label = termNameType(pair[0], pair[1]) + " → " + termNameType(pair[2], pair[3]);
+      if (st === "missing") missing.push(label);
+      else if (st === "joined") joined.push(label);
+    });
+    var progress = m.id === "p07" ? { stage: S.p07.stage, partA: S.p07.partA } : {};
+    var r = M.scoreMission(m.id, S.world, S.sim, [], 0, progress);
+    S.wireCheck = { byId: byId, missing: missing, joined: joined, tests: (r && r.tests) || [], pair: pairFeedback(), partial: !!(r && r.partial) };
+    S.note = "";
+    draw();
+    var panel = document.getElementById("check-panel");
+    if (panel) panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+  function termNameType(type, term) {
+    var label = term;
+    (TERM_LABEL[type] || []).forEach(function (t) { if (t[0] === term) label = t[1]; });
+    return (E.CATALOGUE[type] ? E.CATALOGUE[type].name : type) + " " + label;
+  }
+
   function deviceHTML(c) {
     var d = S.lastReport && S.lastReport.devices[c.id];
     var face = "";
@@ -3286,7 +3691,7 @@ footer.site { padding: 12px 18px 24px; color: #5c564c; font-size: 14px; }
       face = '<button type="button" class="btn' + (c.state.pressed ? " primary" : "") + '" data-act="op" data-op="toggle" data-id="' + c.id + '">' + (c.state.pressed ? "EXIT HELD" : "Press exit") + "</button>";
     } else if (c.type === "edru" || c.type === "edru2") {
       face = '<div class="face"><span class="lamp green' + (c.state.operated ? "" : " on") + '"></span><button type="button" class="btn bad" data-act="op" data-op="toggle" data-id="' + c.id + '">' + (c.state.operated ? "OPERATED" : "Set — push element") + "</button></div>";
-      if (c.state.operated) face += '<button type="button" class="btn" data-act="op" data-op="reset" data-id="' + c.id + '">Reset with key</button>';
+      if (c.state.operated) face += '<button type="button" class="btn" data-act="op" data-op="reset" data-id="' + c.id + '">Reset with the key</button>';
     } else if (c.type === "relay") {
       face = '<span class="pill ' + (d && d.relayOn ? "ok" : "") + '">' + (d && d.relayOn ? "COIL IN" : "Coil out") + "</span>";
     } else if (c.type === "strikeFS" || c.type === "strikeFU" || c.type === "mag") {
@@ -3321,23 +3726,141 @@ footer.site { padding: 12px 18px 24px; color: #5c564c; font-size: 14px; }
     }
     var terms = (TERM_LABEL[c.type] || []).map(function (t) {
       var key = c.id + "." + t[0];
-      var cls = "term" + (S.pending === key ? " hot" : "") + (S.meter.red === key ? " probe-red" : "") + (S.meter.black === key ? " probe-black" : "");
-      return '<button type="button" class="' + cls + '" data-act="term" data-term="' + key + '">' + esc(t[1]) + "</button>";
+      var cls = "term" + (S.pending === key ? " hot" : "") + (S.pending && S.pending !== key ? " aim" : "") + (S.meter.red === key ? " probe-red" : "") + (S.meter.black === key ? " probe-black" : "");
+      var pips = "";
+      (S.world.wires || []).forEach(function (w) {
+        if (w.a === key || w.b === key) pips += '<i class="pip-wire" style="background:' + (COLOUR_HEX[w.colour] || "#222") + '"></i>';
+      });
+      var pressed = S.pending === key ? "true" : "false";
+      return '<button type="button" class="' + cls + '" data-act="term" data-term="' + key + '" aria-pressed="' + pressed + '"><span>' + esc(t[1]) + "</span>" + (pips ? '<span class="pips">' + pips + "</span>" : "") + "</button>";
     }).join("");
-    var wide = (c.type === "ctrl" || c.type === "keypad" || c.type === "edru2" || c.type === "relay") ? " style=\"width:250px\"" : "";
     var sel = S.selected && S.selected.kind === "comp" && S.selected.id === c.id ? " sel" : "";
-    return '<article class="dev' + sel + '" id="dev-' + c.id + '"' + wide + ' style="left:' + c.x + "px;top:" + c.y + 'px">' +
-      '<header data-drag="1" data-id="' + c.id + '">' + esc(E.CATALOGUE[c.type].name) + "<small>" + esc(E.CATALOGUE[c.type].blurb) + "</small></header>" +
-      '<div class="body">' + face + "</div><div class=\"terms\">" + terms + "</div></article>";
+    return '<article class="dev' + sel + '" id="dev-' + c.id + '" data-type="' + c.type + '">' +
+      '<header><div class="dev-title"><strong>' + esc(E.CATALOGUE[c.type].name) + "</strong></div>" +
+      '<div class="nudge"><button type="button" class="btn" data-act="nudge" data-dir="-1" data-id="' + c.id + '">Up</button>' +
+      '<button type="button" class="btn" data-act="nudge" data-dir="1" data-id="' + c.id + '">Down</button>' +
+      '<button type="button" class="btn bad" data-act="remove-comp" data-id="' + c.id + '">Remove part</button></div></header>' +
+      '<div class="body">' + face + '</div><div class="terms">' + terms + "</div>" +
+      '<details class="blurb"><summary>About this part</summary><p>' + esc(E.CATALOGUE[c.type].blurb) + "</p></details></article>";
   }
 
+  function shownComponents() {
+    var cs = (S.world && S.world.components) || [];
+    if (!S.focusMode || cs.length <= 1) return cs;
+    if (!byId(S.focusId)) S.focusId = cs[0].id;
+    return cs.filter(function (c) { return c.id === S.focusId; });
+  }
+  function toolbarHTML() {
+    var swatches = COLOURS.map(function (c) {
+      var ink = (c[0] === "white" || c[0] === "yellow") ? "#1c1915" : "#fff";
+      return '<button type="button" class="swatch' + (S.colour === c[0] ? " on" : "") + '" data-act="colour" data-colour="' + c[0] + '" aria-pressed="' + (S.colour === c[0] ? "true" : "false") + '" style="background:' + c[1] + ";color:" + ink + '">' + colourName(c[0]) + "</button>";
+    }).join("");
+    var cables = CABLES.map(function (c) {
+      return '<button type="button" class="btn cable' + (S.cable === c[0] ? " on" : "") + '" data-act="cable-set" data-cable="' + c[0] + '" aria-pressed="' + (S.cable === c[0] ? "true" : "false") + '" title="' + esc(c[1]) + '">' + esc(cableShort(c[0])) + "</button>";
+    }).join("");
+    var meterModes = ["V", "cont", "ohm"].map(function (mode) {
+      var label = mode === "V" ? "V dc" : mode === "cont" ? "Continuity" : "Ohms";
+      return '<button type="button" class="btn' + (S.tool === "meter" && S.meter.mode === mode ? " primary" : "") + '" data-act="meter-mode" data-mode="' + mode + '">' + label + "</button>";
+    }).join("");
+    var m = mission();
+    var check = m && m.kind === "wire" ? '<button type="button" class="btn gold" data-act="check-wire">Check my wiring</button>' : "";
+    return '<div class="tool-block"><span class="tool-label">Colour</span><div class="tool-row">' + swatches + "</div></div>" +
+      '<div class="tool-block"><span class="tool-label">Cable</span><div class="tool-row">' + cables + "</div></div>" +
+      '<div class="tool-row">' +
+      '<button type="button" class="btn' + (S.tool === "wire" ? " primary" : "") + '" data-act="tool" data-tool="wire">Wire</button>' +
+      meterModes +
+      '<button type="button" class="btn" data-act="undo">Undo</button>' +
+      check +
+      "</div>" +
+      '<div class="tool-row">' +
+      '<button type="button" class="btn primary" data-act="power">Power up</button>' +
+      '<button type="button" class="btn" data-act="isolate">Isolate</button>' +
+      '<button type="button" class="btn" data-act="fuse">Replace fuse</button>' +
+      '<button type="button" class="btn" data-act="advance" data-sec="1">+1 s</button>' +
+      '<button type="button" class="btn" data-act="advance" data-sec="5">+5 s</button>' +
+      '<button type="button" class="btn' + (S.focusMode ? " primary" : "") + '" data-act="focus-mode">' + (S.focusMode ? "Show all parts" : "One part at a time") + "</button>" +
+      "</div>";
+  }
+  function statusHTML() {
+    var main = "";
+    if (S.tool === "meter") main = esc(S.meter.text || "Meter idle. Tap the red probe terminal.");
+    else if (S.pending) main = "From <strong>" + esc(termName(S.pending)) + "</strong>. Tap the terminal this core lands on. " +
+      '<button type="button" class="btn" data-act="cancel-term">Cancel</button>';
+    else if (S.openPair) main = "Pair started (" + esc(S.openPair) + "). The next core of this cable finishes the pair.";
+    else main = "Tap a terminal, then tap the second terminal. Tap a core in the list to remove it.";
+    if (S.note) main += " " + esc(S.note);
+    return '<div class="wire-status' + (S.pending ? " pending" : "") + '" role="status" aria-live="polite">' + main +
+      '<span class="status-meta">' + esc(colourName(S.colour)) + " · " + esc(cableShort(S.cable)) + "</span></div>";
+  }
+  function jumpHTML() {
+    var cs = (S.world && S.world.components) || [];
+    if (cs.length < 2) return "";
+    var btns = cs.map(function (c) {
+      var on = S.focusMode && S.focusId === c.id ? " primary" : "";
+      return '<button type="button" class="btn' + on + '" data-act="jump" data-id="' + c.id + '">' + esc(E.CATALOGUE[c.type].name) + "</button>";
+    }).join("");
+    var step = "";
+    if (S.focusMode) {
+      step = '<button type="button" class="btn" data-act="focus-step" data-dir="-1">Previous part</button>' +
+        '<button type="button" class="btn" data-act="focus-step" data-dir="1">Next part</button>';
+    }
+    return '<div class="jump no-print"><span class="tool-label">On the bench</span>' + step + btns + "</div>";
+  }
+  function wireListHTML() {
+    var wires = (S.world && S.world.wires) || [];
+    if (!wires.length) return '<div class="wire-list card"><h3>Cores</h3><p>No cores landed yet.</p></div>';
+    var rows = wires.map(function (w) {
+      var pill = "";
+      if (S.wireCheck && S.wireCheck.byId && S.wireCheck.byId[w.id]) {
+        var st = S.wireCheck.byId[w.id];
+        var word = st === "ok" ? "On the drawing" : st === "joint" ? "Joint or reel" : "Not on this drawing";
+        pill = '<span class="pill ' + (st === "ok" ? "ok" : "warn") + '">' + word + "</span>";
+      }
+      var dot = COLOUR_HEX[w.colour] || "#222";
+      return '<button type="button" class="wire-row" data-act="drop-wire" data-id="' + w.id + '">' +
+        '<i class="pip-wire" style="background:' + dot + '"></i><span><strong>Remove</strong> · ' + esc(colourName(w.colour)) + " · " + esc(cableName(w.cable)) +
+        (w.pairId ? " · " + esc(w.pairId) : "") + "<br>" + esc(termName(w.a)) + " → " + esc(termName(w.b)) + "</span>" + pill + "</button>";
+    }).join("");
+    return '<div class="wire-list card"><h3>Cores on the bench</h3><p>Tap a row to take that core off. Undo puts it back.</p>' + rows + "</div>";
+  }
+  function keyboardHTML() {
+    var opts = [];
+    (S.world.components || []).forEach(function (c) {
+      (TERM_LABEL[c.type] || []).forEach(function (t) {
+        opts.push('<option value="' + c.id + "." + t[0] + '">' + esc(E.CATALOGUE[c.type].name + " " + t[1]) + "</option>");
+      });
+    });
+    if (!opts.length) return "";
+    var options = opts.join("");
+    return '<details class="kb-wire card"><summary>Wire with the keyboard</summary>' +
+      "<p>Same cores as tapping. Colour and cable are the ones selected above. Choose two terminals, then add the core.</p>" +
+      '<div class="kb-row"><label>From <select id="kb-from">' + options + '</select></label>' +
+      '<label>To <select id="kb-to">' + options + "</select></label>" +
+      '<button type="button" class="btn primary" data-act="kb-add">Add core</button></div></details>';
+  }
+  function checkHTML() {
+    var c = S.wireCheck;
+    if (!c) return "";
+    var wires = (c.missing || []).map(function (line) { return '<p class="msg bad">Not landed yet: ' + esc(line) + "</p>"; }).join("");
+    var joined = (c.joined || []).map(function (line) { return '<p class="msg warn">Joined through another terminal, not one core: ' + esc(line) + "</p>"; }).join("");
+    var pair = c.pair ? '<p class="msg">' + esc(c.pair) + "</p>" : "";
+    var tests = (c.tests || []).map(function (t) {
+      return '<p class="msg ' + (t.pass ? "ok" : "warn") + '"><strong>' + (t.pass ? "Pass" : "Not yet") + ".</strong> " + esc(t.name) + (t.detail ? " — " + esc(t.detail) : "") + "</p>";
+    }).join("");
+    var note = c.partial ? "<p>Part A is a record of the dangerous circuit. It is not the final mark.</p>" : "";
+    return '<div class="card check-panel" id="check-panel"><h3>Wiring check</h3>' +
+      "<p>This does not record a mark. Each core in the list is marked on the drawing, or not. The lines below are the same electrical checks the marker uses.</p>" +
+      note + pair + wires + joined + tests + "</div>";
+  }
   function boardHTML() {
-    var h = 760;
-    (S.world.components || []).forEach(function (c) { h = Math.max(h, c.y + 250); });
-    var parts = (S.world.components || []).map(deviceHTML).join("");
-    return heroHTML() + toolbarHTML() + trayHTML() +
-      '<div class="board-wrap"><div class="board" id="board" style="height:' + h + 'px">' +
-      '<svg class="wires" id="wires"></svg>' + parts + "</div></div>";
+    var parts = shownComponents().map(deviceHTML).join("");
+    var empty = parts ? "" : '<p class="bench-empty">Add parts from the tray. They stack down the bench.</p>';
+    return heroHTML() +
+      '<div class="wirebar no-print">' + toolbarHTML() + "</div>" +
+      statusHTML() + trayHTML() + jumpHTML() +
+      '<div class="board-wrap"><div class="board" id="board">' +
+      '<svg class="wires" id="wires" aria-hidden="true"></svg>' + empty + parts + "</div></div>" +
+      wireListHTML() + keyboardHTML() + checkHTML();
   }
 
   function asideHTML(extra) {
@@ -3360,9 +3883,7 @@ footer.site { padding: 12px 18px 24px; color: #5c564c; font-size: 14px; }
     var label = "Mark this mission";
     if (S.mission === "p07" && S.p07.stage !== "C") label = "Mark Part A";
     else if (S.mission === "p07") label = "Mark Part C";
-    var extra = "";
-
-    return '<div class="no-print" style="margin-top:8px"><button type="button" class="btn primary" data-act="mark" id="btn-mark">' + label + "</button> " + extra + ' <button type="button" class="btn" data-act="clear-board">Clear board</button></div>';
+    return '<div class="no-print" style="margin-top:8px"><button type="button" class="btn primary" data-act="mark" id="btn-mark">' + label + '</button> <button type="button" class="btn" data-act="clear-board">Clear board</button></div>';
   }
 
   function viewWire() {
@@ -3373,27 +3894,25 @@ footer.site { padding: 12px 18px 24px; color: #5c564c; font-size: 14px; }
         ? "Part C. Fit the fail-safe strike and rebuild the held-energised circuit. Part A is already stored."
         : "Part A. Fail-secure strike, EDRU contact that closes when operated, relay applies power. Mark Part A before you rewire.") + "</p>";
     }
-    if (S.pending) note += '<p class="msg">First terminal selected. Click the terminal it lands on. Click it again to cancel.</p>';
-    if (S.openPair) note += '<p class="msg">Pair started. The next core completes it.</p>';
-    return headBlock(m) + note + '<div class="work"><div>' + boardHTML() + '</div>' + asideHTML("") + "</div>";
+    return headBlock(m) + note + '<div class="work"><div>' + boardHTML() + "</div>" + asideHTML("") + "</div>";
   }
 
   function keypadHTML() {
     var k = S.sim.keypadProg;
     var keys = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "C", "0", "OK"].map(function (n) {
-      return '<button type="button" class="btn" data-act="kp" data-key="' + n + '" style="width:52px;height:42px">' + n + "</button>";
+      return '<button type="button" class="btn kp" data-act="kp" data-key="' + n + '">' + n + "</button>";
     }).join("");
     var menu = "";
     if (k.mode === "menu") {
-      menu = '<div style="margin-top:8px"><button type="button" class="btn" data-act="kp-mode" data-mode="set-master">Change master</button> ' +
+      menu = '<div class="tool-row" style="margin-top:8px"><button type="button" class="btn" data-act="kp-mode" data-mode="set-master">Change master</button> ' +
         '<button type="button" class="btn" data-act="kp-mode" data-mode="add-user">Add user</button> ' +
         '<button type="button" class="btn" data-act="kp-mode" data-mode="set-time">Relay time</button> ' +
         '<button type="button" class="btn" data-act="kp-mode" data-mode="">Leave</button></div>';
     } else {
       menu = '<div style="margin-top:8px"><button type="button" class="btn" data-act="kp-mode" data-mode="need-master">Program</button></div>';
     }
-    return '<p class="kicker">Stand-alone keypad</p><p>' + esc(k.msg || "") + '</p><p style="font-family:Consolas,monospace;font-size:22px;letter-spacing:.2em">' + esc(k.buffer || "—") + "</p>" +
-      '<div style="display:flex;flex-wrap:wrap;gap:4px;width:180px">' + keys + "</div>" + menu +
+    return '<p class="kicker">Stand-alone keypad</p><p>' + esc(k.msg || "") + '</p><p class="kp-buffer">' + esc(k.buffer || "—") + "</p>" +
+      '<div class="kp-grid">' + keys + "</div>" + menu +
       "<p>Master " + (k.changed ? "changed" : "still factory 1234") + ". Users " + k.users.length + ". Relay " + k.relayTime + " s.</p>";
   }
 
@@ -3415,15 +3934,12 @@ footer.site { padding: 12px 18px 24px; color: #5c564c; font-size: 14px; }
       var my = (a.y + b.y) / 2 + Math.min(70, Math.abs(b.x - a.x) * 0.12 + 18);
       var d = "M " + a.x + " " + a.y + " Q " + mx + " " + my + " " + b.x + " " + b.y;
       var col = COLOUR_HEX[wire.colour] || "#222";
-      var sel = S.selected && S.selected.kind === "wire" && S.selected.id === wire.id;
       if (wire.colour === "white" || wire.colour === "yellow") {
-        html += '<path class="vis" d="' + d + '" stroke="#333" stroke-width="6"></path>';
+        html += '<path class="vis" d="' + d + '" stroke="#333" stroke-width="7"></path>';
       }
-      html += '<path class="hit" data-act="pick-wire" data-id="' + wire.id + '" d="' + d + '"></path>';
-      html += '<path class="vis' + (sel ? " sel" : "") + '" d="' + d + '" stroke="' + col + '"></path>';
-      if (wire.pairId) {
-        html += '<text x="' + mx + '" y="' + (my - 6) + '">' + esc(wire.pairId) + "</text>";
-      }
+      html += '<path class="hit" data-act="drop-wire" data-id="' + wire.id + '" d="' + d + '"></path>';
+      html += '<path class="vis" d="' + d + '" stroke="' + col + '"></path>';
+      if (wire.pairId) html += '<text x="' + mx + '" y="' + (my - 8) + '">' + esc(wire.pairId) + "</text>";
     });
     svg.innerHTML = html;
   }
@@ -3437,27 +3953,19 @@ footer.site { padding: 12px 18px 24px; color: #5c564c; font-size: 14px; }
   function onTerm(key) {
     if (S.tool === "meter") {
       if (!S.meter.red || (S.meter.red && S.meter.black)) {
-        S.meter.red = key; S.meter.black = null; S.meter.text = "Red on " + key + ". Click black.";
+        S.meter.red = key; S.meter.black = null; S.meter.text = "Red on " + termName(key) + ". Tap the black probe.";
       } else {
         S.meter.black = key;
         var reading = E.measure(S.world, S.sim, S.meter.red, S.meter.black, S.meter.mode);
-        S.meter.text = reading.text;
+        S.meter.text = "Red " + termName(S.meter.red) + ", black " + termName(key) + " — " + reading.text;
         if (S.meter.mode === "V" && S.commPack) S.commPack.seen.usedMeter = true;
       }
       draw();
       return;
     }
-    if (!S.pending) { S.pending = key; draw(); return; }
-    if (S.pending === key) { S.pending = null; draw(); return; }
-    var pair = null;
-    if (S.cable === "pair" || S.cable === "audio") {
-      if (!S.openPair) { S.openPair = "pair" + S.world.nextPair++; pair = S.openPair; }
-      else { pair = S.openPair; S.openPair = null; }
-    }
-    E.addWire(S.world, S.pending, key, S.colour, S.cable, pair);
-    S.pending = null;
-    S.lastReport = null;
-    draw();
+    if (!S.pending) { S.pending = key; S.note = ""; draw(); return; }
+    if (S.pending === key) { S.pending = null; S.note = "Core cancelled."; draw(); return; }
+    land(S.pending, key);
   }
 
   function operate(id, op) {
@@ -3504,6 +4012,7 @@ footer.site { padding: 12px 18px 24px; color: #5c564c; font-size: 14px; }
 
   function removeSelected() {
     if (!S.selected) return;
+    pushUndo();
     if (S.selected.kind === "wire") E.removeWire(S.world, S.selected.id);
     else E.removeComponent(S.world, S.selected.id);
     S.selected = null;
@@ -3633,7 +4142,7 @@ footer.site { padding: 12px 18px 24px; color: #5c564c; font-size: 14px; }
       '<button type="button" class="btn primary" data-act="fault-submit" id="btn-mark">Submit this board</button>');
     return headBlock(m) + '<p class="msg' + (f.critical ? " crit" : "") + '"><strong>' + esc(f.title) + ".</strong> " + esc(f.symptom) + (f.critical ? " Critical." : "") + "</p>" +
       '<div class="no-print" style="margin-bottom:8px">' + nav + ' <button type="button" class="btn" data-act="fault-restore">Restore this faulty board</button></div>' +
-      '<div class="work"><div>' + boardHTML() + '</div><aside class="aside card"><h3>Diagnosis</h3>' + form +
+      '<div class="work tasks-first"><div>' + boardHTML() + '</div><aside class="aside card"><h3>Diagnosis</h3>' + form +
       '<div style="margin-top:8px"><button type="button" class="btn" data-act="mark">Mark all four</button></div><div id="fault-mark">' + (S.tab === "mark" ? resultHTML() : "") + "</div></aside></div>";
   }
 
@@ -3685,18 +4194,16 @@ footer.site { padding: 12px 18px 24px; color: #5c564c; font-size: 14px; }
       '<button type="button" class="btn primary" data-act="mark" id="btn-mark">Mark commissioning</button>' +
       '<div class="log" style="margin-top:8px">' + (log || "Event log empty.") + "</div>" +
       '<div style="margin-top:8px">' + (S.result ? resultHTML() : "") + "</div>";
-    return headBlock(m) + '<div class="work"><div>' + boardHTML() + '</div><aside class="aside card">' + side + "</aside></div>";
+    return headBlock(m) + '<div class="work tasks-first"><div>' + boardHTML() + '</div><aside class="aside card">' + side + "</aside></div>";
   }
 
   function chainSVG() {
-    return '<svg class="chain" viewBox="0 0 640 92" width="100%" height="92" aria-label="Lock supply in series">' +
-      '<rect x="4" y="28" width="90" height="36" rx="6" fill="#1c3d34"/><text x="49" y="50" text-anchor="middle" fill="white" font-size="12">+12 V</text>' +
-      '<rect x="110" y="22" width="100" height="48" rx="6" fill="#2a2a28"/><text x="160" y="42" text-anchor="middle" fill="white" font-size="11">Net2 Relay 1</text><text x="160" y="58" text-anchor="middle" fill="#e7d7a8" font-size="11">NC when locked</text>' +
-      '<rect x="226" y="22" width="90" height="48" rx="6" fill="#1b5e20"/><text x="271" y="50" text-anchor="middle" fill="white" font-size="12">EDRU NC</text>' +
-      '<rect x="332" y="22" width="110" height="48" rx="6" fill="#b71c1c"/><text x="387" y="50" text-anchor="middle" fill="white" font-size="12">Fire contact</text>' +
-      '<rect x="458" y="22" width="100" height="48" rx="6" fill="#4e342e"/><text x="508" y="50" text-anchor="middle" fill="white" font-size="12">Maglock</text>' +
-      '<path d="M94 46 H110 M210 46 H226 M316 46 H332 M442 46 H458" stroke="#c6a15b" stroke-width="4"/>' +
-      "</svg>";
+    return '<div class="chain-row" role="img" aria-label="Lock supply in series">' +
+      '<span class="chain-box g">+12 V</span>' +
+      '<span class="chain-box d">Net2 Relay 1<small>NC when locked</small></span>' +
+      '<span class="chain-box e">EDRU NC</span>' +
+      '<span class="chain-box f">Fire contact</span>' +
+      '<span class="chain-box m">Maglock</span></div>';
   }
 
   function viewCtrl() {
@@ -3803,7 +4310,7 @@ footer.site { padding: 12px 18px 24px; color: #5c564c; font-size: 14px; }
     if (all) badges += ' <span class="pill ok">Full workshop</span>';
     return '<p class="kicker">Formative record</p><h2>Scoreboard</h2><div class="card"><p>' + esc(S.name || "Name not entered") + (S.className ? " · " + esc(S.className) : "") + "</p>" +
       "<p>" + (badges || "No badges yet.") + "</p>" +
-      "<table><tr><th>No.</th><th>Mission</th><th>J7X2 33</th><th>Best</th><th>Pass</th><th>Tries</th><th>Time</th><th>Date</th></tr>" + rows + "</table>" +
+      "<div class=\"table-wrap\"><table><tr><th>No.</th><th>Mission</th><th>J7X2 33</th><th>Best</th><th>Pass</th><th>Tries</th><th>Time</th><th>Date</th></tr>" + rows + "</table></div>" +
       '<div class="no-print" style="margin-top:10px"><button type="button" class="btn primary" data-act="csv">Export CSV</button> <button type="button" class="btn" data-act="print">Print</button> ' +
       '<button type="button" class="btn bad" data-act="clear">Clear this browser</button>' +
  "</div></div>";
@@ -3838,7 +4345,7 @@ footer.site { padding: 12px 18px 24px; color: #5c564c; font-size: 14px; }
       return "<tr><td>" + esc(m.practical) + "</td><td>" + esc(m.title) + "</td><td>" + esc(m.outcomeShort) + "</td><td>" + (sc.best == null ? "" : sc.best) + "</td><td>" + (sc.passed ? "Pass" : "") + "</td></tr>";
     }).join("");
     document.getElementById("print-sheet").innerHTML =
-      "<h1>The Access Control Lab — Student edition · formative record</h1><p>J7X2 33 Access Control Systems Installation · New College Lanarkshire · Tutor: Derek McInally</p>" +
+      "<h1>The Access Control Lab — " + (EDITION === "classroom" ? "Classroom edition" : "Student edition") + " · formative record</h1><p>J7X2 33 Access Control Systems Installation · New College Lanarkshire · " + (EDITION === "classroom" ? "Lecturer" : "Tutor") + ": Derek McInally</p>" +
       "<p>Apprentice: " + esc(S.name || "") + " · Class: " + esc(S.className || "") + " · " + new Date().toISOString().slice(0, 10) + "</p>" +
       "<p>This printout is formative practice evidence. It is not the closed-book summative assessment.</p>" +
       "<table><tr><th>No.</th><th>Mission</th><th>Outcome</th><th>Best</th><th></th></tr>" + rows + "</table>";
@@ -3909,11 +4416,97 @@ footer.site { padding: 12px 18px 24px; color: #5c564c; font-size: 14px; }
       return;
     }
     var act = t.getAttribute("data-act");
+    if (act === "undo") { undo(); return; }
+    if (act === "check-wire") { checkWiring(); return; }
+    if (act === "cable-set") { S.cable = t.getAttribute("data-cable"); S.openPair = null; S.note = ""; draw(); return; }
+    if (act === "cancel-term") { S.pending = null; S.note = "Core cancelled."; draw(); return; }
+    if (act === "drop-wire") {
+      if (!S.world) return;
+      pushUndo();
+      E.removeWire(S.world, t.getAttribute("data-id"));
+      S.wireCheck = null; S.lastReport = null; S.note = "Core removed.";
+      draw(); return;
+    }
+    if (act === "remove-comp") {
+      if (!S.world) return;
+      pushUndo();
+      E.removeComponent(S.world, t.getAttribute("data-id"));
+      if (S.focusId === t.getAttribute("data-id")) S.focusId = null;
+      S.wireCheck = null; S.lastReport = null; S.note = "Part removed, and its cores with it.";
+      draw(); return;
+    }
+    if (act === "nudge") {
+      var nid = t.getAttribute("data-id");
+      var dir = +t.getAttribute("data-dir");
+      var ix = -1;
+      S.world.components.forEach(function (c, idx) { if (c.id === nid) ix = idx; });
+      var jx = ix + dir;
+      if (ix < 0 || jx < 0 || jx >= S.world.components.length) return;
+      pushUndo();
+      var tmp = S.world.components[ix];
+      S.world.components[ix] = S.world.components[jx];
+      S.world.components[jx] = tmp;
+      draw(); return;
+    }
+    if (act === "focus-mode") {
+      S.focusMode = !S.focusMode;
+      if (S.focusMode && S.world && S.world.components[0] && !byId(S.focusId)) S.focusId = S.world.components[0].id;
+      draw(); return;
+    }
+    if (act === "focus-step") {
+      var fcs = S.world.components || [];
+      if (!fcs.length) return;
+      var fi = 0;
+      fcs.forEach(function (c, idx) { if (c.id === S.focusId) fi = idx; });
+      fi = Math.max(0, Math.min(fcs.length - 1, fi + (+t.getAttribute("data-dir") || 0)));
+      S.focusId = fcs[fi].id;
+      draw(); return;
+    }
+    if (act === "jump") {
+      var jid = t.getAttribute("data-id");
+      if (S.focusMode) { S.focusId = jid; draw(); }
+      var jel = document.getElementById("dev-" + jid);
+      if (jel) jel.scrollIntoView({ behavior: "smooth", block: "center" });
+      return;
+    }
+    if (act === "kb-add") {
+      var fromEl = document.getElementById("kb-from");
+      var toEl = document.getElementById("kb-to");
+      if (fromEl && toEl) land(fromEl.value, toEl.value);
+      return;
+    }
+    if (act === "mode") {
+      if (EDITION !== "classroom") return;
+      if (S.lecturer) {
+        S.lecturer = false;
+        try { sessionStorage.removeItem("ncl-acl-lecturer"); } catch (err) {}
+        paintNav(); draw(); return;
+      }
+      var pinRow = document.getElementById("pin-row");
+      if (pinRow) pinRow.hidden = !pinRow.hidden;
+      var pinInput = document.getElementById("pin-input");
+      if (pinInput && pinRow && !pinRow.hidden) pinInput.focus();
+      return;
+    }
+    if (act === "pin-go") {
+      var pinEl = document.getElementById("pin-input");
+      var pinMsg = document.getElementById("pin-msg");
+      var got = pinEl && M.sha256 ? M.sha256(pinEl.value) : "";
+      if (PIN_HASH && got === PIN_HASH) {
+        S.lecturer = true;
+        try { sessionStorage.setItem("ncl-acl-lecturer", "1"); } catch (err2) {}
+        if (pinEl) pinEl.value = "";
+        var pinRow2 = document.getElementById("pin-row");
+        if (pinRow2) pinRow2.hidden = true;
+        paintNav(); draw();
+      } else if (pinMsg) pinMsg.textContent = "That PIN is not the lecturer PIN.";
+      return;
+    }
     if (act === "nav") go(t.getAttribute("data-id"));
     else if (act === "add") { S.arm = t.getAttribute("data-type"); placePart(S.arm); S.arm = null; }
     else if (act === "colour") { S.colour = t.getAttribute("data-colour"); draw(); }
     else if (act === "tool") { S.tool = t.getAttribute("data-tool"); S.pending = null; draw(); }
-    else if (act === "meter-mode") { S.tool = "meter"; S.meter.mode = t.getAttribute("data-mode"); S.meter.red = null; S.meter.black = null; S.meter.text = "Click the red probe terminal."; draw(); }
+    else if (act === "meter-mode") { S.tool = "meter"; S.meter.mode = t.getAttribute("data-mode"); S.meter.red = null; S.meter.black = null; S.meter.text = "Tap the red probe terminal."; draw(); }
     else if (act === "term") onTerm(t.getAttribute("data-term"));
     else if (act === "power") doPower(true);
     else if (act === "isolate") doPower(false);
@@ -4046,7 +4639,10 @@ footer.site { padding: 12px 18px 24px; color: #5c564c; font-size: 14px; }
     S.drag = null;
   });
   document.addEventListener("keydown", function (e) {
-    if (e.key === "Delete" && S.selected && !e.target.matches("input, textarea")) removeSelected();
+    if (e.target && e.target.matches && e.target.matches("input, textarea, select")) return;
+    if ((e.ctrlKey || e.metaKey) && (e.key === "z" || e.key === "Z")) { e.preventDefault(); undo(); return; }
+    if (e.key === "Escape") { S.pending = null; S.openPair = null; S.note = "Core cancelled."; draw(); return; }
+    if (e.key === "Delete" && S.selected) removeSelected();
   });
   document.addEventListener("dragstart", function (e) {
     var chip = e.target.closest("[data-fn]");
@@ -4082,9 +4678,11 @@ footer.site { padding: 12px 18px 24px; color: #5c564c; font-size: 14px; }
 
   function boot() {
     loadStore();
+    try { S.lecturer = EDITION === "classroom" && sessionStorage.getItem("ncl-acl-lecturer") === "1"; } catch (e) { S.lecturer = false; }
     S.sim = freshSim();
     S.world = E.createWorld();
     renderShell();
+    window.addEventListener("resize", function () { layoutWires(); });
   }
 
   window.Lab = {
