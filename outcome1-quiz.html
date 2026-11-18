@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b1422">
+<title>Access Granted: Outcome 1 Quiz · J7X2 33 Access Control</title>
+<meta name="description" content="Self-marking Outcome 1 quiz for J7X2 33 Access Control Systems Installation, New College Lanarkshire.">
+<style>:root{--bg:#0b1422;--panel:#14223a;--panel2:#1b2d4b;--line:#34507a;--text:#eef3fa;--muted:#b3c2d6;--green:#2ecc71;--red:#ff6b6b;--amber:#ffb020;--blue:#5aa9ff;}
+*{box-sizing:border-box}
+html{font-size:clamp(16px,0.55vw + 13px,21px);-webkit-text-size-adjust:100%}
+body{margin:0;background:radial-gradient(1200px 600px at 50% -200px,#1d3358,var(--bg));background-color:var(--bg);color:var(--text);font-family:Calibri,"Segoe UI",Arial,sans-serif;line-height:1.4;min-height:100vh;overflow-wrap:break-word}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.wrap{max-width:760px;margin:0 auto;padding:12px 14px 40px}
+header.top{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 0 10px}
+.brand{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--text);font-weight:700;letter-spacing:.04em;min-height:44px}
+.brand svg{width:30px;height:30px;color:var(--green)}
+.brand small{display:block;font-weight:400;color:var(--muted);letter-spacing:0;font-size:.75rem}
+.iconbtn{display:inline-flex;align-items:center;gap:6px;min-height:44px;min-width:44px;padding:6px 12px;border-radius:12px;border:1px solid var(--line);background:var(--panel);cursor:pointer;font-size:.85rem}
+.iconbtn svg{width:20px;height:20px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:16px;margin:14px 0;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+h1{font-size:2rem;line-height:1.05;margin:4px 0 6px;letter-spacing:.02em}
+h1 .g{color:var(--green)}
+h2{font-size:1.2rem;margin:0 0 10px}
+h3{font-size:1rem;margin:4px 0 8px;color:var(--muted)}
+.muted{color:var(--muted)}
+.hero{display:flex;gap:14px;align-items:center}
+.hero .door{flex:0 0 96px}
+label{font-weight:700;display:block;margin-bottom:6px}
+input[type=text],select{width:100%;min-height:48px;border-radius:12px;border:2px solid var(--line);background:#0e1a2d;padding:8px 12px;font-size:1.05rem}
+.err{color:var(--red);margin:6px 0 0;font-weight:700}
+.modes{display:grid;gap:12px;grid-template-columns:1fr}
+@media(min-width:700px){.modes{grid-template-columns:repeat(3,1fr)}}
+.mode{display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;min-height:44px;padding:14px;border-radius:16px;border:2px solid var(--line);background:linear-gradient(160deg,var(--panel2),#13223a);cursor:pointer;transition:transform .15s,border-color .15s}
+.mode:hover,.mode:focus-visible{border-color:var(--amber);transform:translateY(-2px)}
+.mode b{font-size:1.15rem}.mode .mi{display:flex;align-items:center;gap:8px}
+.mode .mi svg{width:26px;height:26px}
+.mode span.d{color:var(--muted);font-size:.92rem}
+.mode.quick .mi svg{color:var(--amber)}.mode.mission .mi svg{color:var(--green)}.mode.practice .mi svg{color:var(--blue)}
+.practice-pick{margin-top:8px}
+.boards{display:grid;gap:12px;grid-template-columns:1fr}
+@media(min-width:600px){.boards{grid-template-columns:1fr 1fr}}
+.board{list-style:none;margin:0;padding:0}
+.board li{display:grid;grid-template-columns:28px 1fr auto auto;gap:8px;align-items:center;padding:6px 8px;border-radius:8px;background:#0f1c30;margin-bottom:4px}
+.board .pos{font-weight:700;color:var(--amber)}.board .bs{font-weight:700}.board .bp{color:var(--muted)}
+.board .bn{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* HUD */
+.hud{position:sticky;top:0;z-index:5;background:rgba(11,20,34,.96);border-bottom:1px solid var(--line);margin:0 -14px;padding:8px 14px;backdrop-filter:blur(4px)}
+.hudrow{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.hudrow .grow{flex:1;min-width:0;font-size:.85rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.stat{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:999px;background:var(--panel2);font-weight:700;min-height:32px}
+.stat svg{width:18px;height:18px}
+#hudStreak svg{color:#ff8a3d}
+.score b{color:var(--amber)}
+#hudShields{display:inline-flex;gap:2px}#hudShields .sh svg{width:20px;height:20px;color:#3b4c66}#hudShields .sh.on svg{color:var(--blue)}
+.prog{height:8px;background:#22324d;border-radius:99px;overflow:hidden;margin-top:6px}
+.prog i{display:block;height:100%;background:linear-gradient(90deg,var(--green),var(--blue));width:0;transition:width .4s}
+.progtext{font-size:.75rem;color:var(--muted);margin-top:2px}
+#quitBtn{min-height:44px;font-size:.8rem;padding:4px 10px}
+.timer{display:flex;align-items:center;gap:8px;margin:10px 0 0}
+.timer .tb{flex:1;height:12px;background:#22324d;border-radius:99px;overflow:hidden}
+.timer .tb i{display:block;height:100%;background:var(--amber);width:100%}
+.timer .tb i.low{background:var(--red)}
+#timerText{font-weight:700;min-width:3ch;text-align:right}
+/* door */
+.stage{display:flex;align-items:center;gap:12px;margin:10px 0 0}
+.door{width:72px;flex:0 0 72px}
+.doorsvg{width:100%;height:auto;display:block}
+.doorsvg .led{fill:var(--amber)}
+.doorsvg.open .led{fill:#2ef07a}.doorsvg.denied .led{fill:#ff3b3b}
+.doorsvg .leaf{transform-origin:22px 50%;transition:transform .5s ease}
+.doorsvg.open .leaf{transform:scaleX(.35)}
+.door.denied.anim{animation:shake .4s}
+.door.open.anim .led,.door.denied.anim .led{animation:blink .5s 2}
+@keyframes shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+@keyframes blink{50%{opacity:.25}}
+.qmeta{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px}
+.chip{display:inline-block;font-size:.75rem;padding:3px 9px;border-radius:99px;background:#22324d;color:var(--muted)}
+.chip.type{background:#2b2350;color:#d8ccff}
+.scen-tag{display:inline-block;background:var(--amber);color:#1a1200;font-weight:700;font-size:.75rem;padding:3px 10px;border-radius:6px;margin-bottom:6px;letter-spacing:.08em}
+.qtext{font-size:1.2rem;line-height:1.3;margin:4px 0 12px}
+.qtext:focus{outline:none}
+.hint{color:var(--muted);font-size:.9rem;margin:0 0 8px}
+.opts{display:grid;gap:10px}
+.opts.tf{grid-template-columns:1fr 1fr}
+.opt{display:flex;align-items:center;gap:10px;width:100%;min-height:52px;text-align:left;padding:10px 12px;border-radius:14px;border:2px solid var(--line);background:var(--panel2);cursor:pointer;font-size:1rem}
+.opts.tf .opt{justify-content:center;font-size:1.15rem;font-weight:700;min-height:64px}
+.opt:hover:not(:disabled){border-color:var(--amber)}
+.opt .key{flex:0 0 30px;height:30px;border-radius:8px;background:#0e1a2d;display:inline-flex;align-items:center;justify-content:center;font-weight:700;color:var(--amber)}
+.opt.multi .tick{flex:0 0 26px;height:26px;border-radius:6px;border:2px solid var(--muted)}
+.opt.multi.on{border-color:var(--amber);background:#2d3a28}
+.opt.multi.on .tick{background:var(--amber);border-color:var(--amber);box-shadow:inset 0 0 0 4px #2d3a28}
+.opt:disabled{cursor:default}
+.opt.right,.def.right,.oitem.right,.hsb.right{border-color:var(--green)!important;background:#12432c!important}
+.opt.wrong,.def.wrong,.oitem.wrong,.hsb.wrong{border-color:var(--red)!important;background:#4a1a22!important}
+.opt.missed{border-style:dashed!important;border-color:var(--green)!important}
+.opt.right::after{content:"✓";margin-left:auto;color:var(--green);font-weight:700;font-size:1.2rem}
+.opt.wrong::after{content:"✗";margin-left:auto;color:var(--red);font-weight:700;font-size:1.2rem}
+.opt.missed::after{content:"missed";margin-left:auto;color:var(--green);font-size:.8rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:48px;padding:10px 18px;border-radius:14px;border:2px solid var(--line);background:var(--panel2);cursor:pointer;font-weight:700;font-size:1rem}
+.btn.primary{background:var(--green);border-color:var(--green);color:#04210f}
+.btn.primary:disabled{background:#2a3a52;border-color:#2a3a52;color:#8798ae;cursor:not-allowed}
+.btn.ghost{background:transparent}
+.btn.small{min-height:44px;font-size:.85rem;margin-top:10px}
+.check{width:100%;margin-top:12px}
+.row{display:flex;gap:10px;margin-top:12px}.row .btn{flex:1}.row.wrap{flex-wrap:wrap}
+/* match */
+.match{display:grid;gap:12px}
+@media(min-width:700px){.match{grid-template-columns:minmax(0,2fr) minmax(0,3fr);align-items:start}}
+.terms{display:flex;flex-wrap:wrap;gap:8px}
+@media(min-width:700px){.terms{flex-direction:column}}
+.term{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:8px 12px;border-radius:12px;border:2px solid var(--line);background:#0e1a2d;cursor:pointer;font-weight:700;text-align:left}
+.term .dot{width:14px;height:14px;border-radius:50%;border:2px solid var(--muted);flex:0 0 14px}
+.term.paired .dot{background:var(--pc);border-color:var(--pc)}
+.term.paired{opacity:.75}
+.term.sel{border-color:var(--amber);background:#3a2e10;opacity:1;box-shadow:0 0 0 3px rgba(255,176,32,.3)}
+.defs{display:grid;gap:8px}
+.def{display:flex;flex-direction:column;align-items:flex-start;gap:4px;width:100%;min-height:52px;text-align:left;padding:10px 12px;border-radius:12px;border:2px solid var(--line);background:var(--panel2);cursor:pointer}
+.def.paired{border-color:var(--pc)}
+.def .tag:empty{display:none}
+.def .tag{font-size:.78rem;font-weight:700;padding:2px 8px;border-radius:99px;background:var(--pc);color:#0b1422}
+.def .res:empty{display:none}.def .res{font-weight:700;font-size:.85rem}
+.def.right .res{color:var(--green)}.def.wrong .res{color:#ffb3b3}
+/* order */
+.order{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.oitem{display:flex;align-items:center;gap:10px;padding:8px 8px 8px 10px;border-radius:12px;border:2px solid var(--line);background:var(--panel2);flex-wrap:wrap}
+.oitem.moved{border-color:var(--amber)}
+.onum{flex:0 0 30px;height:30px;border-radius:50%;background:#0e1a2d;color:var(--amber);font-weight:700;display:flex;align-items:center;justify-content:center}
+.otext{flex:1;min-width:0}
+.obtns{display:flex;gap:6px}
+.mv{width:44px;height:44px;border-radius:10px;border:2px solid var(--line);background:#0e1a2d;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.mv svg{width:22px;height:22px}.mv:disabled{opacity:.3;cursor:default}
+.ores{flex-basis:100%;font-size:.85rem;color:#ffb3b3;padding-left:40px}
+/* hotspot */
+.diagram{margin:0}
+.diagram svg{width:100%;height:auto;display:block;border-radius:12px;max-height:60vh}
+.diagram figcaption{font-size:.8rem;color:var(--muted);margin-top:4px;text-align:center}
+.hs{cursor:pointer}
+.hs .hit{fill:rgba(255,176,32,.06);stroke:rgba(255,176,32,.55);stroke-width:2;stroke-dasharray:6 4}
+.hs:hover .hit,.hs:focus .hit{fill:rgba(255,176,32,.22);stroke:var(--amber);stroke-dasharray:none}
+.hs:focus{outline:none}
+.hs .badge circle{fill:var(--amber)}.hs .badge text{font-weight:700;font-size:15px;fill:#1a1200;font-family:Calibri,"Segoe UI",Arial,sans-serif}
+.hs .orgbox{fill:#2a3d55;stroke:#c4ccd6;stroke-width:2}
+.hs .rev{display:none;font-size:12px;font-weight:700;fill:#fff;paint-order:stroke;stroke:#0b1422;stroke-width:3px;font-family:Calibri,"Segoe UI",Arial,sans-serif}
+.revealed .hs .rev{display:inline}
+.hs.right .hit{fill:rgba(46,204,113,.35);stroke:var(--green);stroke-dasharray:none;stroke-width:4}
+.hs.wrong .hit{fill:rgba(255,107,107,.35);stroke:var(--red);stroke-dasharray:none;stroke-width:4}
+.hs.key .keycap{fill:#0e1a2d;stroke:#8fa7c4;stroke-width:2}
+.hs.key .keytxt{font-size:30px;font-weight:700;fill:#eef3fa;font-family:Calibri,"Segoe UI",Arial,sans-serif}
+.hs.key:hover .keycap,.hs.key:focus .keycap{stroke:var(--amber);stroke-width:4}
+.hs.key.right .keycap{fill:#12432c;stroke:var(--green);stroke-width:4}
+.hs.key.wrong .keycap{fill:#4a1a22;stroke:var(--red);stroke-width:4}
+.diagram svg:has(.keycap){max-width:280px;margin:0 auto}
+.hsbtns{display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:8px;margin-top:10px}
+.hsb{min-height:48px;border-radius:12px;border:2px solid var(--line);background:var(--panel2);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4px}
+.hsb b{font-size:1.1rem;color:var(--amber)}
+.hsb .hsn:empty{display:none}.hsb .hsn{font-size:.7rem;line-height:1.1;text-align:center}
+.hsbtns:has(.hsn:not(:empty)){grid-template-columns:repeat(auto-fill,minmax(130px,1fr))}
+/* feedback */
+.feedback{margin-top:14px;border-radius:16px;padding:14px;border:2px solid}
+.feedback.good{background:#0f3a25;border-color:var(--green)}
+.feedback.bad{background:#3c141b;border-color:var(--red)}
+.feedback.pop{animation:pop .35s ease}
+@keyframes pop{0%{transform:scale(.96);opacity:0}100%{transform:scale(1);opacity:1}}
+.stamp{display:inline-block;font-weight:800;letter-spacing:.12em;font-size:1.15rem;padding:4px 12px;border:3px solid;border-radius:8px;transform:rotate(-2deg)}
+.good .stamp{color:#7dffb0}.bad .stamp{color:#ffb3b3}
+.pts{font-weight:700;color:var(--amber);margin-top:8px}.pts small{color:var(--muted);font-weight:400;margin-left:4px}
+.corr{margin-top:8px}
+.expl{margin:8px 0 12px}
+.next{width:100%}
+/* round */
+.roundbox{text-align:center}
+.bigdoor{width:120px;margin:0 auto}
+.stars{display:flex;justify-content:center;gap:6px;margin:6px 0}
+.stars svg{width:40px;height:40px;color:#3b4c66}.stars .on svg{color:#ffd36b}
+.rtopic{font-size:1.1rem}
+/* end */
+.resultcard{background:linear-gradient(160deg,#1b2d4b,#0f1c30);border:2px solid var(--amber)}
+.rc-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.rc-unit{font-size:.75rem;color:var(--muted);letter-spacing:.05em}
+.rc-name{font-size:1.6rem;font-weight:800}
+.rc-meta{font-size:.85rem;color:var(--muted)}
+.rc-rank{font-size:1.7rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin:4px 0 8px}
+.rc-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;text-align:center}
+.rc-stats div{background:#0e1a2d;border-radius:10px;padding:6px 2px}
+.rc-stats b{display:block;font-size:1.25rem}.rc-stats span{font-size:.7rem;color:var(--muted)}
+.rc-topics{display:grid;gap:4px;margin-top:10px}
+.rct{display:grid;grid-template-columns:minmax(0,7.5rem) 1fr 3rem;gap:8px;align-items:center;font-size:.85rem}
+.rct span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rct b{text-align:right}
+.bar{display:block;height:10px;border-radius:99px;background:#22324d;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--green)}
+.rc-badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.bdg{display:inline-flex;align-items:center;gap:4px;background:#3a2e10;color:#ffd36b;padding:3px 10px;border-radius:99px;font-size:.8rem;font-weight:700}
+.bdg svg{width:14px;height:14px}
+.rc-foot{margin-top:10px;font-size:.75rem;color:var(--muted);text-align:center}
+.rankmsg{font-size:1.05rem}
+.breakdown{display:grid;gap:10px}
+.bd{padding:10px;border-radius:12px;background:#0f1c30;border:1px solid var(--line)}
+.bd.weak{border-color:var(--red)}
+.bdh{display:flex;justify-content:space-between;gap:8px;margin-bottom:6px;flex-wrap:wrap}
+.bd .bar i{background:var(--green)}.bd.weak .bar i{background:var(--red)}
+.bd .rev{font-size:.85rem;color:#ffc9c9;margin-top:6px}.bd .okmsg{font-size:.85rem;color:var(--green);margin-top:6px}
+.rv{border-top:1px solid var(--line);padding:10px 0}
+.rv:first-of-type{border-top:0}
+.rvq{font-weight:700;margin-bottom:4px}
+.rvy{color:#ffc9c9}.rvc{color:#a8f5c6}.rvx{color:var(--muted);font-size:.92rem;margin-top:4px}
+footer.foot{font-size:.75rem;color:var(--muted);text-align:center;margin-top:24px}
+@media(min-width:1000px){.wrap{max-width:900px}}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+[hidden]{display:none!important}
+h1[tabindex="-1"]:focus,h2[tabindex="-1"]:focus{outline:none}
+.diagram svg{max-width:560px;margin:0 auto}
+.stage .door{width:52px;flex:0 0 52px}
+@media(max-width:520px){.obtns{flex-direction:column}.oitem{padding:6px 6px 6px 8px;gap:8px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <a href="#" class="brand" id="homeLink" aria-label="Access Granted quiz home">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="7.5" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M12 12h10M18 12v4M21 12v3" stroke="currentColor" stroke-width="2.5"/></svg>
+    <span>ACCESS GRANTED<small>J7X2 33 · Outcome 1</small></span></a>
+  <button type="button" class="iconbtn" id="soundBtn" aria-pressed="false" aria-label="Sound effects"></button>
+</header>
+<div id="live" class="sr" aria-live="polite"></div>
+
+<main>
+<section class="screen" id="home" hidden>
+  <div class="card">
+    <div class="hero"><div class="door" id="heroDoor" aria-hidden="true"></div>
+      <div><h1 id="homeHH">Can you get <span class="g">ACCESS GRANTED?</span></h1>
+      <p class="muted" style="margin:0">Outcome 1: standards, codes of practice, purpose, classification, inspectorates and legislation. <span id="qcount"></span> questions. Every right answer unlocks a door.</p></div></div>
+  </div>
+  <div class="card">
+    <label for="name">Your first name</label>
+    <input type="text" id="name" maxlength="20" autocomplete="given-name" autocapitalize="words" spellcheck="false" placeholder="e.g. Jamie" aria-describedby="nameNote">
+    <p id="nameNote" class="muted" style="font-size:.85rem;margin:6px 0 0">First name only. It stays on this device and is only used for your results card and the high-score table.</p>
+    <p id="nameErr" class="err" hidden>Pop your first name in to start.</p>
+  </div>
+  <h2 id="homeH" tabindex="-1">Choose your mission</h2>
+  <div class="modes">
+    <button type="button" class="mode quick" data-mode="quick"><span class="mi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z" fill="currentColor"/></svg><b>Quick Fire</b></span><span class="d">10 random questions against the clock. Answer fast for speed bonus points.</span></button>
+    <button type="button" class="mode mission" data-mode="mission"><span class="mi"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="1" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="15" cy="12" r="1.6" fill="currentColor"/></svg><b>Full Mission</b></span><span class="d">7 doors, one per Outcome 1 topic, 5 questions each. Earn stars and keep your 3 shields.</span></button>
+    <button type="button" class="mode practice" data-mode="practice"><span class="mi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h7a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H4zM20 4h-5a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h6z" fill="none" stroke="currentColor" stroke-width="2"/></svg><b>Practice</b></span><span class="d">No timer and no pressure. Pick a topic below, then tap here.</span></button>
+  </div>
+  <div class="card practice-pick"><label for="topicSel">Practice topic</label><select id="topicSel"></select></div>
+  <div class="card"><h2>High scores <small class="muted" style="font-weight:400">(this device only)</small></h2><div id="boards"></div></div>
+  <div class="card"><h2>How it works</h2><ul class="muted" style="margin:0;padding-left:1.2em">
+    <li>Six question types: multiple choice, true or false, select all, tap-to-match, put in order and label the diagram, plus site scenarios.</li>
+    <li>Every answer is marked straight away with a short explanation from your notes.</li>
+    <li>Streaks earn bonus points. In Full Mission, a shield protects your streak from one wrong answer, and you win one back for every 5 in a row.</li>
+    <li>At the end you get your rank (Visitor, Keyholder, Supervisor or Master Key), topics to revise, and a results card to screenshot for your lecturer.</li></ul></div>
+</section>
+
+<section class="screen" id="play" hidden>
+  <div class="hud">
+    <div class="hudrow"><span class="grow" id="hudMode"></span>
+      <span class="stat score" aria-label="Score"><b id="hudScore">0</b>&nbsp;pts</span>
+      <span class="stat" id="hudStreak"></span><span class="stat" id="hudShields"></span>
+      <button type="button" class="iconbtn" id="quitBtn">End</button></div>
+    <div class="prog" id="prog" role="progressbar" aria-label="Quiz progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="progFill"></i></div>
+    <div class="progtext" id="progText"></div>
+    <div class="timer" id="timer" hidden><span class="tb" aria-hidden="true"><i id="timerFill"></i></span><span id="timerText" aria-label="Seconds left"></span></div>
+  </div>
+  <div class="stage"><div class="door" id="door" aria-hidden="true"></div><div class="muted" style="font-size:.85rem">Answer correctly to unlock the door.</div></div>
+  <div class="card" id="qbox"></div>
+  <div id="feedback" class="feedback" hidden role="status"></div>
+</section>
+
+<section class="screen" id="round" hidden><div class="card roundbox" id="roundBox"></div></section>
+
+<section class="screen" id="end" hidden><h1 id="endH" tabindex="-1" style="font-size:1.6rem">Mission debrief</h1><div id="endBox"></div></section>
+</main>
+<footer class="foot">New College Lanarkshire · PDA Electronic Fire &amp; Security · J7X2 33 Access Control Systems Installation, Outcome 1. Based on the Outcome 1 learner notes. Works offline. Nothing leaves this device.</footer>
+</div>
+<script>/* Question bank — J7X2 33 Outcome 1. Convention: for "mc" the FIRST option is correct (shuffled at runtime).
+   multi: a = indices of correct options. order: items listed in the correct order. match: [term, description] pairs. */
+const TOPICS = {
+  design:   {name:"Design & Installation", short:"Design", notes:"Notes sections 1–2: What is an ACS? / Installation and design", door:1},
+  standards:{name:"Standards & Codes of Practice", short:"Standards", notes:"Notes section 3: Current industry standards and codes of practice", door:2},
+  ncp:      {name:"Threat, People Flow & Evacuation", short:"NCP 109 risk", notes:"Notes section 4: NCP 109 threat assessment, people flow and emergency evacuation", door:3},
+  purpose:  {name:"Purpose of Access Control", short:"Purpose", notes:"Notes section 5: Purpose of access control security systems", door:4},
+  classes:  {name:"System Classifications", short:"Classes", notes:"Notes section 6: System classifications", door:5},
+  bodies:   {name:"Inspectorates & Trade Bodies", short:"NSI/SSAIB/BSIA", notes:"Notes section 7: Trade associations and inspectorate bodies", door:6},
+  law:      {name:"Legislation & the Equality Act", short:"Legislation", notes:"Notes section 8: Current legislation", door:7}
+};
+const BANK = [
+/* ---------- DESIGN & INSTALLATION ---------- */
+{id:"d01",t:"design",type:"mc",q:"NCP 109 says an access control system consists of credential recognition equipment and user interfaces, electronically activated entrance release hardware and, in certain systems, what else?",
+ o:["A means of central control and/or monitoring","A fire alarm control panel","A CCTV video recorder","An intruder alarm sounder"],
+ x:"NCP 109 describes an ACS as credential recognition equipment and user interfaces, electronically activated release hardware and, in certain systems, a means of central control and/or monitoring."},
+{id:"d02",t:"design",type:"hotspot",d:"acs",a:"acu",q:"Tap the part that processes the data from the reader and DECIDES whether to grant or deny access.",
+ x:"The access control unit (ACU), or controller, processes data from the reader and makes the decision to grant or deny access."},
+{id:"d03",t:"design",type:"hotspot",d:"acs",a:"contact",q:"Tap the sensor that monitors the door for open, forced and held-open conditions.",
+ x:"The door contact is the sensor that monitors open, forced and held-open conditions."},
+{id:"d04",t:"design",type:"hotspot",d:"acs",a:"rex",q:"Tap the request-to-exit (REX) device.",
+ x:"Request-to-exit (REX) devices are listed with the sensors in the main components. They let a person on the inside signal that they want to leave."},
+{id:"d05",t:"design",type:"match",q:"Match each key term from the standards to its meaning.",
+ p:[["Credential","A token, memorised information or biometric used to identify a person"],["Access level","The rules deciding where and when a credential is allowed through"],["Time zone","A period when operating rules change, e.g. no access outside working hours"],["Degraded mode","Not all processing rules are being applied, e.g. after a communications failure"]],
+ x:"These definitions are summarised from NCP 109 Issue 3 (clause 3) and BS EN 60839-11-2 (clause 3)."},
+{id:"d06",t:"design",type:"order",q:"Put the BS EN 60839-11-2 sequence for providing an access control system in order (first at the top).",
+ o:["Risk assessment and security grading","System and component selection","Operational considerations","System installation","System handover","System operation and maintenance"],
+ x:"BS EN 60839-11-2 lists: risk assessment and security grading → system and component selection → operational considerations → installation → handover → operation and maintenance."},
+{id:"d07",t:"design",type:"mc",q:"How often does NCP 109 Issue 3 require preventive maintenance?",
+ o:["Every 12 months (± 1 month) from the month of commissioning","Every 6 months from the date of handover","Every 3 years","Only when the customer reports a fault"],
+ x:"Preventive maintenance is every twelve months (plus or minus one month) from the month of commissioning. The risk assessment or environment may call for more often."},
+{id:"d09",t:"design",type:"tf",a:false,q:"Default passwords can be left in place at handover, as long as the customer is told what they are.",
+ x:"False. NCP 109 says default passwords must be changed before handover."},
+{id:"d10",t:"design",type:"multi",q:"Which of these are commissioning checks required by NCP 109? Select ALL that apply.",
+ o:["Emergency release works, including under fire alarm conditions","Standby power duration","Unused network ports and protocols are closed","Release times","The customer's buildings insurance policy","The colour of the door paint"],a:[0,1,2,3],
+ x:"Commissioning checks include terminations, voltages and resistances, door hardware alignment, emergency release (including under fire alarm), reader operation, release times, event notifications, standby power duration, software versions and closing unused network ports."},
+{id:"d11",t:"design",type:"mc",s:true,q:"You are installing the mains supply for an ACS power supply unit in an office. What does NCP 109 expect?",
+ o:["A dedicated, un-switched fused spur, with the PSU in a controlled area secure from tampering","Plug the PSU into the nearest double socket","A switched spur beside the door on the public side so it is easy to isolate","Take the supply from the lighting circuit"],
+ x:"NCP 109 asks for a dedicated, un-switched fused spur, with power supplies located in controlled areas and secure from tampering."},
+{id:"d13",t:"design",type:"mc",s:true,q:"A client wants the system to raise an alert AND refuse entry when a card is used to get in a second time without being used to leave. Which feature do you recommend?",
+ o:["Hard anti-pass back","Soft anti-pass back","Degraded mode","A longer release time"],
+ x:"Anti-pass back stops a credential being used to enter again before it has left. Soft only raises an alert. Hard raises an alert AND denies further access."},
+/* ---------- STANDARDS & CODES ---------- */
+{id:"s01",t:"standards",type:"mc",q:"Which part of the BS EN 60839-11 series gives APPLICATION GUIDELINES for planning, installation, commissioning, maintenance and documentation?",
+ o:["BS EN 60839-11-2:2015","BS EN 60839-11-1:2013","BS EN IEC 60839-11-5:2020","BS 8418:2021"],
+ x:"BS EN 60839-11-2:2015 is the application guidelines part. Part 11-1 covers system and component requirements."},
+{id:"s02",t:"standards",type:"mc",q:"What does BS EN 60839-11-1:2013 cover?",
+ o:["System and component requirements: minimum functionality, performance and test methods","Remotely monitored CCTV systems","The electrical actuation of door releases in a fire","Panic exit devices for public areas"],
+ x:"Part 11-1 specifies minimum functionality, performance requirements and test methods for electronic access control systems and components. It defines four security grades."},
+{id:"s03",t:"standards",type:"tf",a:false,q:"BS EN 60839-11-1 includes the requirements for access point actuators (locks) and sensors.",
+ x:"False. Part 11-1 does NOT include requirements for locks and sensors. Other standards cover those."},
+{id:"s04",t:"standards",type:"mc",q:"According to NCP 109, which older series of standards was withdrawn and replaced by BS EN 60839-11?",
+ o:["BS EN 50133","BS 7671","BS 7273","BS 8418"],
+ x:"The older BS EN 50133 series was withdrawn and replaced by the BS EN 60839-11 series."},
+{id:"s05",t:"standards",type:"mc",q:"What is BS 8418:2021?",
+ o:["A code of practice for detection-activated, remotely monitored video surveillance (CCTV)","The main European access control standard","The NSI code of practice for access control","The UK wiring regulations"],
+ x:"BS 8418 is a CCTV code of practice for detection-activated video surveillance systems monitored by a Remote Video Response Centre (RVRC). It is not an access control standard."},
+{id:"s06",t:"standards",type:"mc",s:true,q:"Your access-controlled vehicle gate is on a site that also has a remotely monitored BS 8418 CCTV system. Why do you need to know about BS 8418?",
+ o:["The ACS may share equipment, networks or alarm events with the CCTV, so you must understand both sets of recommendations","BS 8418 sets the holding force for the gate lock","BS 8418 replaces NCP 109 on sites with CCTV","BS 8418 decides the Equality Act adjustments"],
+ x:"Access control is often installed alongside, or integrated with, remotely monitored CCTV. Where they share equipment, networks or alarm events, the installer needs to understand both."},
+{id:"s09",t:"standards",type:"match",q:"Match each standard to what it covers.",
+ p:[["BS EN 179","Emergency exit devices (lever or push pad) for trained staff"],["BS EN 1125","Panic exit devices (horizontal bar) for public areas"],["BS EN 13637","Electrically controlled exit systems"],["BS 7273-4","Actuation of door release mechanisms in the event of fire"]],
+ x:"BS EN 179 is for emergency exit devices, BS EN 1125 for panic bars, BS EN 13637 for electrically controlled exit systems, and BS 7273-4 for fire-actuated door release."},
+{id:"s10",t:"standards",type:"mc",q:"Which issue of NCP 109 is now current?",
+ o:["Issue 4: Issue 3 was withdrawn on 30 September 2025","Issue 3: it is mandatory until 2030","Issue 2","Issue 5, published in 2026"],
+ x:"NSI advised installers of Issue 4 in October 2024, and Issue 3 was withdrawn on 30 September 2025. The unit spec names Issue 3, but centres must use current standards."},
+{id:"s12",t:"standards",type:"match",q:"Match each BS 7273-4 actuation category to its description.",
+ p:[["Category A","Critical: fail-safe for ANY fault affecting release in a fire, any fault on the critical signal path, and power failure"],["Category B","Standard: fail-safe for a fault on the critical signal path or power failure"],["Category C","Indirect: fail-safe for faults on the critical signal path up to the interface with the access controller"]],
+ x:"A = critical, B = standard, C = indirect actuation. The category depends on where the door is, and if more than one description fits, the highest category applies."},
+{id:"s13",t:"standards",type:"tf",a:false,q:"Release mechanisms for electronically secured doors on escape routes should be triggered by an acoustic signal (the sound of the fire alarm).",
+ x:"False. BS 7273-4 guidance is that these release mechanisms should NOT be actuated by an acoustic signal."},
+{id:"s14",t:"standards",type:"mc",q:"Which statement about NCP 109 scope is correct? NCP 109 does NOT certificate…",
+ o:["A door entry telephone where a person decides who may enter","A networked system with card readers on several doors","A system with biometric readers and a central database","A system with time zones and anti-pass back"],
+ x:"Out of scope: systems where a person decides who enters (e.g. door entry phone), a lock triggered by a manual button, a single self-contained unit with no interconnection, and purely mechanical locks."},
+/* ---------- NCP 109: THREAT, PEOPLE FLOW, EVACUATION ---------- */
+{id:"n01",t:"ncp",type:"order",q:"Put the key risk assessment considerations (NCP 109 Figure 1) in order, starting at the top.",
+ o:["Asset: what is to be protected","Threat: against what (who, what and when)","Risk: chance of a vulnerability being exploited, and possible loss","What to do: make it improbable, detect it, limit impact, plan response"],
+ x:"Asset → Threat → Risk → What to do. The outcome is a classification for each access point."},
+{id:"n02",t:"ncp",type:"mc",q:"What is the OUTCOME of an NCP 109 threat/risk assessment?",
+ o:["A classification for each access point","One security grade for the whole building","A list of the cheapest readers","The fire evacuation plan"],
+ x:"The outcome of the risk assessment is a classification for each access point. Classification is per access point, not per building."},
+{id:"n03",t:"ncp",type:"tf",a:false,q:"The risk assessment only needs to consider intruders, not the threat of the access control system itself being compromised.",
+ x:"False. It must also consider the ACS being compromised: vandalised cables or door hardware, loss of power, remote access, unauthorised access to the software, and cyber threats."},
+{id:"n04",t:"ncp",type:"mc",s:true,q:"A college main entrance has 400 people arriving between 08:30 and 09:00. The client wants PIN + card on that door. What is the main problem?",
+ o:["Slow credentials at a busy door cause queues and encourage tailgating or propped-open doors","PIN + card is not allowed by the Equality Act","PIN + card cannot be used with a door contact","There is no problem at all"],
+ x:"People flow matters. Slow or complex credentials at a busy door cause queues and encourage tailgating or propping doors open. High-traffic doors need fast recognition and heavy-duty hardware."},
+{id:"n05",t:"ncp",type:"mc",q:"What does “singularisation” mean in NCP 109 people flow?",
+ o:["Detecting or preventing two or more people entering together","Giving every user a single PIN","Having only one door in a building","Using a single power supply"],
+ x:"Singularisation is detecting or preventing two or more people entering together. It is recommended where anti-tailgating is needed."},
+{id:"n06",t:"ncp",type:"hotspot",d:"escape",a:"edr",q:"This door is on an escape route. Tap the MANUAL EMERGENCY DOOR RELEASE.",
+ x:"The green single-action emergency door release sits on the secure (escape) side. It must be clearly distinguishable from a red fire alarm call point."},
+{id:"n07",t:"ncp",type:"hotspot",d:"escape",a:"mag",q:"Tap the device that holds this escape door locked, and so MUST release on a fire signal, on loss of power and from the emergency door release.",
+ x:"The magnetic lock holds the door. It must release on a fire signal, on loss of power and from the emergency door release, so the door opens with one simple action."},
+{id:"n08",t:"ncp",type:"multi",q:"An electrically locked door on an escape route must release when… Select ALL that apply.",
+ o:["The fire alarm signal operates","Power is lost","The manual emergency door release is operated","A valid card is shown on the outside only","The time zone ends at 17:00"],a:[0,1,2],
+ x:"An electrically locked escape door must release on a fire signal, on loss of power and from the emergency door release."},
+{id:"n09",t:"ncp",type:"tf",a:false,q:"Manual emergency release controls should look the same as fire alarm call points so that people recognise them.",
+ x:"False. NCP 109 says manual emergency release controls should be clearly DISTINGUISHABLE from fire alarm call points."},
+{id:"n10",t:"ncp",type:"mc",q:"The methods used to release access points in an emergency must be agreed and recorded in…",
+ o:["The design proposal and the as-fitted document","The customer's staff handbook only","The BS 8418 URN application","Nowhere: they are decided on site"],
+ x:"Release methods (e.g. green single-action buttons or break glass units on the secure side) must be agreed and recorded in the design proposal and as-fitted document."},
+{id:"n11",t:"ncp",type:"mc",s:true,q:"An escape door already has a BS EN 1125 panic bar. The client wants a magnetic lock added so people must press an exit button and THEN push the bar. What do you advise?",
+ o:["It would not comply: escape must always be by a single, simple action","It is fine as magnetic locks are banned anyway","It is fine if a sign explains the two steps","It is fine because the panic bar is still there"],
+ x:"NSI guidance on Issue 4: magnetic locks are not banned, but adding one that needs a second action on a door with BS EN 179 or BS EN 1125 hardware would not comply."},
+/* ---------- PURPOSE ---------- */
+{id:"p01",t:"purpose",type:"match",q:"Match each of the six purposes of access control to its meaning.",
+ p:[["Prevent","Avoid undesirable events occurring"],["Detect","Identify undesirable events that have occurred"],["Correct","Correct undesirable events that have occurred"],["Deter","Discourage security violations"],["Recover","Restore resources and capabilities"],["Compensate","Provide alternatives to other controls"]],
+ x:"The unit specification groups the purposes into six types of control: prevent, detect, correct, deter, recover and compensate."},
+{id:"p02",t:"purpose",type:"mc",q:"A lost card is cancelled immediately and a leaver's access rights are removed. Which purpose is this?",
+ o:["Correct","Deter","Recover","Compensate"],
+ x:"Correct: fixing undesirable events that have occurred, e.g. cancelling a lost card or changing rights when staff leave."},
+{id:"p03",t:"purpose",type:"mc",q:"Standby batteries keep the doors working during a mains failure. Which purpose is this?",
+ o:["Compensate","Prevent","Detect","Deter"],
+ x:"Compensate: providing alternatives to other controls, e.g. standby batteries, key override, or a guard while the system is faulty."},
+{id:"p04",t:"purpose",type:"mc",q:"Events stored at a door controller during a communications failure are sent to the central system when communications come back. Which purpose?",
+ o:["Recover","Correct","Deter","Prevent"],
+ x:"Recover: restoring resources and capabilities, e.g. buffered events uploaded, automatic restart after power loss, database back-ups."},
+{id:"p05",t:"purpose",type:"mc",q:"Visible readers and signage put off casual intruders. Which purpose?",
+ o:["Deter","Detect","Recover","Compensate"],
+ x:"Deter: discouraging security violations. Users also know every transaction is logged against their credential."},
+{id:"p06",t:"purpose",type:"mc",q:"Access levels and time zones stop users going into areas, or at times, they are not authorised for. Which purpose?",
+ o:["Prevent","Recover","Compensate","Correct"],
+ x:"Prevent: avoiding undesirable events. This includes locked doors until a valid credential, access levels, time zones and anti-pass back."},
+{id:"p07",t:"purpose",type:"mc",q:"Door forced alarms, tamper detection and repeated invalid attempt alerts are examples of which purpose?",
+ o:["Detect","Deter","Compensate","Recover"],
+ x:"Detect: identifying undesirable events that have occurred, along with event logs showing who went where and when."},
+{id:"p08",t:"purpose",type:"tf",a:false,q:"A stand-alone keypad with a common code can detect, correct and recover just as well as a networked system with unique tokens and event logging.",
+ x:"False. A stand-alone keypad with a common code mainly PREVENTS casual entry. A networked system with unique tokens, logging and alarm monitoring can also detect, correct and recover."},
+{id:"p09",t:"purpose",type:"multi",q:"Which of these are examples of RECOVER? Select ALL that apply.",
+ o:["Automatic restart after a total loss of power","Regular database back-ups","Uploading events stored at the controller once comms return","Signage at the entrance","Anti-pass back"],a:[0,1,2],
+ x:"Recover examples: automatic restart after power loss (with a trouble condition if not fully restored), uploading buffered events, and database back-ups."},
+{id:"p10",t:"purpose",type:"mc",s:true,q:"A biometric reader on a lab door fails to recognise a member of staff. A supervisor uses an intercom to let them in. Which purpose does this arrangement serve?",
+ o:["Compensate","Deter","Detect","Prevent"],
+ x:"Compensate: a key override on critical doors, or a supervisor and intercom if a biometric reader fails, provides an alternative control."},
+/* ---------- CLASSIFICATIONS ---------- */
+{id:"c01",t:"classes",type:"tf",a:false,q:"Access control is graded per building: the whole building gets one grade.",
+ x:"False. Access control is classified per ACCESS POINT. Each door, gate or barrier gets a grade (BS EN 60839-11) or class (NCP 109)."},
+{id:"c02",t:"classes",type:"mc",q:"A controller serves a Grade 2 door and a Grade 3 door. Which grade must the controller (common equipment) meet?",
+ o:["Grade 3, the highest grade it serves","Grade 2, the lowest grade it serves","Grade 1","It does not need a grade"],
+ x:"Common components must meet the requirements of the highest grade they serve."},
+{id:"c03",t:"classes",type:"order",q:"Put these adversary descriptions in order from Grade 1 (lowest risk) to Grade 4 (highest risk).",
+ o:["Little knowledge of the ACS and a limited range of easily available tools","Limited knowledge of the ACS and a general range of tools and portable instruments","Conversant with the ACS, with a comprehensive range of tools and portable electronic equipment","Can plan in detail, with a full range of equipment including the means to substitute components"],
+ x:"Grade 1 low risk, Grade 2 low to medium, Grade 3 medium to high, Grade 4 high risk (BS EN 60839-11-2)."},
+{id:"c04",t:"classes",type:"match",q:"Match each NCP 109 access point class to its mandatory recognition method (Table 2).",
+ p:[["Class I","Common code or PIN of at least 10,000 differs (4-digit)"],["Class II","PIN of at least 1,000,000 differs (6-digit), or a valid unique token"],["Class III","PIN (10,000 differs) AND a unique token, or a valid biometric"],["Class IV","Biometric AND a unique RFID token, or biometric + token + PIN"]],
+ x:"NCP 109 Table 2 sets the mandatory recognition method for each class. More factors are needed as the class rises."},
+{id:"c05",t:"classes",type:"mc",q:"What is the typical holding force for a powered lock on an NCP 109 Class III door?",
+ o:["7 kN (700 kg) or more","3 kN (300 kg) or more","5 kN (500 kg) or more","10 kN (1000 kg) or more"],
+ x:"Class I 3 kN, Class II 5 kN, Class III 7 kN, Class IV 10 kN or more (NCP 109 clause 6.2)."},
+{id:"c06",t:"classes",type:"tf",a:false,q:"A credential that is only permitted at Class II can also be used on a Class IV door.",
+ x:"False. Credentials permitted at a higher class can be used at a lower class, but NOT the other way round."},
+{id:"c07",t:"classes",type:"match",q:"Match each credential factor to an example.",
+ p:[["Something you know","A PIN entered on a keypad"],["Something you have","An RFID fob or NFC mobile credential"],["Something you are","A fingerprint, face or iris"]],
+ x:"Know = code/PIN, have = token, are = biometric. Combining two or more (multi-factor) gives higher security."},
+{id:"c08",t:"classes",type:"mc",q:"For biometric readers, the false acceptance rate (FAR) and false rejection rate (FRR) are balanced by…",
+ o:["The decision threshold, which should be discussed with the user","The door holding force","The IP rating of the enclosure","The anti-pass back setting"],
+ x:"FAR and FRR are balanced by the decision threshold, and this should be discussed with the user."},
+{id:"c09",t:"classes",type:"mc",s:true,q:"The risk assessment says a door needs Class III hardware, but the door and frame are too weak to take it. What should happen?",
+ o:["Reinforce the door, or reduce the class, and record it in the design proposal, as-fitted document and risk assessment","Fit the Class III lock anyway and say nothing","Fit a Class I lock without telling anyone","Remove the door"],
+ x:"If the door and frame can't take hardware of the required class, reinforce the door or reduce the class, and record it in the design proposal, as-fitted document and risk assessment."},
+{id:"c10",t:"classes",type:"tf",a:false,q:"An RFID system can rely on recognising the card's chip serial number (CSN) only.",
+ x:"False. NCP 109 says RFID systems must NOT rely on recognising the chip serial number (CSN) only."},
+{id:"c11",t:"classes",type:"mc",q:"At which NCP 109 class does anti-passback become mandatory?",
+ o:["Class IV","Class I","Class II","It is never mandatory"],
+ x:"Anti-passback becomes mandatory at Class IV. Access point status, held-open and forced monitoring, and standby power supplies, become mandatory at Classes III and IV."},
+{id:"c12",t:"classes",type:"mc",q:"A reader is fitted on a gate post, outdoors and fully exposed to the weather. Which BS EN 60839-11-2 environmental class is this?",
+ o:["Class IV","Class I","Class II","Class III"],
+ x:"Class I indoor office, Class II indoor general, Class III outdoor sheltered or indoor extreme, Class IV outdoor fully exposed."},
+{id:"c15",t:"classes",type:"order",q:"Put these credentials in order of the NCP 109 class they meet, from Class I (top) to Class IV (bottom).",
+ o:["A common 4-digit code","A 6-digit PIN","A 4-digit PIN plus a unique token","A biometric plus a unique RFID token"],
+ x:"4-digit code = Class I, 6-digit PIN = Class II, PIN + token = Class III, biometric + unique RFID token = Class IV."},
+/* ---------- BODIES ---------- */
+{id:"b01",t:"bodies",type:"mc",q:"Which organisation accredits NSI and SSAIB, checking that certification bodies are competent and impartial?",
+ o:["UKAS (United Kingdom Accreditation Service)","BSIA","BSI","The Health and Safety Executive"],
+ x:"NSI and SSAIB are both accredited by UKAS, which checks that certification bodies are competent and impartial."},
+{id:"b02",t:"bodies",type:"hotspot",d:"bodies",a:"bsia",q:"This diagram shows how the industry fits together. Tap the box for the TRADE ASSOCIATION (BSIA).",
+ x:"The BSIA is the trade association. It represents and supports its member companies but does not certify them."},
+{id:"b03",t:"bodies",type:"hotspot",d:"bodies",a:"ukas",q:"Same diagram. Tap the box for the body that ACCREDITS the certification bodies.",
+ x:"UKAS sits at the top: it accredits the certification bodies (NSI and SSAIB), which then audit and certify installers."},
+{id:"b04",t:"bodies",type:"tf",a:false,q:"The BSIA is a certification body that audits and certifies access control companies.",
+ x:"False. The BSIA is a TRADE ASSOCIATION. NSI and SSAIB are the independent certification bodies."},
+{id:"b05",t:"bodies",type:"mc",q:"Which of these are NSI approval schemes?",
+ o:["NSI NACOSS Gold and NSI Systems Silver","Type A and Type A+","Class I and Class IV","BS EN 179 and BS EN 1125"],
+ x:"NSI approval schemes include NACOSS Gold (which includes an ISO 9001 quality management system) and Systems Silver."},
+{id:"b07",t:"bodies",type:"tf",a:true,q:"A company can hold NSI or SSAIB certification AND be a member of the BSIA.",
+ x:"True. Certification (NSI/SSAIB) and trade association membership (BSIA) are different things, and a company can have both."},
+{id:"b08",t:"bodies",type:"match",q:"Match each organisation to its role.",
+ p:[["NSI","Certification body that publishes NCP 109 for access control"],["SSAIB","Certification body founded in 1994, runs an Access Control Systems scheme"],["BSIA","Trade association representing the professional security industry"],["UKAS","Accredits the certification bodies"]],
+ x:"NSI and SSAIB are UKAS-accredited certification bodies. The BSIA is the trade association."},
+{id:"b09",t:"bodies",type:"mc",q:"Installer members of the BSIA Access and Asset Protection section must hold…",
+ o:["UKAS-accredited ISO 9001 certification, and screen and train their staff","A BS 8418 Unique Reference Number","An NSI Certificate of Compliance for every door","Nothing: membership is open to anyone"],
+ x:"Installer members must hold UKAS-accredited ISO 9001 certification and must screen and train staff (BS 7858 screening may be appropriate)."},
+{id:"b10",t:"bodies",type:"mc",s:true,q:"A housing association asks why it should choose an NSI- or SSAIB-certificated installer. What is the best answer?",
+ o:["Independent third-party certification lets customers, insurers and police identify competent companies","It means the installer is the cheapest","It means the installer doesn't need to follow standards","Certification is a legal requirement for all electricians"],
+ x:"Third-party certification lets customers, insurers and the police identify competent companies. SSAIB notes that some market sectors may require it."},
+{id:"b11",t:"bodies",type:"mc",q:"What does an NSI approved company issue at handover of an access control system (NCP 109 clause 8.2)?",
+ o:["An NSI Certificate of Compliance","A UKAS accreditation","A BSIA membership card","A BS 8418 URN"],
+ x:"NSI approved companies issue an NSI Certificate of Compliance at handover."},
+/* ---------- LEGISLATION ---------- */
+{id:"l01",t:"law",type:"mc",q:"How many protected characteristics are there in the Equality Act 2010?",
+ o:["Nine","Four","Six","Twelve"],
+ x:"There are nine: age, disability, gender reassignment, marriage and civil partnership, pregnancy and maternity, race, religion or belief, sex, and sexual orientation."},
+{id:"l02",t:"law",type:"mc",q:"Which protected characteristic MOST affects access control design?",
+ o:["Disability","Age","Religion or belief","Marriage and civil partnership"],
+ x:"Disability affects access control design most. Readers, keypads, intercoms and locked doors are physical features."},
+{id:"l03",t:"law",type:"mc",s:true,q:"A shop owner says: “We'll lower the card reader if a wheelchair user ever complains.” Is that OK under the Equality Act 2010?",
+ o:["No: the service provider duty is anticipatory, so they must think ahead about disabled people's needs","Yes: they only need to act once someone complains","Yes: shops are exempt from the Equality Act","No: wheelchair users must be given a key instead"],
+ x:"For service providers the duty to make reasonable adjustments is anticipatory. They should plan ahead for disabled people in general, not wait for someone to ask."},
+{id:"l05",t:"law",type:"hotspot",d:"keypad",a:"k5",q:"Scottish guidance recommends a 12-button telephone-layout keypad. Tap the key that should carry an EMBOSSED LOCATOR for people with visual impairments.",
+ x:"The central “5” key carries the embossed locator. Controls should also contrast with their background."},
+{id:"l06",t:"law",type:"match",q:"Match each user to a suitable reasonable adjustment.",
+ p:[["Wheelchair user","Reader at an accessible height, clear of the door swing, with a longer release time"],["Visually impaired visitor","Proximity token, with audible as well as visual granted/denied indication"],["Hearing aid user at the intercom","Inductive coupler for the hearing aid “T” setting, plus a visual call indicator"],["Staff member who can't enrol a fingerprint","An alternative credential such as a card or fob"]],
+ x:"Each adjustment comes from the notes' Equality Act scenarios: reach, sight, hearing and biometrics."},
+{id:"l07",t:"law",type:"mc",q:"In Scotland, which legislation includes Regulation 13 on means of escape?",
+ o:["The Fire Safety (Scotland) Regulations 2006","The Data Protection Act 2018","The Electricity at Work Regulations 1989","The Equality Act 2010"],
+ x:"The Fire (Scotland) Act 2005 and the Fire Safety (Scotland) Regulations 2006 apply. Regulation 13 covers means of escape. England and Wales use Article 14 of the Regulatory Reform (Fire Safety) Order 2005."},
+{id:"l08",t:"law",type:"tf",a:false,q:"Sliding or revolving doors may be used for exits specifically intended as emergency exits.",
+ x:"False. Regulation 13 says sliding or revolving doors are not to be used for exits specifically intended as emergency exits."},
+{id:"l09",t:"law",type:"mc",q:"Scottish Technical Handbook 2.9: fail unlocked electric locks (e.g. magnetic locks) should NOT be used on…",
+ o:["A public door serving more than 60 people","An internal office door","A store cupboard","A door with a door contact"],
+ x:"They should not be used on, for example, the only escape route, a door serving the only escape stair, or a public door serving more than 60 people."},
+{id:"l10",t:"law",type:"mc",q:"Approved Document M recommends manual controls for powered entrance doors are mounted…",
+ o:["Between 750 mm and 1000 mm above floor level, operable with a closed fist","Between 1400 mm and 1800 mm above floor level","At any height, as long as they are lit","Below 500 mm above floor level"],
+ x:"Approved Document M recommends 750 mm to 1000 mm above floor level, operable with a closed fist."},
+{id:"l11",t:"law",type:"mc",q:"Under UK GDPR, biometric data used to identify a person uniquely is…",
+ o:["Special category data","Not personal data at all","Public data","Only covered if it is printed"],
+ x:"Biometric data used to identify a person uniquely is special category data under UK GDPR."},
+{id:"l12",t:"law",type:"multi",q:"An employer wants fingerprint readers for staff. Following ICO guidance, which should they do? Select ALL that apply.",
+ o:["Carry out a data protection impact assessment (DPIA) first","Offer an alternative such as a card or PIN, without disadvantage","Store biometric templates securely and no longer than necessary","Keep the templates forever just in case","Make fingerprints compulsory for everyone"],a:[0,1,2],
+ x:"ICO: do a DPIA first, identify a lawful basis, offer an alternative without disadvantage, store templates securely and no longer than necessary, and provide a manual review."},
+{id:"l13",t:"law",type:"mc",q:"Martyn's Law (Terrorism (Protection of Premises) Act 2025) is expected by NSI to…",
+ o:["Increase the focus on security risk assessment and lockdown, without relaxing escape requirements","Allow escape doors to stay locked during a lockdown","Replace the Equality Act 2010","Ban magnetic locks"],
+ x:"It received Royal Assent on 3 April 2025. NSI expects more focus on security risk assessment and lockdown procedures, without relaxing escape requirements."},
+{id:"l14",t:"law",type:"mc",s:true,q:"A care home wants to stop residents with dementia leaving unsupervised, but residents must still escape in a fire. What do NSI notes point to?",
+ o:["BS EN 13637 electrically controlled exit systems","Fail-secure locks with no override","BS 8418 CCTV instead of locks","Removing the fire exits"],
+ x:"Controlled egress may be needed to keep vulnerable people safe, but escape in a fire must still be possible. NSI points to BS EN 13637 electrically controlled exit systems."},
+{id:"l15",t:"law",type:"mc",q:"Under the Scottish Technical Handbook, a door worked by a code, swipe card, proximity card or biometric on an escape route must…",
+ o:["Be capable of being overridden from the side people approach when escaping","Only open with a valid credential","Be a revolving door","Have a 6-digit PIN"],
+ x:"It must be capable of being overridden from the escape side, without a key or token and without operating more than one mechanism."},
+{id:"l17",t:"law",type:"mc",q:"Under section 20 of the Equality Act 2010, which is the THIRD requirement of the duty to make reasonable adjustments?",
+ o:["Provide an auxiliary aid where one is needed","Change a provision, criterion or practice","Take reasonable steps about a physical feature","Ask the disabled person to pay"],
+ x:"1st: change a provision, criterion or practice. 2nd: deal with physical features. 3rd: provide an auxiliary aid."}
+];
+
+/* Inline SVG diagrams for hotspot questions. Each hotspot: id, letter, name (revealed after answering), box [x,y,w,h]. */
+const DIAGRAMS = {
+ acs: { title:"Typical access-controlled door", vb:"0 0 420 250", hs:[
+   {id:"pc",L:"A",s:"PC",name:"Management software / central PC",b:[10,8,100,84]},
+   {id:"reader",L:"B",s:"Reader",name:"Reader (credential input)",b:[54,104,66,76]},
+   {id:"lock",L:"C",s:"Lock",name:"Lock (access point hardware)",b:[128,24,80,40]},
+   {id:"contact",L:"D",s:"Contact",name:"Door contact (sensor)",b:[210,24,44,48]},
+   {id:"rex",L:"E",s:"REX",name:"Request-to-exit (REX) button",b:[238,128,56,56]},
+   {id:"acu",L:"F",s:"Controller",name:"Access control unit (controller)",b:[304,30,110,80]},
+   {id:"psu",L:"G",s:"PSU",name:"Power supply unit + standby battery",b:[304,124,110,72]}],
+  art:`
+  <rect x="0" y="0" width="420" height="250" fill="#22354f"/>
+  <rect x="0" y="232" width="420" height="18" fill="#2c425f"/>
+  <g stroke="#8fa7c4" stroke-width="2.5" fill="none" stroke-linejoin="round">
+    <polyline points="60,52 110,52 110,14 360,14 360,40"/>
+    <polyline points="87,110 87,98 120,98 120,72 300,72 330,72 330,90"/>
+    <polyline points="168,44 168,36 290,36 340,36 340,48" />
+    <polyline points="230,50 290,50 350,50 350,60"/>
+    <polyline points="266,140 266,120 380,120 380,100"/>
+    <polyline points="360,130 360,108"/>
+  </g>
+  <rect x="134" y="44" width="92" height="188" fill="#c9d3df"/>
+  <rect x="140" y="56" width="80" height="176" fill="#9a6a43"/>
+  <rect x="148" y="70" width="64" height="70" fill="#a97a52" stroke="#7d5234"/>
+  <rect x="148" y="152" width="64" height="70" fill="#a97a52" stroke="#7d5234"/>
+  <rect x="200" y="140" width="14" height="6" rx="3" fill="#d9d9d9"/>
+  <rect x="140" y="44" width="56" height="12" fill="#5d6b7a" stroke="#2c3440"/>
+  <rect x="222" y="44" width="10" height="16" fill="#f4f4f4" stroke="#555"/>
+  <rect x="214" y="56" width="8" height="8" fill="#f4f4f4" stroke="#555"/>
+  <rect x="72" y="110" width="32" height="56" rx="6" fill="#20262e" stroke="#c4ccd6" stroke-width="2"/>
+  <circle cx="88" cy="124" r="4" fill="#ffb020"/>
+  <path d="M80 142 q8 -8 16 0 M76 150 q12 -12 24 0" stroke="#c4ccd6" stroke-width="2" fill="none"/>
+  <rect x="248" y="138" width="36" height="36" rx="4" fill="#e8ecf1" stroke="#555"/>
+  <circle cx="266" cy="156" r="11" fill="#5d7d99"/>
+  <path d="M260 156 h12 m-4 -4 l4 4 -4 4" stroke="#fff" stroke-width="2" fill="none"/>
+  <rect x="20" y="20" width="80" height="52" rx="4" fill="#20262e" stroke="#c4ccd6" stroke-width="2"/>
+  <rect x="26" y="26" width="68" height="40" fill="#2f5f8f"/>
+  <path d="M32 58 h20 M32 50 h32 M32 42 h26" stroke="#bfe0ff" stroke-width="3"/>
+  <rect x="48" y="72" width="24" height="10" fill="#c4ccd6"/>
+  <rect x="314" y="40" width="92" height="62" rx="4" fill="#2a3d55" stroke="#c4ccd6" stroke-width="2"/>
+  <rect x="324" y="52" width="30" height="20" fill="#1b5e3a"/><rect x="360" y="52" width="36" height="8" fill="#8fa7c4"/><rect x="360" y="64" width="36" height="8" fill="#8fa7c4"/>
+  <g fill="#ffd36b"><circle cx="330" cy="88" r="3"/><circle cx="342" cy="88" r="3"/><circle cx="354" cy="88" r="3"/><circle cx="366" cy="88" r="3"/><circle cx="378" cy="88" r="3"/><circle cx="390" cy="88" r="3"/></g>
+  <rect x="314" y="132" width="92" height="56" rx="4" fill="#2a3d55" stroke="#c4ccd6" stroke-width="2"/>
+  <rect x="324" y="148" width="40" height="28" rx="3" fill="#1f1f1f" stroke="#999"/><rect x="332" y="144" width="8" height="5" fill="#d33"/><rect x="348" y="144" width="8" height="5" fill="#333" stroke="#999"/>
+  <path d="M384 146 l-8 14 h8 l-6 14" stroke="#ffd36b" stroke-width="3" fill="none"/>
+ `},
+ escape: { title:"Electrically locked door on an escape route", vb:"0 0 420 250", hs:[
+   {id:"fap",L:"A",s:"Fire panel",name:"Fire alarm control panel (sends fire signal)",b:[8,8,104,80]},
+   {id:"mag",L:"B",s:"Mag lock",name:"Magnetic lock (fail unlocked)",b:[128,22,108,44]},
+   {id:"reader",L:"C",s:"Reader",name:"Reader",b:[40,112,62,76]},
+   {id:"edr",L:"D",s:"Green release",name:"Green emergency door release",b:[244,96,64,70]},
+   {id:"mcp",L:"E",s:"Call point",name:"Red fire alarm manual call point",b:[330,96,64,70]}],
+  art:`
+  <rect x="0" y="0" width="420" height="250" fill="#22354f"/>
+  <rect x="0" y="232" width="420" height="18" fill="#2c425f"/>
+  <g stroke="#8fa7c4" stroke-width="2.5" fill="none"><polyline points="112,40 128,40"/><polyline points="276,110 276,80 240,80 240,52"/><polyline points="362,110 362,4 60,4 60,14"/></g>
+  <rect x="20" y="16" width="80" height="62" rx="4" fill="#7a1f24" stroke="#f0c0c0" stroke-width="2"/>
+  <rect x="30" y="26" width="60" height="18" fill="#222"/><text x="60" y="39" fill="#7dff9b" font-size="10" text-anchor="middle" font-family="Consolas,monospace">NORMAL</text>
+  <g fill="#ffd36b"><circle cx="36" cy="58" r="4"/><circle cx="50" cy="58" r="4"/><circle cx="64" cy="58" r="4"/></g>
+  <rect x="140" y="44" width="92" height="188" fill="#c9d3df"/>
+  <rect x="146" y="56" width="80" height="176" fill="#9a6a43"/>
+  <rect x="154" y="140" width="64" height="12" rx="5" fill="#d0d6dd" stroke="#666"/>
+  <rect x="146" y="32" width="80" height="20" fill="#5d6b7a" stroke="#2c3440"/>
+  <path d="M156 42 h60" stroke="#aab6c4" stroke-width="3"/>
+  <rect x="56" y="122" width="32" height="56" rx="6" fill="#20262e" stroke="#c4ccd6" stroke-width="2"/><circle cx="72" cy="136" r="4" fill="#ff5d5d"/>
+  <path d="M64 154 q8 -8 16 0 M60 162 q12 -12 24 0" stroke="#c4ccd6" stroke-width="2" fill="none"/>
+  <rect x="254" y="106" width="44" height="50" rx="4" fill="#118a3e" stroke="#e6ffe9" stroke-width="2"/>
+  <rect x="262" y="114" width="28" height="22" fill="#e6ffe9"/><path d="M270 118 v14 M270 125 h12" stroke="#118a3e" stroke-width="3"/>
+  <rect x="340" y="106" width="44" height="50" rx="4" fill="#c8102e" stroke="#ffe0e0" stroke-width="2"/>
+  <rect x="348" y="114" width="28" height="28" fill="#f4f4f4"/><path d="M354 134 l8 -12 8 12 z" fill="none" stroke="#c8102e" stroke-width="2"/>
+ `},
+ keypad: { title:"12-button telephone layout keypad", vb:"0 0 240 320", keypad:true, hs:(function(){
+   const k=["1","2","3","4","5","6","7","8","9","*","0","#"]; return k.map((t,i)=>({id:t==="*"?"kstar":t==="#"?"khash":"k"+t,L:t,name:"Key "+t,b:[18+(i%3)*72,22+Math.floor(i/3)*72,60,60]}));})(),
+  art:`<rect x="0" y="0" width="240" height="320" rx="16" fill="#2a3d55" stroke="#c4ccd6" stroke-width="2"/>`},
+ bodies: { title:"How the access control industry fits together", vb:"0 0 420 270", hs:[
+   {id:"ukas",L:"A",s:"UKAS",name:"UKAS",b:[150,8,120,50]},
+   {id:"nsi",L:"B",s:"NSI",name:"NSI (certification body)",b:[30,98,120,50]},
+   {id:"ssaib",L:"C",s:"SSAIB",name:"SSAIB (certification body)",b:[270,98,120,50]},
+   {id:"inst",L:"D",s:"Installer",name:"Installer company",b:[150,192,120,50]},
+   {id:"bsia",L:"E",s:"BSIA",name:"BSIA (trade association)",b:[8,192,112,50]},
+   {id:"cust",L:"F",s:"Customer",name:"Customer",b:[300,192,112,50]}],
+  art:`<rect x="0" y="0" width="420" height="270" fill="#22354f"/>
+  <g stroke="#8fa7c4" stroke-width="2.5" fill="none" marker-end="url(#ah)">
+   <path d="M180 58 L110 96"/><path d="M240 58 L310 96"/><path d="M100 148 L180 190"/><path d="M320 148 L240 190"/><path d="M270 217 L298 217"/></g>
+  <path d="M150 217 L122 217" stroke="#ffb020" stroke-width="2.5" stroke-dasharray="6 4"/>
+  <defs><marker id="ah" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#8fa7c4"/></marker></defs>
+  <g font-size="12" fill="#dbe6f3" font-family="Calibri,'Segoe UI',Arial,sans-serif" text-anchor="middle">
+   <text x="118" y="72">accredits</text><text x="302" y="72">accredits</text>
+   <text x="78" y="178">audits &amp;</text><text x="78" y="190">certifies</text><text x="342" y="178">audits &amp;</text><text x="342" y="190">certifies</text>
+   <text x="285" y="262">installs for</text><text x="136" y="262" fill="#ffd36b">member of</text></g>`}
+};
+
+(function(){
+"use strict";
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>Array.from(r.querySelectorAll(s));
+const LS={get(k,d){try{const v=localStorage.getItem("acq1_"+k);return v===null?d:JSON.parse(v);}catch(e){return d;}},set(k,v){try{localStorage.setItem("acq1_"+k,JSON.stringify(v));}catch(e){}}};
+const reduceMotion=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const TOPIC_KEYS=Object.keys(TOPICS);
+const TYPE_LABEL={mc:"Multiple choice",tf:"True or false",multi:"Select all that apply",match:"Tap to match",order:"Put in order",hotspot:"Label the diagram",scenario:"Site scenario"};
+const qType=q=>q.type==="mc"&&q.s?"scenario":q.type;
+
+/* ---------- sound (off by default) ---------- */
+let soundOn=LS.get("sound",false), actx=null;
+function beep(seq){ if(!soundOn) return; try{ actx=actx||new (window.AudioContext||window.webkitAudioContext)(); let t=actx.currentTime;
+  seq.forEach(([f,d,type])=>{const o=actx.createOscillator(),g=actx.createGain();o.type=type||"sine";o.frequency.value=f;g.gain.setValueAtTime(.12,t);g.gain.exponentialRampToValueAtTime(.001,t+d);o.connect(g).connect(actx.destination);o.start(t);o.stop(t+d);t+=d*.9;}); }catch(e){} }
+const SFX={ok:()=>beep([[660,.09],[990,.16]]),bad:()=>beep([[140,.35,"square"]]),door:()=>beep([[523,.1],[659,.1],[784,.1],[1047,.25]]),tick:()=>beep([[1200,.03,"square"]])};
+function setSound(on){soundOn=on;LS.set("sound",on);const b=$("#soundBtn");b.setAttribute("aria-pressed",on?"true":"false");b.innerHTML=on?ICON.sound+"<span>Sound on</span>":ICON.mute+"<span>Sound off</span>";}
+
+const ICON={
+ sound:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16 8a5 5 0 0 1 0 8M18.5 5.5a9 9 0 0 1 0 13" stroke="currentColor" stroke-width="2" fill="none"/></svg>',
+ mute:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16 9l6 6M22 9l-6 6" stroke="currentColor" stroke-width="2"/></svg>',
+ fire:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c1 4 5 6 5 11a5 5 0 0 1-10 0c0-3 2-4 2-7 2 1 3 3 3 3s1-3 0-7z" fill="currentColor"/></svg>',
+ shield:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5z" fill="currentColor"/></svg>',
+ star:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5 2 7.5-6.5-4.5L5.5 21l2-7.5L2 9h7z" fill="currentColor"/></svg>',
+ key:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="7.5" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M12 12h10M18 12v4M21 12v3" stroke="currentColor" stroke-width="2.5"/></svg>',
+ up:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6l-7 8h14z" fill="currentColor"/></svg>',
+ down:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 18l-7-8h14z" fill="currentColor"/></svg>'
+};
+
+/* ---------- ranks & badges ---------- */
+const RANKS=[{min:90,name:"Master Key",col:"#ffd36b",msg:"Outstanding. You've unlocked every door."},{min:70,name:"Supervisor",col:"#5aa9ff",msg:"Strong work. A little revision and you'll hold the master key."},{min:50,name:"Keyholder",col:"#2ecc71",msg:"Good start. Revise the topics flagged below and try again."},{min:0,name:"Visitor",col:"#c4ccd6",msg:"Signed in as a visitor. Work through the flagged notes sections, then retry."}];
+const rankFor=p=>RANKS.find(r=>p>=r.min);
+function rankBadge(r,size){return `<svg class="rankbadge" width="${size}" height="${size}" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="#0d1726" stroke="${r.col}" stroke-width="6"/><circle cx="50" cy="40" r="14" fill="none" stroke="${r.col}" stroke-width="7"/><path d="M50 54v28M50 70h12M50 80h9" stroke="${r.col}" stroke-width="7" stroke-linecap="round"/></svg>`;}
+
+/* ---------- state ---------- */
+let S=null, timerId=null, playerName="";
+const MODES={
+ quick:{name:"Quick Fire",timer:true},
+ mission:{name:"Full Mission",timer:false,shields:true},
+ practice:{name:"Practice",timer:false},
+ retry:{name:"Retry wrong answers",timer:false}
+};
+const timeLimit=q=>({match:45,order:40,multi:30}[q.type]||20);
+
+function pickVaried(list,n){ // favour a mix of question types
+  const pool=shuffle(list), out=[], seen=new Set();
+  for(const q of pool){ if(out.length>=n) break; const t=qType(q); if(!seen.has(t)){seen.add(t);out.push(q);} }
+  for(const q of pool){ if(out.length>=n) break; if(!out.includes(q)) out.push(q); }
+  return shuffle(out);
+}
+function buildQueue(mode,opt){
+  if(mode==="quick"){ const per={},out=[]; for(const q of shuffle(BANK)){ if(out.length>=10) break; per[q.t]=per[q.t]||0; if(per[q.t]<2){per[q.t]++;out.push(q);} } return {queue:out}; }
+  if(mode==="mission"){ const rounds=TOPIC_KEYS.map(t=>({t,qs:pickVaried(BANK.filter(q=>q.t===t),5)})); return {queue:rounds.flatMap(r=>r.qs),rounds}; }
+  if(mode==="practice"){ const list=opt==="all"?BANK:BANK.filter(q=>q.t===opt); return {queue:shuffle(list)}; }
+  if(mode==="retry"){ return {queue:shuffle(opt)}; }
+}
+function start(mode,opt){
+  const b=buildQueue(mode,opt);
+  S={mode,opt,queue:b.queue,rounds:b.rounds||null,idx:0,score:0,streak:0,best:0,shields:MODES[mode].shields?3:0,answers:[],badges:new Set(),roundStars:[],startedAt:new Date(),name:playerName};
+  show("play"); renderHUD(); renderQ();
+}
+
+/* ---------- screens ---------- */
+function show(id){ $$(".screen").forEach(s=>s.hidden=s.id!==id); window.scrollTo(0,0); }
+function renderHUD(){
+  const m=MODES[S.mode];
+  $("#hudMode").textContent=m.name+(S.rounds?` · Door ${roundOf(S.idx)+1} of ${S.rounds.length}`:"");
+  $("#hudScore").textContent=S.score;
+  $("#hudStreak").innerHTML=ICON.fire+`<span>${S.streak}</span>`; $("#hudStreak").setAttribute("aria-label","Streak "+S.streak);
+  const sh=$("#hudShields"); sh.hidden=!m.shields;
+  if(m.shields){ sh.innerHTML=[0,1,2].map(i=>`<span class="sh ${i<S.shields?"on":""}">${ICON.shield}</span>`).join(""); sh.setAttribute("aria-label",`Shields ${S.shields} of 3`); }
+  const pct=Math.round(100*S.idx/S.queue.length);
+  $("#progFill").style.width=pct+"%"; $("#prog").setAttribute("aria-valuenow",pct);
+  $("#progText").textContent=`Question ${Math.min(S.idx+1,S.queue.length)} of ${S.queue.length}`;
+}
+function roundOf(i){ if(!S.rounds) return 0; let c=0; for(let r=0;r<S.rounds.length;r++){ c+=S.rounds[r].qs.length; if(i<c) return r; } return S.rounds.length-1; }
+
+/* ---------- question rendering ---------- */
+let cur=null;
+function renderQ(){
+  const q=S.queue[S.idx]; cur={q,answered:false,t0:performance.now()};
+  setDoor("idle");
+  const tp=TOPICS[q.t], ty=qType(q);
+  const box=$("#qbox");
+  box.innerHTML=`<div class="qmeta"><span class="chip topic">${esc(tp.name)}</span><span class="chip type">${TYPE_LABEL[ty]}</span></div>
+   ${ty==="scenario"?'<div class="scen-tag">SITE SCENARIO</div>':""}
+   <h2 id="qtext" class="qtext" tabindex="-1">${esc(q.q)}</h2><div id="qbody"></div>`;
+  $("#feedback").hidden=true; $("#feedback").className="feedback";
+  const body=$("#qbody");
+  ({mc:rMC,tf:rTF,multi:rMulti,match:rMatch,order:rOrder,hotspot:rHot})[q.type](q,body);
+  renderHUD();
+  $("#qtext").focus({preventScroll:true});
+  startTimer(q);
+}
+function optBtn(html,cls,attrs){return `<button type="button" class="opt ${cls||""}" ${attrs||""}>${html}</button>`;}
+function rMC(q,body){
+  cur.order=shuffle(q.o.map((_,i)=>i));
+  body.innerHTML=`<div class="opts" role="group" aria-label="Answer options">${cur.order.map((oi,k)=>optBtn(`<span class="key">${"ABCD"[k]}</span><span>${esc(q.o[oi])}</span>`,"",`data-i="${oi}"`)).join("")}</div>`;
+  $$(".opt",body).forEach(b=>b.onclick=()=>{ const i=+b.dataset.i; markOpts(body,i===0?[b]:[b],i); finish(i===0,q.o[i],q.o[0]); });
+}
+function markOpts(body,chosen,i){ $$(".opt",body).forEach(b=>{b.disabled=true; if(+b.dataset.i===0) b.classList.add("right");}); chosen.forEach(b=>{ if(+b.dataset.i!==0) b.classList.add("wrong"); b.classList.add("chosen");}); }
+function rTF(q,body){
+  body.innerHTML=`<div class="opts tf" role="group" aria-label="True or false">${optBtn("<span class='key'>T</span><span>True</span>","",'data-v="1"')}${optBtn("<span class='key'>F</span><span>False</span>","",'data-v="0"')}</div>`;
+  $$(".opt",body).forEach(b=>b.onclick=()=>{ const v=b.dataset.v==="1", ok=v===q.a;
+    $$(".opt",body).forEach(x=>{x.disabled=true; if((x.dataset.v==="1")===q.a) x.classList.add("right");}); b.classList.add("chosen"); if(!ok) b.classList.add("wrong");
+    finish(ok,v?"True":"False",q.a?"True":"False"); });
+}
+function rMulti(q,body){
+  cur.order=shuffle(q.o.map((_,i)=>i)); const sel=new Set();
+  body.innerHTML=`<p class="hint">Tap every correct answer, then press Check.</p><div class="opts" role="group" aria-label="Select all that apply">${cur.order.map(oi=>optBtn(`<span class="tick" aria-hidden="true"></span><span>${esc(q.o[oi])}</span>`,"multi",`data-i="${oi}" aria-pressed="false"`)).join("")}</div>
+   <button type="button" class="btn primary check" disabled>Check answer</button>`;
+  const chk=$(".check",body);
+  $$(".opt",body).forEach(b=>b.onclick=()=>{ const i=+b.dataset.i; sel.has(i)?sel.delete(i):sel.add(i); b.setAttribute("aria-pressed",sel.has(i)); b.classList.toggle("on",sel.has(i)); chk.disabled=!sel.size; });
+  chk.onclick=()=>{ const right=new Set(q.a), ok=sel.size===right.size&&[...sel].every(i=>right.has(i));
+    $$(".opt",body).forEach(b=>{ const i=+b.dataset.i; b.disabled=true; if(right.has(i)) b.classList.add("right"); if(sel.has(i)&&!right.has(i)) b.classList.add("wrong"); if(!sel.has(i)&&right.has(i)) b.classList.add("missed"); });
+    chk.hidden=true; finish(ok,[...sel].map(i=>q.o[i]).join("; ")||"(nothing)",q.a.map(i=>q.o[i]).join("; ")); };
+}
+const PAIRCOL=["#ffb020","#5aa9ff","#ff7ab6","#2ecc71","#b48cff","#36d6d6"];
+function rMatch(q,body){
+  const n=q.p.length, terms=shuffle(q.p.map((_,i)=>i)), defs=shuffle(q.p.map((_,i)=>i));
+  const pair={}; let selT=null;
+  body.innerHTML=`<p class="hint">Tap a term, then tap the description it matches. Tap a matched item again to change it.</p>
+   <div class="match"><div class="terms" role="group" aria-label="Terms">${terms.map(i=>`<button type="button" class="term" data-t="${i}" aria-pressed="false"><span class="dot" aria-hidden="true"></span>${esc(q.p[i][0])}</button>`).join("")}</div>
+   <div class="defs" role="group" aria-label="Descriptions">${defs.map(i=>`<button type="button" class="def" data-d="${i}"><span class="tag" aria-hidden="true"></span><span class="dtext">${esc(q.p[i][1])}</span><span class="res"></span></button>`).join("")}</div></div>
+   <div class="row"><button type="button" class="btn ghost clear">Clear</button><button type="button" class="btn primary check" disabled>Check answer</button></div>`;
+  const colOf=t=>PAIRCOL[terms.indexOf(t)%PAIRCOL.length];
+  function paint(){
+    $$(".term",body).forEach(b=>{const t=+b.dataset.t, d=Object.keys(pair).find(k=>pair[k]===t); b.classList.toggle("sel",selT===t); b.setAttribute("aria-pressed",selT===t);
+      b.classList.toggle("paired",d!==undefined); b.style.setProperty("--pc",colOf(t)); b.setAttribute("aria-label",q.p[t][0]+(d!==undefined?" (matched)":"")); });
+    $$(".def",body).forEach(b=>{const d=+b.dataset.d, t=pair[d]; const tag=$(".tag",b);
+      if(t!==undefined){b.classList.add("paired");b.style.setProperty("--pc",colOf(t));tag.textContent=q.p[t][0];b.setAttribute("aria-label",q.p[d][1]+". Matched to "+q.p[t][0]);}
+      else {b.classList.remove("paired");tag.textContent="";b.setAttribute("aria-label",q.p[d][1]+(selT!==null?". Tap to match with "+q.p[selT][0]:""));} });
+    $(".check",body).disabled=Object.keys(pair).length<n;
+  }
+  $$(".term",body).forEach(b=>b.onclick=()=>{ const t=+b.dataset.t; selT=t; paint(); });
+  $$(".def",body).forEach(b=>b.onclick=()=>{ const d=+b.dataset.d;
+    if(selT===null){ if(pair[d]!==undefined){ selT=pair[d]; delete pair[d]; } paint(); return; }
+    Object.keys(pair).forEach(k=>{ if(pair[k]===selT) delete pair[k]; }); pair[d]=selT;
+    const next=terms.find(t=>!Object.values(pair).includes(t)); selT=next===undefined?null:next; paint(); });
+  $(".clear",body).onclick=()=>{ Object.keys(pair).forEach(k=>delete pair[k]); selT=terms[0]; paint(); };
+  selT=terms[0]; paint();
+  $(".check",body).onclick=()=>{ let ok=true;
+    $$(".def",body).forEach(b=>{ const d=+b.dataset.d, good=pair[d]===d; if(!good) ok=false; b.disabled=true; b.classList.add(good?"right":"wrong"); $(".res",b).textContent=good?"✓ Correct":"✗ Answer: "+q.p[d][0]; });
+    $$(".term",body).forEach(b=>b.disabled=true); $(".row",body).hidden=true;
+    finish(ok,defs.map(d=>`${q.p[pair[d]][0]} → ${q.p[d][1]}`).join("; "),q.p.map(p=>`${p[0]} → ${p[1]}`).join("; ")); };
+}
+function rOrder(q,body){
+  let ord=shuffle(q.o.map((_,i)=>i)); while(ord.every((v,i)=>v===i)) ord=shuffle(ord);
+  body.innerHTML=`<p class="hint">Use the arrow buttons to move each step. First at the top.</p><ol class="order" aria-label="Items to put in order"></ol><button type="button" class="btn primary check">Check order</button>`;
+  const ol=$(".order",body);
+  function paint(focusIdx,dir){
+    ol.innerHTML=ord.map((oi,k)=>`<li class="oitem" data-i="${oi}"><span class="onum" aria-hidden="true">${k+1}</span><span class="otext">${esc(q.o[oi])}</span><span class="obtns">
+     <button type="button" class="mv up" data-k="${k}" ${k===0?"disabled":""} aria-label="Move up: ${esc(q.o[oi])}">${ICON.up}</button>
+     <button type="button" class="mv down" data-k="${k}" ${k===ord.length-1?"disabled":""} aria-label="Move down: ${esc(q.o[oi])}">${ICON.down}</button></span></li>`).join("");
+    $$(".mv",ol).forEach(b=>b.onclick=()=>{ const k=+b.dataset.k, up=b.classList.contains("up"), j=up?k-1:k+1; [ord[k],ord[j]]=[ord[j],ord[k]]; paint(j,up?"up":"down"); });
+    if(focusIdx!==undefined){ const li=ol.children[focusIdx]; li.classList.add("moved"); let f=$(".mv."+dir,li); if(!f||f.disabled) f=$(".mv:not([disabled])",li); f&&f.focus(); }
+  }
+  paint();
+  $(".check",body).onclick=()=>{ const ok=ord.every((v,i)=>v===i);
+    $$(".oitem",ol).forEach((li,k)=>{ const good=+li.dataset.i===k; li.classList.add(good?"right":"wrong"); if(!good) li.insertAdjacentHTML("beforeend",`<span class="ores">Should be position ${(+li.dataset.i)+1}</span>`); });
+    $$(".mv",ol).forEach(b=>b.disabled=true); $(".check",body).hidden=true;
+    finish(ok,ord.map(i=>q.o[i]).join(" → "),q.o.join(" → ")); };
+}
+function svgDiagram(d,key){
+  const boxes=key==="bodies";
+  const hs=d.hs.map(h=>{ const [x,y,w,ht]=h.b;
+    if(d.keypad) return `<g class="hs key" role="button" tabindex="0" data-h="${h.id}" aria-label="Key ${h.L}"><rect x="${x}" y="${y}" width="${w}" height="${ht}" rx="10" class="keycap"/><text x="${x+w/2}" y="${y+ht/2+10}" text-anchor="middle" class="keytxt">${h.L}</text></g>`;
+    return `<g class="hs" role="button" tabindex="0" data-h="${h.id}" aria-label="Part ${h.L}">
+     ${boxes?`<rect x="${x}" y="${y}" width="${w}" height="${ht}" rx="8" class="orgbox"/>`:""}
+     <rect x="${x}" y="${y}" width="${w}" height="${ht}" rx="8" class="hit"/>
+     <g class="badge"><circle cx="${boxes?x+w/2:x+12}" cy="${boxes?y+ht/2:y+12}" r="${boxes?16:12}"/><text x="${boxes?x+w/2:x+12}" y="${boxes?y+ht/2+6:y+17}" text-anchor="middle">${h.L}</text></g>
+     <text class="rev" x="${x+w/2}" y="${boxes?y+ht-5:y+ht-5}" text-anchor="middle">${esc(h.s||h.name)}</text></g>`; }).join("");
+  return `<figure class="diagram"><svg viewBox="${d.vb}" role="group" aria-label="${esc(d.title)}">${d.art}${hs}</svg><figcaption>${esc(d.title)}</figcaption></figure>`;
+}
+function rHot(q,body){
+  const d=DIAGRAMS[q.d];
+  body.innerHTML=svgDiagram(d,q.d)+(d.keypad?"":`<div class="hsbtns" role="group" aria-label="Or tap a letter">${d.hs.map(h=>`<button type="button" class="hsb" data-h="${h.id}"><b>${h.L}</b><span class="hsn"></span></button>`).join("")}</div>`);
+  const pick=id=>{ if(cur.answered) return; const ok=id===q.a, svg=$("svg",body); svg.classList.add("revealed");
+    $$(".hs",body).forEach(g=>{ g.setAttribute("tabindex","-1"); if(g.dataset.h===q.a) g.classList.add("right"); else if(g.dataset.h===id) g.classList.add("wrong"); });
+    $$(".hsb",body).forEach(b=>{ b.disabled=true; const h=d.hs.find(x=>x.id===b.dataset.h); $(".hsn",b).textContent=h.name; if(h.id===q.a) b.classList.add("right"); else if(h.id===id) b.classList.add("wrong"); });
+    const nm=id2=>{const h=d.hs.find(x=>x.id===id2);return (d.keypad?"":h.L+": ")+h.name;};
+    finish(ok,nm(id),nm(q.a)); };
+  $$(".hs",body).forEach(g=>{ g.addEventListener("click",()=>pick(g.dataset.h)); g.addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key===" "){e.preventDefault();pick(g.dataset.h);} }); });
+  $$(".hsb",body).forEach(b=>b.onclick=()=>pick(b.dataset.h));
+}
+
+/* ---------- timer ---------- */
+function startTimer(q){
+  stopTimer(); const tw=$("#timer"); if(!MODES[S.mode].timer){ tw.hidden=true; return; }
+  tw.hidden=false; const lim=timeLimit(q)*1000, t0=performance.now(); let lastSec=null;
+  const tick=()=>{ const left=Math.max(0,lim-(performance.now()-t0)); cur.left=left/lim;
+    $("#timerFill").style.width=(100*left/lim)+"%"; $("#timerFill").classList.toggle("low",left<5000);
+    const sec=Math.ceil(left/1000); $("#timerText").textContent=sec+"s"; if(sec<=5&&sec!==lastSec&&sec>0){SFX.tick();} lastSec=sec;
+    if(left<=0){ stopTimer(); timeout(); } };
+  tick(); timerId=setInterval(tick,100);
+}
+function stopTimer(){ if(timerId){clearInterval(timerId);timerId=null;} }
+function timeout(){ if(cur.answered) return; const q=cur.q;
+  $$("#qbody button, #qbody .hs").forEach(b=>{b.disabled=true;b.setAttribute&&b.setAttribute("tabindex","-1");});
+  if(q.type==="mc") $$('#qbody .opt[data-i="0"]').forEach(b=>b.classList.add("right"));
+  if(q.type==="tf") $$('#qbody .opt[data-v="'+(q.a?1:0)+'"]').forEach(b=>b.classList.add("right"));
+  if(q.type==="multi") q.a.forEach(i=>$$('#qbody .opt[data-i="'+i+'"]').forEach(b=>b.classList.add("right")));
+  if(q.type==="hotspot"){ const sv=$("#qbody svg"); sv&&sv.classList.add("revealed"); $$('#qbody [data-h="'+q.a+'"]').forEach(g=>g.classList.add("right")); }
+  finish(false,"(time ran out)",correctText(q),true); }
+function correctText(q){ if(q.type==="mc") return q.o[0]; if(q.type==="tf") return q.a?"True":"False"; if(q.type==="multi") return q.a.map(i=>q.o[i]).join("; ");
+  if(q.type==="match") return q.p.map(p=>`${p[0]} → ${p[1]}`).join("; "); if(q.type==="order") return q.o.join(" → "); const h=DIAGRAMS[q.d].hs.find(x=>x.id===q.a); return (DIAGRAMS[q.d].keypad?"":h.L+": ")+h.name; }
+
+/* ---------- marking & feedback ---------- */
+function finish(ok,given,correct,timedOut){
+  if(cur.answered) return; cur.answered=true; stopTimer();
+  const q=cur.q, secs=(performance.now()-cur.t0)/1000; let pts=0, note="";
+  if(ok){ S.streak++; S.best=Math.max(S.best,S.streak); pts=100;
+    if(MODES[S.mode].timer){ const sb=Math.round(50*(cur.left||0)); pts+=sb; if(sb) note+=`+${sb} speed `; }
+    const st=10*Math.min(S.streak-1,5); if(st){pts+=st; note+=`+${st} streak `;}
+    if(MODES[S.mode].shields&&S.streak>0&&S.streak%5===0&&S.shields<3){S.shields++; note+="· Shield recharged! ";}
+    if(S.streak>=5) S.badges.add("streak5"); if(S.streak>=10) S.badges.add("streak10");
+    SFX.ok(); setDoor("open");
+  } else {
+    if(MODES[S.mode].shields&&S.shields>0){ S.shields--; note="Your shield took the hit, so your streak is safe."; }
+    else S.streak=0;
+    SFX.bad(); setDoor("denied");
+  }
+  S.score+=pts;
+  S.answers.push({q,ok,given,correct,secs,timedOut:!!timedOut});
+  const fb=$("#feedback"); fb.hidden=false; fb.className="feedback "+(ok?"good":"bad")+(reduceMotion?"":" pop");
+  const isLast=S.idx>=S.queue.length-1, endOfRound=S.rounds&&!isLast&&roundOf(S.idx)!==roundOf(S.idx+1);
+  fb.innerHTML=`<div class="stamp">${ok?"ACCESS GRANTED":(timedOut?"TIME OUT: ACCESS DENIED":"ACCESS DENIED")}</div>
+   ${ok?`<div class="pts">+${pts} points ${note?`<small>${esc(note)}</small>`:""}</div>`:(note?`<div class="pts"><small>${esc(note)}</small></div>`:"")}
+   ${!ok?`<div class="corr"><b>Correct answer:</b> ${esc(correct)}</div>`:""}
+   <p class="expl">${esc(q.x)}</p>
+   <button type="button" class="btn primary next" id="nextBtn">${isLast?"See my results":endOfRound?"Open the next door":"Next question"} →</button>`;
+  $("#live").textContent=(ok?"Correct. ":"Incorrect. Correct answer: "+correct+". ")+q.x;
+  renderHUD();
+  const nb=$("#nextBtn"); nb.onclick=next; nb.focus({preventScroll:true}); setTimeout(()=>{ fb.scrollIntoView({behavior:reduceMotion?"auto":"smooth",block:"nearest"}); },60);
+}
+function next(){
+  const r0=roundOf(S.idx); S.idx++;
+  if(S.idx>=S.queue.length){ if(S.rounds) roundStars(r0); return endGame(); }
+  if(S.rounds&&roundOf(S.idx)!==r0){ roundStars(r0); return roundBreak(r0); }
+  renderQ();
+}
+function roundStars(r){ const qs=S.rounds[r].qs, got=S.answers.filter(a=>qs.includes(a.q)&&a.ok).length; const stars=got>=5?3:got>=4?2:got>=3?1:0; S.roundStars[r]={got,of:qs.length,stars}; if(stars===3) S.badges.add("flawless"); return S.roundStars[r]; }
+function roundBreak(r){
+  const rs=S.roundStars[r], t=TOPICS[S.rounds[r].t], nt=TOPICS[S.rounds[r+1].t], open=rs.stars>0;
+  show("round"); if(open) SFX.door();
+  $("#roundBox").innerHTML=`<div class="bigdoor ${open?"open":"shut"}" aria-hidden="true">${doorSVG(open?"open":"denied",true)}</div>
+   <h2 tabindex="-1" id="roundH">Door ${r+1}: ${open?"Unlocked!":"Still locked"}</h2>
+   <p class="rtopic">${esc(t.name)}: <b>${rs.got} / ${rs.of}</b> correct</p>
+   <div class="stars" aria-label="${rs.stars} of 3 stars">${[0,1,2].map(i=>`<span class="${i<rs.stars?"on":""}">${ICON.star}</span>`).join("")}</div>
+   <p class="muted">${open?(rs.stars===3?"Flawless. Perfect round!":"Nice work. Keep that streak going."):"Get 3 or more right to unlock a door. Revise: "+esc(t.notes)}</p>
+   <p class="nextup">Next up: <b>Door ${r+2}: ${esc(nt.name)}</b></p>
+   <button type="button" class="btn primary" id="contBtn">Enter Door ${r+2} →</button>`;
+  $("#contBtn").onclick=()=>{ show("play"); renderQ(); }; $("#roundH").focus();
+}
+
+/* ---------- door graphic ---------- */
+function doorSVG(state,big){ return `<svg viewBox="0 0 120 140" class="doorsvg ${state}" role="img" aria-label="${state==="open"?"Door unlocked":state==="denied"?"Access denied":"Door locked"}">
+ <rect x="18" y="8" width="64" height="128" fill="#3a5070" rx="2"/><rect x="22" y="12" width="56" height="124" fill="#101a29"/>
+ <g class="leaf"><rect x="22" y="12" width="56" height="124" fill="#9a6a43"/><rect x="28" y="20" width="44" height="46" fill="#a97a52" stroke="#7d5234"/><rect x="28" y="74" width="44" height="54" fill="#a97a52" stroke="#7d5234"/><rect x="66" y="70" width="9" height="4" rx="2" fill="#ddd"/></g>
+ <rect x="90" y="56" width="22" height="34" rx="4" fill="#20262e" stroke="#c4ccd6" stroke-width="2"/><circle class="led" cx="101" cy="66" r="5"/>
+ <path d="M95 80 q6 -5 12 0" stroke="#c4ccd6" stroke-width="2" fill="none"/></svg>`; }
+function setDoor(state){ const d=$("#door"); d.innerHTML=doorSVG(state); d.className="door "+state+(reduceMotion?"":" anim"); }
+
+/* ---------- end ---------- */
+function pctOf(a){ return a.length?Math.round(100*a.filter(x=>x.ok).length/a.length):0; }
+function endGame(){
+  stopTimer(); show("end");
+  const A=S.answers, right=A.filter(a=>a.ok).length, pct=pctOf(A), rk=rankFor(pct);
+  if(S.mode==="quick"&&right>=7&&A.length&&A.reduce((s,a)=>s+a.secs,0)/A.length<8) S.badges.add("speed");
+  if(S.mode==="mission"&&S.shields===3&&A.length===S.queue.length) S.badges.add("shield");
+  const BADGES={streak5:["Hot Streak","5 in a row"],streak10:["On Fire","10 in a row"],flawless:["Flawless Door","A perfect round"],speed:["Speed Demon","Average under 8 seconds"],shield:["Shield Wall","Finished with all 3 shields"]};
+  const topics=TOPIC_KEYS.map(t=>({t,a:A.filter(x=>x.q.t===t)})).filter(x=>x.a.length);
+  const ranked=(S.mode==="quick"||S.mode==="mission")&&A.length===S.queue.length;
+  let board=null; if(ranked){ board=LS.get("scores_"+S.mode,[]); board.push({n:S.name,s:S.score,p:pct,d:new Date().toISOString()}); board.sort((a,b)=>b.s-a.s||b.p-a.p); board=board.slice(0,10); LS.set("scores_"+S.mode,board); }
+  const wrong=A.filter(a=>!a.ok);
+  const dt=new Date().toLocaleString("en-GB",{day:"numeric",month:"short",year:"numeric",hour:"2-digit",minute:"2-digit"});
+  $("#endBox").innerHTML=`
+  <section class="card resultcard" id="resultCard" aria-label="Results card">
+    <div class="rc-top"><div><div class="rc-unit">J7X2 33 · Access Control · Outcome 1</div><div class="rc-name" id="rcName"></div><div class="rc-meta">${esc(MODES[S.mode].name)} · ${esc(dt)}</div></div>${rankBadge(rk,72)}</div>
+    <div class="rc-rank" style="color:${rk.col}">${rk.name}</div>
+    <div class="rc-stats"><div><b>${pct}%</b><span>score</span></div><div><b>${right}/${A.length}</b><span>correct</span></div><div><b>${S.score}</b><span>points</span></div><div><b>${S.best}</b><span>best streak</span></div></div>
+    <div class="rc-topics">${topics.map(x=>{const p=pctOf(x.a);return `<div class="rct"><span>${esc(TOPICS[x.t].short)}</span><span class="bar"><i style="width:${p}%;background:${p>=70?"#2ecc71":p>=50?"#ffb020":"#ff5d5d"}"></i></span><b>${p}%</b></div>`;}).join("")}</div>
+    ${S.badges.size?`<div class="rc-badges">${[...S.badges].map(b=>`<span class="bdg">${ICON.star}${BADGES[b][0]}</span>`).join("")}</div>`:""}
+    <div class="rc-foot">Screenshot this card to show your lecturer</div>
+  </section>
+  <p class="rankmsg">${esc(rk.msg)}</p>
+  <div class="row wrap">${wrong.length?`<button type="button" class="btn primary" id="retryBtn">Retry my ${wrong.length} wrong answer${wrong.length>1?"s":""}</button>`:""}
+   <button type="button" class="btn" id="againBtn">Play ${esc(MODES[S.mode].name)} again</button><button type="button" class="btn ghost" id="menuBtn">Change mode</button></div>
+  <section class="card"><h2>Topic breakdown</h2><div class="breakdown">${topics.map(x=>{const p=pctOf(x.a),weak=p<70;return `<div class="bd ${weak?"weak":""}"><div class="bdh"><b>${esc(TOPICS[x.t].name)}</b><span>${x.a.filter(a=>a.ok).length}/${x.a.length} · ${p}%</span></div><div class="bar"><i style="width:${p}%"></i></div>${weak?`<div class="rev">Revise: ${esc(TOPICS[x.t].notes)}</div>`:`<div class="okmsg">Secure</div>`}</div>`;}).join("")}</div></section>
+  <section class="card"><h2>Review ${wrong.length?"your wrong answers":"(all correct!)"}</h2>${wrong.length?wrong.map((a,i)=>`<div class="rv"><div class="rvq"><span class="chip topic">${esc(TOPICS[a.q.t].short)}</span> ${esc(a.q.q)}</div><div class="rvy"><b>Your answer:</b> ${esc(a.given)}</div><div class="rvc"><b>Correct answer:</b> ${esc(a.correct)}</div><div class="rvx">${esc(a.q.x)}</div></div>`).join(""):"<p>Every question correct. You've earned that key!</p>"}</section>
+  ${board?`<section class="card"><h2>${esc(MODES[S.mode].name)} high scores <small>(this device only)</small></h2>${boardHTML(board)}</section>`:""}`;
+  $("#rcName").textContent=S.name||"Learner"; if(board) fillBoardNames($("#endBox"),board);
+  if(wrong.length) $("#retryBtn").onclick=()=>start("retry",wrong.map(a=>a.q));
+  $("#againBtn").onclick=()=>start(S.mode==="retry"?"practice":S.mode,S.mode==="retry"?"all":S.opt);
+  $("#menuBtn").onclick=home;
+  $("#endH").focus();
+  if(pct>=70) SFX.door();
+}
+function boardHTML(b){ if(!b.length) return "<p class='muted'>No scores yet. Be the first!</p>";
+  return `<ol class="board">${b.map((r,i)=>`<li><span class="pos">${i+1}</span><span class="bn"></span><span class="bs">${r.s} pts</span><span class="bp">${r.p}%</span></li>`).join("")}</ol>`; }
+function fillBoardNames(root,b){ $$(".board .bn",root).forEach((el,i)=>el.textContent=b[i].n); }
+
+/* ---------- home ---------- */
+function home(){ stopTimer(); show("home"); $("#heroDoor").innerHTML=doorSVG("open"); renderBoards(); $("#homeH").focus(); }
+function renderBoards(){ const el=$("#boards"); const q=LS.get("scores_quick",[]), m=LS.get("scores_mission",[]);
+  el.innerHTML=`<div class="boards"><div id="bq"><h3>Quick Fire</h3>${boardHTML(q)}</div><div id="bm"><h3>Full Mission</h3>${boardHTML(m)}</div></div>${q.length||m.length?'<button type="button" class="btn ghost small" id="clearScores">Clear scores on this device</button>':""}`;
+  fillBoardNames($("#bq"),q); fillBoardNames($("#bm"),m);
+  const c=$("#clearScores"); if(c) c.onclick=()=>{ if(c.dataset.confirm){ LS.set("scores_quick",[]);LS.set("scores_mission",[]); renderBoards(); } else { c.dataset.confirm="1"; c.textContent="Tap again to clear all scores"; } };
+}
+function cleanName(v){ return v.replace(/[^A-Za-zÀ-ÿ' -]/g,"").trim().split(/\s+/)[0]?.slice(0,20)||""; }
+function init(){
+  $("#soundBtn").onclick=()=>setSound(!soundOn); setSound(soundOn);
+  const nm=$("#name"); nm.value=LS.get("name","");
+  $("#topicSel").innerHTML=`<option value="all">All topics (${BANK.length} questions)</option>`+TOPIC_KEYS.map(t=>`<option value="${t}">${esc(TOPICS[t].name)} (${BANK.filter(q=>q.t===t).length})</option>`).join("");
+  $$(".mode").forEach(b=>b.onclick=()=>{ const n=cleanName(nm.value); if(!n){ $("#nameErr").hidden=false; nm.focus(); return; } $("#nameErr").hidden=true; nm.value=n; LS.set("name",n);
+    playerName=n; const mode=b.dataset.mode; start(mode,mode==="practice"?$("#topicSel").value:null); });
+  nm.addEventListener("input",()=>{$("#nameErr").hidden=true;});
+  $("#quitBtn").onclick=()=>{ const b=$("#quitBtn"); if(b.dataset.confirm){ delete b.dataset.confirm; b.textContent="End"; if(S.answers.length) endGame(); else home(); } else { b.dataset.confirm="1"; b.textContent="Tap again to end"; setTimeout(()=>{delete b.dataset.confirm;b.textContent="End";},3000);} };
+  $("#homeLink").onclick=e=>{e.preventDefault(); home();};
+  document.addEventListener("keydown",e=>{ if($("#play").hidden||!cur||e.target.tagName==="INPUT"||e.target.tagName==="SELECT"||e.ctrlKey||e.metaKey||e.altKey) return;
+    if(cur.answered) return; const k=e.key.toUpperCase();
+    if(cur.q.type==="mc"){ const i="ABCD1234".indexOf(k); if(i>=0){ const b=$$("#qbody .opt")[i%4]; b&&b.click(); } }
+    if(cur.q.type==="tf"){ if(k==="T") $$("#qbody .opt")[0].click(); if(k==="F") $$("#qbody .opt")[1].click(); } });
+  $("#qcount").textContent=BANK.length;
+  home();
+}
+document.addEventListener("DOMContentLoaded",init);
+window.__quiz={get S(){return S;},BANK,DIAGRAMS,start};
+})();
+</script>
+</body>
+</html>
