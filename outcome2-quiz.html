@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b1422">
+<title>System Online: Outcome 2 Quiz · J7X2 33 Access Control</title>
+<meta name="description" content="Self-marking Outcome 2 quiz for J7X2 33 Access Control Systems Installation, New College Lanarkshire.">
+<style>:root{--bg:#0b1422;--panel:#14223a;--panel2:#1b2d4b;--line:#34507a;--text:#eef3fa;--muted:#b3c2d6;--green:#2ecc71;--red:#ff6b6b;--amber:#ffb020;--blue:#5aa9ff;}
+*{box-sizing:border-box}
+html{font-size:clamp(16px,0.55vw + 13px,21px);-webkit-text-size-adjust:100%}
+body{margin:0;background:radial-gradient(1200px 600px at 50% -200px,#1d3358,var(--bg));background-color:var(--bg);color:var(--text);font-family:Calibri,"Segoe UI",Arial,sans-serif;line-height:1.4;min-height:100vh;overflow-wrap:break-word}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+.wrap{max-width:760px;margin:0 auto;padding:12px 14px 40px}
+header.top{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 0 10px}
+.brand{display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--text);font-weight:700;letter-spacing:.04em;min-height:44px}
+.brand svg{width:30px;height:30px;color:var(--green)}
+.brand small{display:block;font-weight:400;color:var(--muted);letter-spacing:0;font-size:.75rem}
+.iconbtn{display:inline-flex;align-items:center;gap:6px;min-height:44px;min-width:44px;padding:6px 12px;border-radius:12px;border:1px solid var(--line);background:var(--panel);cursor:pointer;font-size:.85rem}
+.iconbtn svg{width:20px;height:20px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:16px;margin:14px 0;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+h1{font-size:2rem;line-height:1.05;margin:4px 0 6px;letter-spacing:.02em}
+h1 .g{color:var(--green)}
+h2{font-size:1.2rem;margin:0 0 10px}
+h3{font-size:1rem;margin:4px 0 8px;color:var(--muted)}
+.muted{color:var(--muted)}
+.hero{display:flex;gap:14px;align-items:center}
+.hero .door{flex:0 0 96px}
+label{font-weight:700;display:block;margin-bottom:6px}
+input[type=text],select{width:100%;min-height:48px;border-radius:12px;border:2px solid var(--line);background:#0e1a2d;padding:8px 12px;font-size:1.05rem}
+.err{color:var(--red);margin:6px 0 0;font-weight:700}
+.modes{display:grid;gap:12px;grid-template-columns:1fr}
+@media(min-width:700px){.modes{grid-template-columns:repeat(3,1fr)}}
+.mode{display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;min-height:44px;padding:14px;border-radius:16px;border:2px solid var(--line);background:linear-gradient(160deg,var(--panel2),#13223a);cursor:pointer;transition:transform .15s,border-color .15s}
+.mode:hover,.mode:focus-visible{border-color:var(--amber);transform:translateY(-2px)}
+.mode b{font-size:1.15rem}.mode .mi{display:flex;align-items:center;gap:8px}
+.mode .mi svg{width:26px;height:26px}
+.mode span.d{color:var(--muted);font-size:.92rem}
+.mode.quick .mi svg{color:var(--amber)}.mode.mission .mi svg{color:var(--green)}.mode.practice .mi svg{color:var(--blue)}
+.practice-pick{margin-top:8px}
+.boards{display:grid;gap:12px;grid-template-columns:1fr}
+@media(min-width:600px){.boards{grid-template-columns:1fr 1fr}}
+.board{list-style:none;margin:0;padding:0}
+.board li{display:grid;grid-template-columns:28px 1fr auto auto;gap:8px;align-items:center;padding:6px 8px;border-radius:8px;background:#0f1c30;margin-bottom:4px}
+.board .pos{font-weight:700;color:var(--amber)}.board .bs{font-weight:700}.board .bp{color:var(--muted)}
+.board .bn{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* HUD */
+.hud{position:sticky;top:0;z-index:5;background:rgba(11,20,34,.96);border-bottom:1px solid var(--line);margin:0 -14px;padding:8px 14px;backdrop-filter:blur(4px)}
+.hudrow{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.hudrow .grow{flex:1;min-width:0;font-size:.85rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.stat{display:inline-flex;align-items:center;gap:4px;padding:4px 10px;border-radius:999px;background:var(--panel2);font-weight:700;min-height:32px}
+.stat svg{width:18px;height:18px}
+#hudStreak svg{color:#ff8a3d}
+.score b{color:var(--amber)}
+#hudShields{display:inline-flex;gap:2px}#hudShields .sh svg{width:20px;height:20px;color:#3b4c66}#hudShields .sh.on svg{color:var(--blue)}
+.prog{height:8px;background:#22324d;border-radius:99px;overflow:hidden;margin-top:6px}
+.prog i{display:block;height:100%;background:linear-gradient(90deg,var(--green),var(--blue));width:0;transition:width .4s}
+.progtext{font-size:.75rem;color:var(--muted);margin-top:2px}
+#quitBtn{min-height:44px;font-size:.8rem;padding:4px 10px}
+.timer{display:flex;align-items:center;gap:8px;margin:10px 0 0}
+.timer .tb{flex:1;height:12px;background:#22324d;border-radius:99px;overflow:hidden}
+.timer .tb i{display:block;height:100%;background:var(--amber);width:100%}
+.timer .tb i.low{background:var(--red)}
+#timerText{font-weight:700;min-width:3ch;text-align:right}
+/* door */
+.stage{display:flex;align-items:center;gap:12px;margin:10px 0 0}
+.door{width:72px;flex:0 0 72px}
+.doorsvg{width:100%;height:auto;display:block}
+.doorsvg .led{fill:var(--amber)}
+.doorsvg.open .led{fill:#2ef07a}.doorsvg.denied .led{fill:#ff3b3b}
+.doorsvg .leaf{transform-origin:22px 50%;transition:transform .5s ease}
+.doorsvg.open .leaf{transform:scaleX(.35)}
+.door.denied.anim{animation:shake .4s}
+.door.open.anim .led,.door.denied.anim .led{animation:blink .5s 2}
+@keyframes shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
+@keyframes blink{50%{opacity:.25}}
+.qmeta{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px}
+.chip{display:inline-block;font-size:.75rem;padding:3px 9px;border-radius:99px;background:#22324d;color:var(--muted)}
+.chip.type{background:#2b2350;color:#d8ccff}
+.scen-tag{display:inline-block;background:var(--amber);color:#1a1200;font-weight:700;font-size:.75rem;padding:3px 10px;border-radius:6px;margin-bottom:6px;letter-spacing:.08em}
+.qtext{font-size:1.2rem;line-height:1.3;margin:4px 0 12px}
+.qtext:focus{outline:none}
+.hint{color:var(--muted);font-size:.9rem;margin:0 0 8px}
+.opts{display:grid;gap:10px}
+.opts.tf{grid-template-columns:1fr 1fr}
+.opt{display:flex;align-items:center;gap:10px;width:100%;min-height:52px;text-align:left;padding:10px 12px;border-radius:14px;border:2px solid var(--line);background:var(--panel2);cursor:pointer;font-size:1rem}
+.opts.tf .opt{justify-content:center;font-size:1.15rem;font-weight:700;min-height:64px}
+.opt:hover:not(:disabled){border-color:var(--amber)}
+.opt .key{flex:0 0 30px;height:30px;border-radius:8px;background:#0e1a2d;display:inline-flex;align-items:center;justify-content:center;font-weight:700;color:var(--amber)}
+.opt.multi .tick{flex:0 0 26px;height:26px;border-radius:6px;border:2px solid var(--muted)}
+.opt.multi.on{border-color:var(--amber);background:#2d3a28}
+.opt.multi.on .tick{background:var(--amber);border-color:var(--amber);box-shadow:inset 0 0 0 4px #2d3a28}
+.opt:disabled{cursor:default}
+.opt.right,.def.right,.oitem.right,.hsb.right{border-color:var(--green)!important;background:#12432c!important}
+.opt.wrong,.def.wrong,.oitem.wrong,.hsb.wrong{border-color:var(--red)!important;background:#4a1a22!important}
+.opt.missed{border-style:dashed!important;border-color:var(--green)!important}
+.opt.right::after{content:"✓";margin-left:auto;color:var(--green);font-weight:700;font-size:1.2rem}
+.opt.wrong::after{content:"✗";margin-left:auto;color:var(--red);font-weight:700;font-size:1.2rem}
+.opt.missed::after{content:"missed";margin-left:auto;color:var(--green);font-size:.8rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:48px;padding:10px 18px;border-radius:14px;border:2px solid var(--line);background:var(--panel2);cursor:pointer;font-weight:700;font-size:1rem}
+.btn.primary{background:var(--green);border-color:var(--green);color:#04210f}
+.btn.primary:disabled{background:#2a3a52;border-color:#2a3a52;color:#8798ae;cursor:not-allowed}
+.btn.ghost{background:transparent}
+.btn.small{min-height:44px;font-size:.85rem;margin-top:10px}
+.check{width:100%;margin-top:12px}
+.row{display:flex;gap:10px;margin-top:12px}.row .btn{flex:1}.row.wrap{flex-wrap:wrap}
+/* match */
+.match{display:grid;gap:12px}
+@media(min-width:700px){.match{grid-template-columns:minmax(0,2fr) minmax(0,3fr);align-items:start}}
+.terms{display:flex;flex-wrap:wrap;gap:8px}
+@media(min-width:700px){.terms{flex-direction:column}}
+.term{display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:8px 12px;border-radius:12px;border:2px solid var(--line);background:#0e1a2d;cursor:pointer;font-weight:700;text-align:left}
+.term .dot{width:14px;height:14px;border-radius:50%;border:2px solid var(--muted);flex:0 0 14px}
+.term.paired .dot{background:var(--pc);border-color:var(--pc)}
+.term.paired{opacity:.75}
+.term.sel{border-color:var(--amber);background:#3a2e10;opacity:1;box-shadow:0 0 0 3px rgba(255,176,32,.3)}
+.defs{display:grid;gap:8px}
+.def{display:flex;flex-direction:column;align-items:flex-start;gap:4px;width:100%;min-height:52px;text-align:left;padding:10px 12px;border-radius:12px;border:2px solid var(--line);background:var(--panel2);cursor:pointer}
+.def.paired{border-color:var(--pc)}
+.def .tag:empty{display:none}
+.def .tag{font-size:.78rem;font-weight:700;padding:2px 8px;border-radius:99px;background:var(--pc);color:#0b1422}
+.def .res:empty{display:none}.def .res{font-weight:700;font-size:.85rem}
+.def.right .res{color:var(--green)}.def.wrong .res{color:#ffb3b3}
+/* order */
+.order{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.oitem{display:flex;align-items:center;gap:10px;padding:8px 8px 8px 10px;border-radius:12px;border:2px solid var(--line);background:var(--panel2);flex-wrap:wrap}
+.oitem.moved{border-color:var(--amber)}
+.onum{flex:0 0 30px;height:30px;border-radius:50%;background:#0e1a2d;color:var(--amber);font-weight:700;display:flex;align-items:center;justify-content:center}
+.otext{flex:1;min-width:0}
+.obtns{display:flex;gap:6px}
+.mv{width:44px;height:44px;border-radius:10px;border:2px solid var(--line);background:#0e1a2d;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.mv svg{width:22px;height:22px}.mv:disabled{opacity:.3;cursor:default}
+.ores{flex-basis:100%;font-size:.85rem;color:#ffb3b3;padding-left:40px}
+/* hotspot */
+.diagram{margin:0}
+.diagram svg{width:100%;height:auto;display:block;border-radius:12px;max-height:60vh}
+.diagram figcaption{font-size:.8rem;color:var(--muted);margin-top:4px;text-align:center}
+.hs{cursor:pointer}
+.hs .hit{fill:rgba(255,176,32,.06);stroke:rgba(255,176,32,.55);stroke-width:2;stroke-dasharray:6 4}
+.hs:hover .hit,.hs:focus .hit{fill:rgba(255,176,32,.22);stroke:var(--amber);stroke-dasharray:none}
+.hs:focus{outline:none}
+.hs .badge circle{fill:var(--amber)}.hs .badge text{font-weight:700;font-size:18px;fill:#1a1200;font-family:Calibri,"Segoe UI",Arial,sans-serif}
+.hs .orgbox{fill:#2a3d55;stroke:#c4ccd6;stroke-width:2}
+.hs .rev{display:none;font-size:13px;font-weight:700;fill:#fff;paint-order:stroke;stroke:#0b1422;stroke-width:3px;font-family:Calibri,"Segoe UI",Arial,sans-serif}
+.revealed .hs .rev{display:inline}
+.hs.right .hit{fill:rgba(46,204,113,.35);stroke:var(--green);stroke-dasharray:none;stroke-width:4}
+.hs.wrong .hit{fill:rgba(255,107,107,.35);stroke:var(--red);stroke-dasharray:none;stroke-width:4}
+.hs.key .keycap{fill:#0e1a2d;stroke:#8fa7c4;stroke-width:2}
+.hs.key .keytxt{font-size:30px;font-weight:700;fill:#eef3fa;font-family:Calibri,"Segoe UI",Arial,sans-serif}
+.hs.key:hover .keycap,.hs.key:focus .keycap{stroke:var(--amber);stroke-width:4}
+.hs.key.right .keycap{fill:#12432c;stroke:var(--green);stroke-width:4}
+.hs.key.wrong .keycap{fill:#4a1a22;stroke:var(--red);stroke-width:4}
+.diagram svg:has(.keycap){max-width:280px;margin:0 auto}
+.hsbtns{display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));gap:8px;margin-top:10px}
+.hsb{min-height:48px;border-radius:12px;border:2px solid var(--line);background:var(--panel2);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:4px}
+.hsb b{font-size:1.1rem;color:var(--amber)}
+.hsb .hsn:empty{display:none}.hsb .hsn{font-size:.7rem;line-height:1.1;text-align:center}
+.hsbtns:has(.hsn:not(:empty)){grid-template-columns:repeat(auto-fill,minmax(130px,1fr))}
+/* feedback */
+.feedback{margin-top:14px;border-radius:16px;padding:14px;border:2px solid}
+.feedback.good{background:#0f3a25;border-color:var(--green)}
+.feedback.bad{background:#3c141b;border-color:var(--red)}
+.feedback.pop{animation:pop .35s ease}
+@keyframes pop{0%{transform:scale(.96);opacity:0}100%{transform:scale(1);opacity:1}}
+.stamp{display:inline-block;font-weight:800;letter-spacing:.12em;font-size:1.15rem;padding:4px 12px;border:3px solid;border-radius:8px;transform:rotate(-2deg)}
+.good .stamp{color:#7dffb0}.bad .stamp{color:#ffb3b3}
+.pts{font-weight:700;color:var(--amber);margin-top:8px}.pts small{color:var(--muted);font-weight:400;margin-left:4px}
+.corr{margin-top:8px}
+.expl{margin:8px 0 12px}
+.next{width:100%}
+/* round */
+.roundbox{text-align:center}
+.bigdoor{width:120px;margin:0 auto}
+.stars{display:flex;justify-content:center;gap:6px;margin:6px 0}
+.stars svg{width:40px;height:40px;color:#3b4c66}.stars .on svg{color:#ffd36b}
+.rtopic{font-size:1.1rem}
+/* end */
+.resultcard{background:linear-gradient(160deg,#1b2d4b,#0f1c30);border:2px solid var(--amber)}
+.rc-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.rc-unit{font-size:.75rem;color:var(--muted);letter-spacing:.05em}
+.rc-name{font-size:1.6rem;font-weight:800}
+.rc-meta{font-size:.85rem;color:var(--muted)}
+.rc-rank{font-size:1.7rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;margin:4px 0 8px}
+.rc-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;text-align:center}
+.rc-stats div{background:#0e1a2d;border-radius:10px;padding:6px 2px}
+.rc-stats b{display:block;font-size:1.25rem}.rc-stats span{font-size:.7rem;color:var(--muted)}
+.rc-topics{display:grid;gap:4px;margin-top:10px}
+.rct{display:grid;grid-template-columns:minmax(0,7.5rem) 1fr 3rem;gap:8px;align-items:center;font-size:.85rem}
+.rct span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rct b{text-align:right}
+.bar{display:block;height:10px;border-radius:99px;background:#22324d;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--green)}
+.rc-badges{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.bdg{display:inline-flex;align-items:center;gap:4px;background:#3a2e10;color:#ffd36b;padding:3px 10px;border-radius:99px;font-size:.8rem;font-weight:700}
+.bdg svg{width:14px;height:14px}
+.rc-foot{margin-top:10px;font-size:.75rem;color:var(--muted);text-align:center}
+.rankmsg{font-size:1.05rem}
+.breakdown{display:grid;gap:10px}
+.bd{padding:10px;border-radius:12px;background:#0f1c30;border:1px solid var(--line)}
+.bd.weak{border-color:var(--red)}
+.bdh{display:flex;justify-content:space-between;gap:8px;margin-bottom:6px;flex-wrap:wrap}
+.bd .bar i{background:var(--green)}.bd.weak .bar i{background:var(--red)}
+.bd .rev{font-size:.85rem;color:#ffc9c9;margin-top:6px}.bd .okmsg{font-size:.85rem;color:var(--green);margin-top:6px}
+.rv{border-top:1px solid var(--line);padding:10px 0}
+.rv:first-of-type{border-top:0}
+.rvq{font-weight:700;margin-bottom:4px}
+.rvy{color:#ffc9c9}.rvc{color:#a8f5c6}.rvx{color:var(--muted);font-size:.92rem;margin-top:4px}
+footer.foot{font-size:.75rem;color:var(--muted);text-align:center;margin-top:24px}
+@media(min-width:1000px){.wrap{max-width:900px}}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+[hidden]{display:none!important}
+h1[tabindex="-1"]:focus,h2[tabindex="-1"]:focus{outline:none}
+.diagram svg{max-width:560px;margin:0 auto}
+.stage .door{width:52px;flex:0 0 52px}
+@media(max-width:520px){.obtns{flex-direction:column}.oitem{padding:6px 6px 6px 8px;gap:8px}}
+/* ---- v2 clarity additions ---- */
+.hbtns{display:flex;gap:6px}
+.iconbtn.help b{display:inline-flex;width:22px;height:22px;border-radius:50%;background:var(--amber);color:#1a1200;align-items:center;justify-content:center;font-size:.9rem}
+@media(max-width:420px){.iconbtn span{display:none}.iconbtn.help span,.iconbtn#soundBtn span{display:none}}
+.mode{cursor:default;transform:none!important}
+.mode:hover{border-color:var(--line)}
+.mode h3{margin:0;color:var(--text);font-size:1.15rem}
+.mode p.d{margin:2px 0;color:var(--muted);font-size:.92rem}
+.mode .startbtn{width:100%;margin-top:8px}
+.mode label.small{font-size:.85rem;margin:8px 0 4px;color:var(--text)}
+.mode select{min-height:48px}
+.pointsline{font-size:.9rem;margin:10px 2px}
+.howto{background:#2e2608;border:2px solid var(--amber);color:#ffe7a8;border-radius:12px;padding:8px 12px;margin:0 0 12px;font-size:.95rem}
+.howto b{color:var(--amber)}
+.tfpre{color:var(--amber)}
+.checkhint{margin:10px 0 0;font-size:.9rem;color:#ffc9c9;font-weight:700}
+.checkhint.ready{color:#a8f5c6}
+.selnow{margin:10px 0 0;font-size:.95rem;color:#ffe7a8;min-height:1.4em}
+.colhead{font-size:.8rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+.match>div>.colhead{margin-top:2px}
+.def .tag{white-space:normal}
+.endlab{font-size:.85rem;font-weight:700;color:var(--amber);margin:4px 0}
+.endlab.bot{margin-top:6px}
+.ores.ok{color:#a8f5c6}
+.fbhead{margin:8px 0 2px;font-weight:700}
+.detwrap{margin-top:8px}
+.det{margin:4px 0 0;padding-left:0;list-style:none;display:grid;gap:4px}
+.det li{padding:6px 8px;border-radius:8px;background:rgba(0,0,0,.25);font-size:.92rem}
+.det li.ok{border-left:4px solid var(--green)}.det li.no{border-left:4px solid var(--red)}.det li.miss{border-left:4px dashed var(--green)}
+.detp{margin:4px 0 0}
+.corrlist{margin:4px 0 0;padding-left:1.4em}
+.corrlist li{margin:2px 0}
+.expl b{color:var(--text)}
+.overlay{position:fixed;inset:0;z-index:50;background:rgba(5,10,18,.82);display:flex;align-items:flex-start;justify-content:center;padding:16px 12px;overflow-y:auto}
+.dialog{background:var(--panel);border:2px solid var(--amber);border-radius:18px;max-width:620px;width:100%;padding:18px 16px;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+.dialog h2{font-size:1.4rem}
+.steps{padding-left:1.3em;margin:0 0 10px}.steps li{margin:6px 0}
+.legend{background:#0f1c30;border-radius:12px;padding:8px 12px;font-size:.92rem;margin-bottom:12px}
+.legend p{margin:6px 0}
+.dialog .btn{width:100%}
+.stage{margin:6px 0 0}.stage .door{width:40px;flex:0 0 40px}
+.howto{font-size:.92rem;padding:7px 11px}
+button,.hs{-webkit-tap-highlight-color:transparent}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <a href="#" class="brand" id="homeLink" aria-label="System Online quiz home">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5v9" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/><path d="M6.6 6.2a8 8 0 1 0 10.8 0" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>
+    <span>SYSTEM ONLINE<small>J7X2 33 · Outcome 2</small></span></a>
+  <span class="hbtns"><button type="button" class="iconbtn help" id="helpBtn" aria-label="How to play" aria-haspopup="dialog"><b aria-hidden="true">?</b><span>How to play</span></button>
+  <button type="button" class="iconbtn" id="soundBtn" aria-pressed="false" aria-label="Sound effects"></button></span>
+</header>
+<div id="live" class="sr" aria-live="polite"></div>
+<div class="overlay" id="howto" hidden>
+ <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="howtoH">
+  <h2 id="howtoH" tabindex="-1">How to play</h2>
+  <ol class="steps">
+   <li><b>Type your first name</b> and pick a mode: Quick Fire, Full Mission or Practice.</li>
+   <li><b>Read the question.</b> The yellow <b>How to answer</b> line under each question tells you exactly what to tap.</li>
+   <li><b>One-tap questions</b> (multiple choice, true or false, diagram) are marked as soon as you tap. <b>Select-all, matching and ordering</b> questions are marked when you tap <b>Check</b>.</li>
+   <li><b>Green ACCESS GRANTED</b> means right. <b>Red ACCESS DENIED</b> means wrong. Either way you see the correct answer and why. Tap <b>Next</b> to carry on.</li>
+   <li><b>At the end</b> you get your rank (Visitor, Keyholder, Supervisor or Master Key), the topics to revise, and a results card to screenshot for your lecturer.</li>
+  </ol>
+  <div class="legend">
+   <p><b>Points:</b> 100 per right answer. <b>Streak:</b> +10 bonus for each answer in a row (up to +50). <b>Quick Fire:</b> up to +50 extra for answering fast.</p>
+   <p><b>Full Mission:</b> 3 or more right out of 5 unlocks a door (1 to 3 stars). Shields protect your streak from a wrong answer.</p>
+   <p class="muted">The timer pauses while this box is open. Open it again any time with the <b>?</b> button at the top.</p>
+  </div>
+  <button type="button" class="btn primary" id="howtoClose">Got it, let's play</button>
+ </div>
+</div>
+
+
+<main>
+<section class="screen" id="home" hidden>
+  <div class="card">
+    <div class="hero"><div class="door" id="heroDoor" aria-hidden="true"></div>
+      <div><h1 id="homeHH">Can you bring the system <span class="g">ONLINE?</span></h1>
+      <p class="muted" style="margin:0">Outcome 2: types of system, access control models, functions, circuits, power supplies, cabling and cyber security. <span id="qcount"></span> questions. Every right answer unlocks a door.</p></div></div>
+  </div>
+  <div class="card">
+    <label for="name">Your first name</label>
+    <input type="text" id="name" maxlength="20" autocomplete="given-name" autocapitalize="words" spellcheck="false" placeholder="e.g. Jamie" aria-describedby="nameNote">
+    <p id="nameNote" class="muted" style="font-size:.85rem;margin:6px 0 0">First name only. It stays on this device and is only used for your results card and the high-score table.</p>
+    <p id="nameErr" class="err" hidden>Pop your first name in to start.</p>
+  </div>
+  <h2 id="homeH" tabindex="-1">Choose your mode</h2>
+  <div class="modes">
+    <div class="mode quick"><div class="mi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z" fill="currentColor"/></svg><h3>Quick Fire</h3></div>
+      <p class="d">10 random questions against the clock (20 to 45 seconds each). Faster correct answers earn up to 50 bonus points. If the timer runs out, it counts as wrong.</p>
+      <button type="button" class="btn primary startbtn" data-mode="quick">Start Quick Fire</button></div>
+    <div class="mode mission"><div class="mi"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="1" fill="none" stroke="currentColor" stroke-width="2.5"/><circle cx="15" cy="12" r="1.6" fill="currentColor"/></svg><h3>Full Mission</h3></div>
+      <p class="d">35 questions: 7 doors (one per topic), 5 questions each. Get 3 or more right to unlock a door and earn up to 3 stars. No timer.</p>
+      <p class="d">You have 3 shields. A shield takes the hit for a wrong answer so your streak is not lost. You win a shield back for every 5 right in a row.</p>
+      <button type="button" class="btn primary startbtn" data-mode="mission">Start Full Mission</button></div>
+    <div class="mode practice"><div class="mi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h7a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H4zM20 4h-5a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h6z" fill="none" stroke="currentColor" stroke-width="2"/></svg><h3>Practice</h3></div>
+      <p class="d">No timer, no pressure. Choose one topic or all of them, and see the answer and explanation after each question. Tap End whenever you want to stop.</p>
+      <label for="topicSel" class="small">Choose a topic to practise</label><select id="topicSel"></select>
+      <button type="button" class="btn primary startbtn" data-mode="practice">Start Practice</button></div>
+  </div>
+  <p class="muted pointsline"><b>Points:</b> 100 for each right answer, plus a streak bonus of +10 for every answer in a row (up to +50). Your rank at the end depends on your %.</p>
+  <div class="card"><h2>High scores <small class="muted" style="font-weight:400">(this device only)</small></h2><div id="boards"></div></div>
+</section>
+
+<section class="screen" id="play" hidden>
+  <div class="hud">
+    <div class="hudrow"><span class="grow" id="hudMode"></span>
+      <span class="stat score" aria-label="Score"><b id="hudScore">0</b>&nbsp;pts</span>
+      <span class="stat" id="hudStreak"></span><span class="stat" id="hudShields"></span>
+      <button type="button" class="iconbtn" id="quitBtn">End</button></div>
+    <div class="prog" id="prog" role="progressbar" aria-label="Quiz progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="progFill"></i></div>
+    <div class="progtext" id="progText"></div>
+    <div class="timer" id="timer" hidden><span class="tb" aria-hidden="true"><i id="timerFill"></i></span><span id="timerText" aria-label="Seconds left"></span></div>
+  </div>
+  <div class="stage"><div class="door" id="door" aria-hidden="true"></div><div class="muted" style="font-size:.85rem">Answer correctly to unlock the door.</div></div>
+  <div class="card" id="qbox"></div>
+  <div id="feedback" class="feedback" hidden role="status"></div>
+</section>
+
+<section class="screen" id="round" hidden><div class="card roundbox" id="roundBox"></div></section>
+
+<section class="screen" id="end" hidden><h1 id="endH" tabindex="-1" style="font-size:1.6rem">Mission debrief</h1><div id="endBox"></div></section>
+</main>
+<footer class="foot">New College Lanarkshire · PDA Electronic Fire &amp; Security · J7X2 33 Access Control Systems Installation, Outcome 2. Based on the Outcome 2 learner notes and slides. Works offline. Nothing leaves this device.</footer>
+</div>
+<script>/* GENERATED by build.py from bank_data.py: edit bank_data.py, not this file.
+   mc: FIRST option is correct (shuffled at runtime). multi: a = indices of correct options.
+   order: items in the correct order; ends = labels for top/bottom. match: [term, description] pairs. */
+const QUIZ = {"ls": "acq2_", "label": "Outcome 2"};
+const TOPICS = {
+ "types": {
+  "name": "Types of System & Limitations",
+  "short": "Types",
+  "notes": "Notes section 1: Types of access control systems and their limitations",
+  "door": 1
+ },
+ "models": {
+  "name": "Access Control Models & Purpose",
+  "short": "Models",
+  "notes": "Notes sections 2–3: Access control models / Linking the type of system to its purpose",
+  "door": 2
+ },
+ "functions": {
+  "name": "Functions of Access Control",
+  "short": "Functions",
+  "notes": "Notes section 4: Functions of access-controlled systems",
+  "door": 3
+ },
+ "circuits": {
+  "name": "Circuits & Configurations",
+  "short": "Circuits",
+  "notes": "Notes section 5: Circuits and configurations",
+  "door": 4
+ },
+ "power": {
+  "name": "Power Supplies & Batteries",
+  "short": "Power",
+  "notes": "Notes section 6: Power requirements: primary and secondary power supplies",
+  "door": 5
+ },
+ "cabling": {
+  "name": "Cabling & Termination",
+  "short": "Cabling",
+  "notes": "Notes section 7: Methods of connection and termination of cabling",
+  "door": 6
+ },
+ "cyber": {
+  "name": "Cloud & Cyber Security",
+  "short": "Cyber",
+  "notes": "Notes sections 8–9: Cloud-based systems / Cyber security threats",
+  "door": 7
+ }
+};
+const BANK = [
+{"id":"t01","t":"types","type":"mc","q":"In an audio door entry system, who decides whether a visitor is let in?","o":["The person inside, who speaks to the visitor and then presses a release button","The controller, by checking the visitor's card","The fire alarm panel","A fingerprint reader at the door"],"x":"A visitor presses a call button and speaks to the occupant. The occupant (a person, not the system) presses a release button to unlock the door."},
+{"id":"t02","t":"types","type":"tf","a":false,"q":"NCP 109 covers door entry systems where a person, not the system, decides who is let in.","x":"False. NCP 109 does not cover systems where a person decides who may enter, such as audio and video door entry."},
+{"id":"t03","t":"types","type":"multi","q":"Which of these are limitations of an AUDIO (speech-only) door entry system? Select ALL that apply (3 correct answers).","o":["The person inside cannot see the caller","There is usually no record of who was let in","Speech-only is difficult for people who are deaf or hard of hearing","It cannot unlock the door at all","It only works with 125 kHz cards"],"a":[0,1,2],"x":"Audio door entry: the occupant cannot see the caller, there is usually no record of who was let in and no protection against tailgating, and speech-only is hard for deaf or hard of hearing users."},
+{"id":"t04","t":"types","type":"mc","q":"A video door entry system records images of visitors. Which law applies to those recordings?","o":["Data protection law, because the images are personal data","Fire safety law, because the panel is near an exit","No law applies to door entry images","Only the Health and Safety at Work Act"],"x":"Recorded images of people are personal data, so data protection law applies."},
+{"id":"t05","t":"types","type":"mc","q":"Digital door entry systems send signals as digital data. Why can a digital signal cope with a long cable run better than an analogue one?","o":["It has two levels (on/off), so it can be restored if it degrades","It uses mains voltage, so it is stronger","It does not need any cable","It is always sent by radio"],"x":"A digital signal has two levels (on/off) and can be restored if it degrades over a long distance. Analogue signals cannot, and are more prone to interference."},
+{"id":"t08","t":"types","type":"mc","s":true,"q":"A stand-alone system has a reader and keypad at each of 6 doors, with no network. A staff member loses their card. What is the problem?","o":["The card has to be deleted at every door it works on, one door at a time","The card cancels itself after 24 hours","Every door must be rewired","Nothing: stand-alone systems cannot use cards"],"x":"Each stand-alone door is programmed separately, so a lost card must be deleted at every door it works on."},
+{"id":"t09","t":"types","type":"mc","q":"A coded keypad uses one common code for all staff. Why can the event log not show who came in?","o":["A common code does not identify the person who entered it","Keypads never keep an event log","The code is too long to store","The code is sent by Wiegand"],"x":"A common code is shared, so it does not identify the person. The log can only show that the code was used."},
+{"id":"t10","t":"types","type":"mc","q":"A staff member lends their card to a friend. Why does the card still let the friend in?","o":["The system identifies the card (token), not the person holding it","Cards work for anyone on every site","The reader also checks a fingerprint","Cards can never be cancelled"],"x":"A token identifies the token, not the person. Lost, stolen, lent or passed-back tokens still work until they are cancelled."},
+{"id":"t11","t":"types","type":"match","q":"Match each credential to the description that fits it.","p":[["125 kHz proximity card","Older card technology that can be cloned with low-cost tools"],["MIFARE DESFire EV card (13.56 MHz)","Smart card that uses AES-128 encryption"],["Fingerprint or face","Something you ARE (a biometric)"],["PIN or code","Something you KNOW, which can be shared or watched being entered"]],"x":"125 kHz proximity cards can be cloned. DESFire EV cards use AES-128 encryption. A biometric is something you are. A PIN is something you know, so it can be shared or 'shoulder surfed'."},
+{"id":"t14","t":"types","type":"mc","s":true,"q":"A cloud-based site loses its internet connection for an hour. What should the door controllers on site do?","o":["Keep making access decisions and store the events until the connection returns","Unlock every door until the internet comes back","Lock every door and refuse all cards","Delete their user lists"],"x":"Cloud systems depend on the internet connection, so the controllers should continue to make decisions and store events if the connection is lost."},
+{"id":"t15","t":"types","type":"mc","q":"Which of these is a MANUALLY operated system?","o":["A receptionist presses a release button after speaking to a visitor","A reader checks a card against access levels and releases the lock","A fingerprint reader compares a live sample with a stored template","A controller releases the lock when a valid PIN is entered"],"x":"In a manually operated system a person makes the decision and operates the release. In the other three, the system decides automatically."},
+{"id":"t16","t":"types","type":"mc","s":true,"q":"One access control system has Class II and Class III doors. A single controller serves both. Which class must that controller meet?","o":["Class III, the highest class of door it serves","Class II, the lowest class it serves","Class I, because controllers are not classed","Any class, as long as the readers are Class III"],"x":"The whole system is only as strong as its weakest part, so common equipment must meet the highest class it serves."},
+{"id":"m01","t":"models","type":"match","q":"Match each access control model to what it means.","p":[["MAC (mandatory)","A central authority decides, and users cannot change access rights"],["DAC (discretionary)","The owner of an area decides who can have access to it"],["RBAC (role-based)","Permissions are given through roles, e.g. cleaner or contractor"],["Rule-based","Set rules that apply to everyone, e.g. time-of-day rules"],["ABAC (attribute-based)","Decisions use details about the person, the door and the conditions"]],"x":"These are the NIST descriptions used in the notes: MAC (central authority), DAC (owner decides), RBAC (roles), rule-based (rules for everyone) and ABAC (attributes plus policies)."},
+{"id":"m02","t":"models","type":"mc","q":"Which access control model do the notes describe as the most secure but least flexible, suited to defence or government sites?","o":["Mandatory access control (MAC)","Discretionary access control (DAC)","Role-based access control (RBAC)","Rule-based access control"],"x":"In MAC a central authority makes the decisions and users cannot change access rights. It is the most secure but least flexible model."},
+{"id":"m03","t":"models","type":"mc","s":true,"q":"A contractor can only get in if their induction is in date, it is a weekday during working hours, and the site is not in lockdown. Which model is this an example of?","o":["Attribute-based access control (ABAC)","Discretionary access control (DAC)","Mandatory access control (MAC)","Role-based access control (RBAC)"],"x":"ABAC grants or denies access using attributes of the person (induction in date), the door or area, the conditions (weekday, working hours, no lockdown) and a policy."},
+{"id":"m04","t":"models","type":"mc","q":"Most access control software gives people access through access groups such as 'cleaner', 'IT staff' or 'contractor'. Which model is this based on?","o":["Role-based access control (RBAC)","Mandatory access control (MAC)","Discretionary access control (DAC)","Rule-based access control"],"x":"In RBAC, permissions are attached to roles and people get them only through the roles they are given. Access levels and access groups use this idea."},
+{"id":"m05","t":"models","type":"tf","a":true,"q":"DAC is less secure than MAC, because with DAC access can spread without central control.","x":"True. DAC is flexible and easy to use, but less secure because access can spread without central control. MAC is the most secure model."},
+{"id":"m06","t":"models","type":"mc","q":"Time zones, holiday schedules and lockdown triggers are typical examples of which model?","o":["Rule-based access control","Discretionary access control (DAC)","Mandatory access control (MAC)","Role-based access control (RBAC)"],"x":"Rule-based access control uses set rules that apply to everyone, such as time-of-day rules. In access control, time zones, holiday schedules and lockdown triggers are typical rules."},
+{"id":"m07","t":"models","type":"tf","a":false,"q":"Physical access control software normally uses just one access control model on its own.","x":"False. In practice the models are combined, usually role-based access levels plus rule-based time zones, with MAC-style central control on high-security sites."},
+{"id":"m08","t":"models","type":"mc","q":"Which of these systems can prevent, detect (door alarms and logs), correct (cancel a lost card at once) and recover?","o":["A networked token or biometric system","A stand-alone coded keypad with no event log","An audio door entry system","A purely mechanical code lock"],"x":"A networked token or biometric system can prevent, detect, correct, deter and recover. A stand-alone keypad mainly prevents casual entry."},
+{"id":"m09","t":"models","type":"mc","q":"A stand-alone coded keypad has no event log and no alarms. Which purpose does it mainly achieve?","o":["Prevent (it stops casual entry)","Detect","Recover","Correct"],"x":"A stand-alone coded keypad mainly prevents casual entry. With no log or alarms it does little to detect, correct or recover."},
+{"id":"m10","t":"models","type":"match","q":"Match each purpose of access control to a system feature that achieves it.","p":[["Prevent","Access levels stop people going where they are not allowed"],["Detect","Door forced and door held-open alarms, plus event logs"],["Correct","Cancelling a lost card straight away"],["Recover","Restoring the database and events after a failure"],["Compensate","A standby battery or a key override"]],"x":"These are the six purposes from Outcome 1 linked to system features (deter is the sixth: visible readers and every transaction logged)."},
+{"id":"m11","t":"models","type":"mc","q":"Audio and video door entry systems MAINLY achieve which two purposes?","o":["Prevent and deter","Recover and compensate","Correct and recover","Compensate and correct"],"x":"Door entry mainly prevents and deters, because the visitor knows they are being challenged. Video also helps the occupant detect an unknown caller."},
+{"id":"f01","t":"functions","type":"match","q":"Match each function of an access control system to what it means.","p":[["Restricted entry","Only authorised people, at authorised times, through authorised doors"],["Controlled entry","People are allowed in, but how they pass through is managed and recorded"],["Prevention of entry","Entry is stopped completely for some or all people"]],"x":"Restricted entry limits who, when and where. Controlled entry manages and records how people pass through. Prevention of entry stops entry completely."},
+{"id":"f02","t":"functions","type":"multi","q":"Which of these are examples of RESTRICTED entry? Select ALL that apply (3 correct answers).","o":["Access levels: the groups of doors a person may use","Time zones, e.g. staff access 07:00 to 19:00 on weekdays","Validity dates on contractors' cards","A lockdown of the whole site","A turnstile that lets one person through at a time"],"a":[0,1,2],"x":"Restricted entry uses access levels, time zones and holiday schedules, credential validity dates and higher-class credentials on sensitive doors. Lockdown is prevention of entry. A turnstile is controlled entry."},
+{"id":"f03","t":"functions","type":"mc","q":"What does anti-passback stop?","o":["A card being passed back to let a second person in","A door being held open too long","The PSU battery running flat","A reader being pulled off the wall"],"x":"Anti-passback stops a credential being passed back so that a second person can use it."},
+{"id":"f04","t":"functions","type":"mc","q":"An operator locks down the whole site from the control room. Which function is this?","o":["Prevention of entry","Restricted entry","Controlled entry","Degraded mode"],"x":"Lockdown of an area or the whole site, by an operator or an automatic trigger, is prevention of entry."},
+{"id":"f05","t":"functions","type":"tf","a":true,"q":"During a lockdown, escape doors must still release so people can get out.","x":"True. Lockdown stops people getting in, but escape doors must still release (Outcome 1)."},
+{"id":"f06","t":"functions","type":"mc","q":"What does NCP 109 require at each access point when access is granted or denied?","o":["A visual and/or audible indication","A photo of the user","A printed ticket","A text message to the manager"],"x":"NCP 109 requires visual and/or audible indication at each access point when access is granted or denied."},
+{"id":"f07","t":"functions","type":"multi","q":"NCP 109 Table 7 lists events that must be shown, alerted and/or logged. Which of these are on that list? Select ALL that apply (4 correct answers).","o":["Access point forced open","Access point held open","Power supply fault or failure","Tamper detection","A user changing their desk","The office lights being switched on"],"a":[0,1,2,3],"x":"Table 7 includes access granted and denied, forced open, held open, power supply fault, loss of communication, tamper, and entering and leaving configuration mode."},
+{"id":"f08","t":"functions","type":"tf","a":true,"q":"In NCP 109 Table 7, most of the events are optional at Class I and become mandatory (required) at higher classes.","x":"True. Most Table 7 events are optional at Class I and become mandatory at higher classes."},
+{"id":"f09","t":"functions","type":"mc","s":true,"q":"At a busy staff entrance, people often follow a card holder through the door without using their own card. Which feature is designed to stop this?","o":["Anti-tailgating, e.g. a speed gate or turnstile","A longer door-open time","A 125 kHz card reader","An audio door entry handset"],"x":"Anti-tailgating and singularisation (speed gates, turnstiles or interlocking doors) let only one person through per valid credential."},
+{"id":"f10","t":"functions","type":"multi","q":"Which of these are examples of CONTROLLED entry? Select ALL that apply (3 correct answers).","o":["A receptionist confirms a visitor through the door entry system","Anti-passback","Door held-open and door forced alarms, with event logs","Time zones for staff","Credential validity dates"],"a":[0,1,2],"x":"Controlled entry manages and records how people pass through: visitor entry, anti-passback, anti-tailgating, door alarms and logs, and indication at the door. Time zones and validity dates are restricted entry."},
+{"id":"f11","t":"functions","type":"tf","a":false,"q":"The terms restricted entry, controlled entry and prevention of entry are defined in the British Standards.","x":"False. The notes explain that these terms are not defined in the standards. The notes describe how they are generally understood."},
+{"id":"c01","t":"circuits","type":"hotspot","d":"topo","a":"star","q":"Which letter shows STAR wiring, where every device has its own cable back to one central point?","x":"In a star layout each device has its own cable run back to a central point, such as a network switch or the door controller."},
+{"id":"c02","t":"circuits","type":"hotspot","d":"topo","a":"daisy","q":"Which letter shows DAISY CHAIN wiring, where the cable loops in and out of each device in turn?","x":"In a daisy chain the data cable loops in and out of each device in turn. RS485 data buses are wired this way."},
+{"id":"c03","t":"circuits","type":"hotspot","d":"topo","a":"ring","q":"Which letter shows RING wiring, where the cable returns to the start to make a loop?","x":"In a ring the cable runs from device to device and returns to the start. Where the equipment supports it, this gives a second path if one cable breaks."},
+{"id":"c04","t":"circuits","type":"mc","q":"How is an RS485 data bus (for example Paxton Net2) wired between controllers?","o":["As one continuous daisy chain","As a star from a network switch","As a ring that loops back to the start","Any way you like"],"x":"Paxton's Net2 guidance says controllers must be installed in one continuous daisy chain."},
+{"id":"c05","t":"circuits","type":"tf","a":true,"q":"On an RS485 data bus, adding spurs or star wiring can cause communication faults.","x":"True. Spurs and star wiring on an RS485 bus cause communication faults."},
+{"id":"c06","t":"circuits","type":"mc","q":"Paxton Net2 guidance: what is fitted at the beginning and the end of the RS485 data line?","o":["A 120 ohm termination resistor","A 230 V fuse","A suppression diode","A 4k7 end-of-line resistor at every controller"],"x":"120 ohm termination resistors are fitted at the beginning and end of the data line."},
+{"id":"c08","t":"circuits","type":"mc","q":"What is an advantage of star wiring?","o":["A fault on one cable only affects one device","It always uses less cable than a daisy chain","The central point can never fail","It needs no termination at the controller"],"x":"In a star, a fault on one cable affects only one device, and it is easy to fault-find and extend. The downside is more cable and a single central point of failure."},
+{"id":"c09","t":"circuits","type":"mc","s":true,"q":"A cable on a daisy chain bus is cut halfway along. What is the risk?","o":["It can affect every device beyond the break","Only the device nearest the PC stops","Nothing, because daisy chains always have a second path","The fire alarm will operate"],"x":"In a daisy chain, a break or short can affect every device beyond it."},
+{"id":"c10","t":"circuits","type":"match","q":"Match each reader-to-controller connection to its description.","p":[["Wiegand","One-way, from reader to controller, with no encryption"],["OSDP","Two-way RS485 that supervises the reader and supports AES-128 encryption"],["TCP/IP","Network readers and controllers on switches, often powered by PoE"]],"x":"Wiegand is one-way and unencrypted. OSDP is two-way, supervises the reader and supports AES-128 'Secure Channel'. TCP/IP devices connect to network switches, often with PoE."},
+{"id":"c11","t":"circuits","type":"tf","a":true,"q":"Wiegand data can be captured by a small device hidden behind the reader and replayed later.","x":"True. The Security Industry Association explains that devices hidden behind a reader can 'sniff' and later replay Wiegand data."},
+{"id":"c13","t":"circuits","type":"multi","q":"Which of these are INPUTS to a door controller? Select ALL that apply (4 correct answers).","o":["Door contact (door open or closed)","Request-to-exit (REX) button","PSU fault signals, e.g. mains fail or low battery","Reader data","Lock relay","Sounder"],"a":[0,1,2,3],"x":"Inputs include reader data, door contact, REX, tamper, PSU fault signals and the fire alarm interface. The lock relay and sounders are outputs."},
+{"id":"c14","t":"circuits","type":"mc","q":"A magnetic lock is wired to the controller's lock relay. How does a fail-safe lock like this work?","o":["It is powered to lock, and releases when power is removed","It is powered to release, and stays locked when power is removed","It never needs power","It is only powered during a fire alarm"],"x":"Fail-safe locks such as magnetic locks are powered to lock. Fail-secure locks are powered to release."},
+{"id":"p01","t":"power","type":"hotspot","d":"power","a":"spur","q":"Which letter shows the un-switched fused spur that supplies mains to the access control PSU?","x":"NCP 109: the mains supply must be permanently connected through an un-switched fused spur dedicated to the ACS."},
+{"id":"p02","t":"power","type":"hotspot","d":"power","a":"batt","q":"Which letter shows the standby battery (the secondary power supply)?","x":"The standby battery is the secondary supply. It keeps the system running when the mains fails."},
+{"id":"p03","t":"power","type":"hotspot","d":"power","a":"psu","q":"Which letter shows the power supply unit (PSU) that turns 230 V ac mains into 12 V or 24 V dc?","x":"The PSU converts the 230 V ac mains (the primary supply) into the extra-low voltage the equipment needs."},
+{"id":"p04","t":"power","type":"mc","q":"What is the primary (normal) power supply for an access control system?","o":["230 V ac mains, turned into extra-low voltage by a PSU","A standby battery","Power over Ethernet from the customer's laptop","A 9 V battery in each reader"],"x":"The primary supply is the 230 V ac mains, converted by a PSU to the extra-low voltage needed. The battery is the secondary (standby) supply."},
+{"id":"p05","t":"power","type":"mc","q":"Why is 24 V dc sometimes chosen instead of 12 V dc for locks on long cable runs?","o":["For the same power it draws less current, so there is less voltage drop","24 V locks never need a PSU","24 V is safer to touch than 12 V","It lets you use thinner cable with no checks"],"x":"For the same power, a higher voltage draws less current, so voltage drop on long runs is less."},
+{"id":"p07","t":"power","type":"tf","a":false,"q":"Extra-low voltage cables may enter a PSU enclosure through the same entry hole as the mains cable, as long as they are tidy.","x":"False. NCP 109: extra-low voltage cables must not enter a PSU enclosure through the same entry point as mains cables."},
+{"id":"p08","t":"power","type":"mc","q":"Under NCP 109 Table 8, standby power is MANDATORY (required) for which access point classes?","o":["Class III and Class IV","Class I only","Class I and Class II","None of them: it is always optional"],"x":"Standby power is optional for Class I and II access points and mandatory for Class III and IV."},
+{"id":"p09","t":"power","type":"mc","q":"A system draws 0.5 A on standby and must keep running for 8 hours. How many amp-hours (Ah) are needed, before allowing for battery ageing and temperature?","o":["4 Ah","16 Ah","8.5 Ah","0.0625 Ah"],"x":"Battery capacity = current × time = 0.5 A × 8 h = 4 Ah. Then allow for ageing and low temperatures."},
+{"id":"p10","t":"power","type":"mc","s":true,"q":"A system needs 9.5 Ah of standby. At the 10-hour rate the Yuasa NP7-12 gives 6.48 Ah and the NP12-12 gives 11.10 Ah. Which battery should be fitted?","o":["The NP12-12 (12 Ah)","The NP7-12 (7 Ah)","Either one: they are both 12 V","Two NP7-12 batteries in series"],"x":"6.48 Ah is less than the 9.5 Ah needed, so the 7 Ah battery is too small. The 12 Ah battery gives 11.10 Ah at this rate, about 1.6 Ah of margin. Two in series would give 24 V at the same Ah, which does not help."},
+{"id":"p11","t":"power","type":"mc","q":"Two 12 V 7 Ah batteries are connected in SERIES. What do you get?","o":["24 V at 7 Ah","12 V at 14 Ah","24 V at 14 Ah","12 V at 7 Ah"],"x":"In series the voltages add (24 V) and the Ah stays the same. In parallel you get more Ah at the same voltage. Always use matched batteries."},
+{"id":"p13","t":"power","type":"tf","a":true,"q":"Fail-safe magnetic locks draw current the whole time they are locked, so they make up a large part of the standby load.","x":"True. Fail-safe maglocks draw current all the time they are locked. Fail-secure locks only draw current when released, so you also need the number of releases per hour."},
+{"id":"p14","t":"power","type":"mc","q":"A cable pair has a loop resistance of 0.2 ohm per metre. A 0.5 A lock is 20 m away. Using V = I × R, what is the voltage drop?","o":["2 V","10 V","4 V","0.5 V"],"x":"R = 0.2 × 20 = 4 ohm. V = I × R = 0.5 × 4 = 2 V. A 12 V lock would only get about 10 V."},
+{"id":"p15","t":"power","type":"multi","q":"A lock at the end of a long cable run is not getting enough voltage. Which of these would help? Select ALL that apply (4 correct answers).","o":["Use larger conductors","Double up the cores","Change to a 24 V supply (if the lock is rated for it)","Fit a local PSU near the lock","Use a longer cable","Use thinner cores"],"a":[0,1,2,3],"x":"Solutions include larger conductors, doubling cores, a 24 V supply or a local PSU. A longer or thinner cable makes the drop worse."},
+{"id":"p17","t":"power","type":"order","q":"Put the steps of the standby battery worked example in the notes in order. Top = first step, bottom = last step.","o":["Add up the standby current of every device","Multiply by the standby time to get the Ah needed","Check the battery capacity at a similar discharge rate","Select a battery that gives a margin","Check the PSU can supply the load and recharge the battery"],"ends":["First step","Last step"],"x":"Worked example order: add up the load → multiply by the standby time → check capacity at a similar discharge rate → select the battery → check the PSU rating. Then allow for ageing and record the standby period."},
+{"id":"b01","t":"cabling","type":"order","q":"Put the T568B core colours in order for an RJ45 plug. Top = pin 1, bottom = pin 8.","o":["White/orange","Orange","White/green","Blue","White/blue","Green","White/brown","Brown"],"ends":["Pin 1","Pin 8"],"x":"T568B: 1 white/orange, 2 orange, 3 white/green, 4 blue, 5 white/blue, 6 green, 7 white/brown, 8 brown."},
+{"id":"b02","t":"cabling","type":"mc","q":"What is the only difference between the T568A and T568B wiring codes?","o":["The orange and green pairs are swapped","The blue and brown pairs are swapped","T568B uses only 4 cores","T568A is for Cat5 and T568B is for Cat6 only"],"x":"T568A and T568B differ only in that the orange and green pairs are swapped. In T568A green is on pins 1 and 2; in T568B orange is."},
+{"id":"b03","t":"cabling","type":"tf","a":false,"q":"In a normal installation, it is fine to use T568A at one end of a cable and T568B at the other.","x":"False. Both codes give the same performance, but the same code must be used at both ends and throughout the installation."},
+{"id":"b04","t":"cabling","type":"mc","q":"Why are the conductors in data cable twisted together in pairs?","o":["To reject electrical interference and reduce crosstalk","To make the cable easier to pull","To carry more mains current","So the colours are easier to see"],"x":"Twisting helps reject interference and reduces crosstalk between pairs, which is why RS485 must use twisted pair cable."},
+{"id":"b05","t":"cabling","type":"match","q":"Match each cable to the description that fits it.","p":[["Cat5","The original 100 MHz category: found on older sites, not used for new installs"],["Cat5e","100 MHz (Class D): supports Gigabit Ethernet when installed and tested properly"],["Cat6","250 MHz (Class E): can support 10 Gigabit up to 55 m if tested"],["Multicore security cable (e.g. 4-core screened)","Used for readers, door contacts, exit buttons and lock power"]],"x":"Cat5e is now the recommended minimum. Cat6 is 250 MHz. Not all access control wiring is network cable: multicore cable (screened where it carries data) is used for door devices and lock power."},
+{"id":"b06","t":"cabling","type":"mc","q":"What is the maximum length of a network CHANNEL, including the patch cords and equipment cords?","o":["100 m","90 m","55 m","1 km"],"x":"The channel (including patch and equipment cords) should not exceed 100 m. The permanent link (the fixed cable) has a maximum of 90 m."},
+{"id":"b07","t":"cabling","type":"tf","a":false,"q":"Cat5e and Cat6 cables and components can be mixed freely on the same link.","x":"False. NCP 109: cables, connectors, patch panels and outlets must be compatible, and Cat5e and Cat6 components should not be mixed."},
+{"id":"b08","t":"cabling","type":"multi","q":"Where the installer provides the network cabling, NCP 109 says it must at least be tested for which of these? Select ALL that apply (3 correct answers).","o":["Correct wire map (including split pairs)","Short circuits","Open circuits","The weight of the cable reel","The colour of the patch panel"],"a":[0,1,2],"x":"Network cabling must be tested at least for correct wire map (including split pairs), short circuits and open circuits, and the results documented."},
+{"id":"b09","t":"cabling","type":"mc","q":"NCP 109 says cables must be labelled at each termination point. What must the label show?","o":["Where the cable comes from and where it goes (source and destination)","The installer's phone number","The date the cable was bought","The cable's price per metre"],"x":"Cables must be labelled at each termination point with source and destination, and a cross-reference chart or running-out diagram kept."},
+{"id":"b11","t":"cabling","type":"match","q":"Match each termination to the correct method.","p":[["RJ45 plug","Crimp with the correct tool, untwisting the pairs as little as possible"],["Patch panel or outlet","Punch down into IDC terminals, following the T568A or T568B colour label"],["Controller or PSU terminals","Screw or spring terminals: strip only the length needed, with no stray strands"]],"x":"Then check terminations with a cable tester (network) or a multimeter (power and data buses), and always follow the manufacturer's wiring diagram."},
+{"id":"b14","t":"cabling","type":"mc","s":true,"q":"An extra-low voltage cable has to run beside a mains cable and they cannot be separated. What must its insulation be rated for?","o":["The highest voltage present","12 V only","Half the mains voltage","Nothing: ELV cable needs no rating"],"x":"Where ELV and mains cables cannot be separated, the insulation must be rated for the highest voltage present."},
+{"id":"y01","t":"cyber","type":"hotspot","d":"cloud","a":"waf","q":"Which letter shows the web application firewall (WAF) that checks web traffic before it reaches the cloud system's web interface?","x":"A WAF sits in front of a web application and inspects web traffic at the application layer."},
+{"id":"y02","t":"cyber","type":"hotspot","d":"cloud","a":"cloud","q":"Which letter shows where a cloud system's management software and database are hosted?","x":"In a cloud-based system the software and database are hosted by the supplier on the internet, not on a server on site."},
+{"id":"y03","t":"cyber","type":"hotspot","d":"cloud","a":"acu","q":"Which letter shows the door controller on site, which connects OUT to the cloud service?","x":"The door controllers on site connect out to the cloud service. They should keep working if the internet is lost."},
+{"id":"y04","t":"cyber","type":"mc","q":"What does a web application firewall (WAF) do?","o":["It inspects web traffic in front of a web application, to help block attacks","It encrypts card data between the reader and controller","It replaces the need for software updates","It provides standby power to the server"],"x":"GDS describes a WAF as application layer protection for web traffic, part of a layered security strategy. It helps reduce attacks such as cross-site scripting and injection."},
+{"id":"y05","t":"cyber","type":"tf","a":false,"q":"If a cloud service has a WAF, you no longer need to apply software updates or use strong passwords.","x":"False. A WAF does not replace patching, strong authentication and secure configuration."},
+{"id":"y06","t":"cyber","type":"mc","q":"How often does the NCSC recommend scanning infrastructure for vulnerabilities?","o":["At least once a month, and straight after changes made to fix a critical issue","Once every 5 years","Only when a fault is reported","Once, at handover"],"x":"The NCSC recommends scanning infrastructure at least once every month, or immediately after changes made to fix a critical issue."},
+{"id":"y07","t":"cyber","type":"mc","s":true,"q":"An administrator is tricked by a fake email into giving away their login. Which NCSC measure means a stolen password alone is NOT enough to get in?","o":["Multi-factor authentication (MFA)","A longer door-open time","A 125 kHz card reader","Forcing a password change every month"],"x":"The NCSC recommends MFA so a stolen password alone is not enough, a minimum of privileged accounts, and not using admin accounts for email or web browsing."},
+{"id":"y08","t":"cyber","type":"match","q":"Match each cyber threat to the mitigation that deals with it.","p":[["Default passwords","Change them before handover"],["Card cloning","Use strongly encrypted cards such as MIFARE DESFire EV2/EV3"],["Wiegand sniffing and replay","Use OSDP with Secure Channel turned on"],["Unpatched firmware","Apply updates promptly and record who is responsible"],["Devices exposed to the internet","Use a VPN, put the ACS on its own VLAN and close unused ports"]],"x":"These are the common threats and mitigations in the notes (NCP 109, NCSC, SIA and Allegion)."},
+{"id":"y09","t":"cyber","type":"tf","a":true,"q":"Since 29 April 2024, the PSTI Act 2022 has banned universal default passwords on consumer connectable products.","x":"True. The UK product security regime under the PSTI Act 2022 banned universal default passwords from 29 April 2024."},
+{"id":"y10","t":"cyber","type":"mc","q":"At commissioning, unused ports and protocols should be closed. Which protocol do the notes give as an example to disable?","o":["Telnet (port 23)","HTTPS (port 443)","OSDP Secure Channel","AES-128"],"x":"Unused TCP/UDP ports should be closed and unused protocols, for example Telnet on port 23, disabled. HTTPS is the secure protocol to use instead."},
+{"id":"y11","t":"cyber","type":"multi","q":"Which of these does the NCSC recommend for remote administration of a system? Select ALL that apply (4 correct answers).","o":["Reduce exposure, e.g. a VPN or an IP allow list","Use MFA on administrator accounts","Use encrypted protocols such as HTTPS, not Telnet","Monitor and log administration activity","Share one admin login between all engineers","Leave the admin page open to the whole internet"],"a":[0,1,2,3],"x":"NCSC: reduce exposure, allow only authorised devices, use MFA, use secure protocols, keep admin systems updated and logged, and apply least privilege."},
+{"id":"y12","t":"cyber","type":"tf","a":false,"q":"OSDP is always secure, even if Secure Channel encryption is not switched on.","x":"False. Research in 2023 showed OSDP is only secure if Secure Channel is actually enforced, strong unique keys are used and the installation (key exchange) mode is not left on."},
+{"id":"y13","t":"cyber","type":"mc","q":"What does the NCSC say about forcing users to change their passwords regularly?","o":["Don't force regular expiry: it harms rather than improves security","Force a change every week","Force a change every day","Passwords should never be used"],"x":"NCSC: use MFA, throttling or account lockout, and do not force regular password expiry, which harms rather than improves security."},
+{"id":"y16","t":"cyber","type":"tf","a":false,"q":"An engineer may plug their laptop into the customer's network at any time without asking, as long as it is a work laptop.","x":"False. NCP 109: external devices such as laptops and memory sticks must only be connected with the customer's permission and must have up-to-date anti-virus and operating system updates."}
+];
+
+/* Inline SVG diagrams for hotspot questions (Outcome 2). Each hotspot: id, letter L, short label s, name (revealed after answering), box b=[x,y,w,h]. */
+const DIAGRAMS = {
+ topo: { title:"Three ways to wire devices (schematic)", vb:"0 0 420 230", hs:[
+   {id:"daisy",L:"A",s:"Daisy chain",name:"Daisy chain",b:[6,8,130,214]},
+   {id:"ring",L:"B",s:"Ring",name:"Ring",b:[145,8,130,214]},
+   {id:"star",L:"C",s:"Star",name:"Star",b:[284,8,130,214]}],
+  art:`<rect x="0" y="0" width="420" height="230" fill="#22354f"/>
+  <g stroke="#8fa7c4" stroke-width="3" fill="none">
+   <polyline points="40,54 96,96 40,138 96,180"/>
+   <polygon points="210,48 258,84 240,150 180,150 162,84"/>
+   <path d="M349 115 L349 52 M349 115 L300 86 M349 115 L398 86 M349 115 L310 170 M349 115 L388 170"/>
+  </g>
+  <g fill="#c4ccd6" stroke="#0b1422" stroke-width="1.5">
+   <rect x="26" y="44" width="28" height="20" rx="3"/><rect x="82" y="86" width="28" height="20" rx="3"/><rect x="26" y="128" width="28" height="20" rx="3"/><rect x="82" y="170" width="28" height="20" rx="3"/>
+   <rect x="196" y="38" width="28" height="20" rx="3"/><rect x="244" y="74" width="28" height="20" rx="3"/><rect x="226" y="140" width="28" height="20" rx="3"/><rect x="166" y="140" width="28" height="20" rx="3"/><rect x="148" y="74" width="28" height="20" rx="3"/>
+   <rect x="335" y="42" width="28" height="20" rx="3"/><rect x="286" y="76" width="28" height="20" rx="3"/><rect x="384" y="76" width="28" height="20" rx="3"/><rect x="296" y="160" width="28" height="20" rx="3"/><rect x="374" y="160" width="28" height="20" rx="3"/>
+  </g>
+  <rect x="331" y="103" width="36" height="24" rx="4" fill="#5aa9ff" stroke="#0b1422" stroke-width="1.5"/>
+`},
+ power: { title:"Typical power arrangement for one door (schematic, not to scale)", vb:"0 0 420 250", hs:[
+   {id:"spur",L:"A",s:"Fused spur",name:"Un-switched fused spur (mains)",b:[6,70,84,96]},
+   {id:"psu",L:"B",s:"PSU",name:"Power supply unit (PSU)",b:[104,26,116,90]},
+   {id:"batt",L:"C",s:"Battery",name:"Standby battery (secondary supply)",b:[104,128,116,84]},
+   {id:"acu",L:"D",s:"Controller",name:"Door controller (ACU)",b:[234,26,96,100]},
+   {id:"lock",L:"E",s:"Maglock",name:"Magnetic lock on the door",b:[338,14,78,56]}],
+  art:`<rect x="0" y="0" width="420" height="250" fill="#22354f"/>
+  <rect x="0" y="232" width="420" height="18" fill="#2c425f"/>
+  <text x="48" y="200" fill="#dbe6f3" font-size="13" font-weight="700" text-anchor="middle" font-family="Calibri,'Segoe UI',Arial,sans-serif">230 V ac in</text>
+  <path d="M48 152 v34" stroke="#ff8a3d" stroke-width="3"/>
+  <rect x="16" y="88" width="64" height="64" rx="5" fill="#eef1f5" stroke="#555" stroke-width="2"/>
+  <rect x="34" y="104" width="28" height="14" rx="2" fill="#c9d3df" stroke="#555"/><path d="M38 111 h20" stroke="#555" stroke-width="2"/>
+  <circle cx="48" cy="136" r="4" fill="#ff5d5d"/>
+  <path d="M80 120 H112" stroke="#ff8a3d" stroke-width="3"/>
+  <rect x="110" y="34" width="104" height="172" rx="6" fill="#2a3d55" stroke="#c4ccd6" stroke-width="2"/>
+  <rect x="122" y="48" width="80" height="54" rx="3" fill="#1b5e3a"/>
+  <g fill="#ffd36b"><rect x="130" y="58" width="12" height="8"/><rect x="150" y="58" width="12" height="8"/><rect x="170" y="58" width="12" height="8"/></g>
+  <circle cx="134" cy="88" r="5" fill="#2ecc71"/><circle cx="150" cy="88" r="5" fill="#ff5d5d"/>
+  <rect x="124" y="146" width="76" height="52" rx="3" fill="#1f1f1f" stroke="#999"/><rect x="134" y="140" width="10" height="6" fill="#ff5d5d"/><rect x="180" y="140" width="10" height="6" fill="#222" stroke="#999"/>
+  <path d="M134 154 h10 M139 149 v10 M178 154 h12" stroke="#fff" stroke-width="2"/>
+  <path d="M162 102 V140" stroke="#ff5d5d" stroke-width="2.5"/>
+  <path d="M214 76 H240" stroke="#8fa7c4" stroke-width="3"/>
+  <rect x="240" y="36" width="84" height="84" rx="5" fill="#2a3d55" stroke="#c4ccd6" stroke-width="2"/>
+  <rect x="250" y="48" width="30" height="22" fill="#1b5e3a"/><rect x="286" y="48" width="28" height="8" fill="#8fa7c4"/><rect x="286" y="62" width="28" height="8" fill="#8fa7c4"/>
+  <g fill="#ffd36b"><circle cx="254" cy="106" r="3"/><circle cx="266" cy="106" r="3"/><circle cx="278" cy="106" r="3"/><circle cx="290" cy="106" r="3"/><circle cx="302" cy="106" r="3"/><circle cx="314" cy="106" r="3"/></g>
+  <path d="M324 60 H344 V44" stroke="#8fa7c4" stroke-width="3" fill="none"/>
+  <rect x="344" y="24" width="68" height="20" rx="3" fill="#8a96a5" stroke="#2c3440" stroke-width="2"/>
+  <rect x="350" y="46" width="56" height="8" fill="#c9d3df" stroke="#555"/>
+  <rect x="344" y="56" width="68" height="176" fill="#9a6a43"/><rect x="352" y="70" width="52" height="66" fill="#a97a52" stroke="#7d5234"/><rect x="352" y="148" width="52" height="70" fill="#a97a52" stroke="#7d5234"/>`},
+ cloud: { title:"A cloud-based access control system (schematic)", vb:"0 0 420 260", hs:[
+   {id:"acu",L:"A",s:"Door controller",name:"Door controller on site",b:[6,150,104,100]},
+   {id:"router",L:"B",s:"Router / firewall",name:"Site router / firewall",b:[120,150,96,96]},
+   {id:"cloud",L:"C",s:"Cloud servers",name:"Cloud servers: hosted software and database",b:[100,6,170,96]},
+   {id:"waf",L:"D",s:"WAF",name:"Web application firewall (WAF)",b:[286,20,62,96]},
+   {id:"admin",L:"E",s:"Admin",name:"Administrator's laptop or phone (web browser / app)",b:[300,150,114,100]}],
+  art:`<rect x="0" y="0" width="420" height="260" fill="#22354f"/>
+  <g font-family="Calibri,'Segoe UI',Arial,sans-serif" font-size="12" font-weight="700" fill="#8fa7c4"><text x="10" y="142">ON SITE</text><text x="352" y="142">ANYWHERE</text><text x="10" y="18">INTERNET</text></g>
+  <g stroke="#8fa7c4" stroke-width="3" fill="none"><path d="M96 200 H134"/><path d="M168 168 V96"/><path d="M262 60 H300"/><path d="M318 108 V150 H340"/></g>
+  <path d="M130 84 a22 22 0 0 1 8 -40 a30 30 0 0 1 56 -10 a24 24 0 0 1 44 12 a20 20 0 0 1 10 38 z" fill="#3b5778" stroke="#c4ccd6" stroke-width="2"/>
+  <g fill="#20262e" stroke="#c4ccd6" stroke-width="1.5"><rect x="160" y="46" width="30" height="34" rx="3"/><rect x="198" y="46" width="30" height="34" rx="3"/></g>
+  <g fill="#2ecc71"><circle cx="168" cy="54" r="2.5"/><circle cx="206" cy="54" r="2.5"/></g>
+  <g stroke="#8fa7c4" stroke-width="2"><path d="M166 64 h18 M166 72 h18 M204 64 h18 M204 72 h18"/></g>
+  <g fill="#b5653a" stroke="#22354f" stroke-width="2"><rect x="296" y="34" width="22" height="14"/><rect x="318" y="34" width="22" height="14"/><rect x="296" y="48" width="11" height="14"/><rect x="307" y="48" width="22" height="14"/><rect x="329" y="48" width="11" height="14"/><rect x="296" y="62" width="22" height="14"/><rect x="318" y="62" width="22" height="14"/><rect x="296" y="76" width="11" height="14"/><rect x="307" y="76" width="22" height="14"/><rect x="329" y="76" width="11" height="14"/></g>
+  <rect x="16" y="170" width="80" height="62" rx="5" fill="#2a3d55" stroke="#c4ccd6" stroke-width="2"/><rect x="26" y="180" width="26" height="18" fill="#1b5e3a"/><rect x="58" y="180" width="28" height="7" fill="#8fa7c4"/><rect x="58" y="191" width="28" height="7" fill="#8fa7c4"/>
+  <g fill="#ffd36b"><circle cx="30" cy="220" r="3"/><circle cx="42" cy="220" r="3"/><circle cx="54" cy="220" r="3"/><circle cx="66" cy="220" r="3"/><circle cx="78" cy="220" r="3"/></g>
+  <rect x="134" y="182" width="70" height="34" rx="6" fill="#20262e" stroke="#c4ccd6" stroke-width="2"/><path d="M146 182 l-6 -16 M192 182 l6 -16" stroke="#c4ccd6" stroke-width="3"/>
+  <g fill="#2ecc71"><circle cx="148" cy="199" r="3"/><circle cx="160" cy="199" r="3"/><circle cx="172" cy="199" r="3"/></g>
+  <rect x="340" y="166" width="62" height="40" rx="3" fill="#20262e" stroke="#c4ccd6" stroke-width="2"/><rect x="345" y="171" width="52" height="30" fill="#2f5f8f"/><path d="M332 210 h78 l-6 8 h-66 z" fill="#c4ccd6"/>
+  <rect x="312" y="196" width="20" height="36" rx="4" fill="#20262e" stroke="#c4ccd6" stroke-width="2"/><rect x="315" y="201" width="14" height="24" fill="#2f5f8f"/>`}
+};
+
+(function(){
+"use strict";
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>Array.from(r.querySelectorAll(s));
+const LS={get(k,d){try{const v=localStorage.getItem(QUIZ.ls+k);return v===null?d:JSON.parse(v);}catch(e){return d;}},set(k,v){try{localStorage.setItem(QUIZ.ls+k,JSON.stringify(v));}catch(e){}}};
+const reduceMotion=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const shuffle=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;};
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const TOPIC_KEYS=Object.keys(TOPICS);
+const TYPE_LABEL={mc:"Multiple choice",tf:"True or false",multi:"Select all that apply",match:"Tap to match",order:"Put in order",hotspot:"Diagram: pick a letter",scenario:"Site scenario"};
+const qType=q=>q.type==="mc"&&q.s?"scenario":q.type;
+
+/* ---------- sound (off by default) ---------- */
+let soundOn=LS.get("sound",false), actx=null;
+function beep(seq){ if(!soundOn) return; try{ actx=actx||new (window.AudioContext||window.webkitAudioContext)(); let t=actx.currentTime;
+  seq.forEach(([f,d,type])=>{const o=actx.createOscillator(),g=actx.createGain();o.type=type||"sine";o.frequency.value=f;g.gain.setValueAtTime(.12,t);g.gain.exponentialRampToValueAtTime(.001,t+d);o.connect(g).connect(actx.destination);o.start(t);o.stop(t+d);t+=d*.9;}); }catch(e){} }
+const SFX={ok:()=>beep([[660,.09],[990,.16]]),bad:()=>beep([[140,.35,"square"]]),door:()=>beep([[523,.1],[659,.1],[784,.1],[1047,.25]]),tick:()=>beep([[1200,.03,"square"]])};
+function setSound(on){soundOn=on;LS.set("sound",on);const b=$("#soundBtn");b.setAttribute("aria-pressed",on?"true":"false");b.innerHTML=on?ICON.sound+"<span>Sound on</span>":ICON.mute+"<span>Sound off</span>";}
+
+const ICON={
+ sound:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16 8a5 5 0 0 1 0 8M18.5 5.5a9 9 0 0 1 0 13" stroke="currentColor" stroke-width="2" fill="none"/></svg>',
+ mute:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor"/><path d="M16 9l6 6M22 9l-6 6" stroke="currentColor" stroke-width="2"/></svg>',
+ fire:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2c1 4 5 6 5 11a5 5 0 0 1-10 0c0-3 2-4 2-7 2 1 3 3 3 3s1-3 0-7z" fill="currentColor"/></svg>',
+ shield:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5z" fill="currentColor"/></svg>',
+ star:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5 2 7.5-6.5-4.5L5.5 21l2-7.5L2 9h7z" fill="currentColor"/></svg>',
+ key:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="7.5" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M12 12h10M18 12v4M21 12v3" stroke="currentColor" stroke-width="2.5"/></svg>',
+ up:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6l-7 8h14z" fill="currentColor"/></svg>',
+ down:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 18l-7-8h14z" fill="currentColor"/></svg>'
+};
+
+/* ---------- ranks & badges ---------- */
+const RANKS=QUIZ.ranks||[{min:90,name:"Master Key",col:"#ffd36b",msg:"Outstanding. You've unlocked every door."},{min:70,name:"Supervisor",col:"#5aa9ff",msg:"Strong work. A little revision and you'll hold the master key."},{min:50,name:"Keyholder",col:"#2ecc71",msg:"Good start. Revise the topics flagged below and try again."},{min:0,name:"Visitor",col:"#c4ccd6",msg:"Signed in as a visitor. Work through the flagged notes sections, then retry."}];
+const rankFor=p=>RANKS.find(r=>p>=r.min);
+function rankBadge(r,size){return `<svg class="rankbadge" width="${size}" height="${size}" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="#0d1726" stroke="${r.col}" stroke-width="6"/><circle cx="50" cy="40" r="14" fill="none" stroke="${r.col}" stroke-width="7"/><path d="M50 54v28M50 70h12M50 80h9" stroke="${r.col}" stroke-width="7" stroke-linecap="round"/></svg>`;}
+
+/* ---------- state ---------- */
+let S=null, timerId=null, playerName="";
+const MODES={
+ quick:{name:"Quick Fire",timer:true},
+ mission:{name:"Full Mission",timer:false,shields:true},
+ practice:{name:"Practice",timer:false},
+ retry:{name:"Retry wrong answers",timer:false}
+};
+const timeLimit=q=>({match:45,order:40,multi:30}[q.type]||20);
+
+function pickVaried(list,n){ // favour a mix of question types
+  const pool=shuffle(list), out=[], seen=new Set();
+  for(const q of pool){ if(out.length>=n) break; const t=qType(q); if(!seen.has(t)){seen.add(t);out.push(q);} }
+  for(const q of pool){ if(out.length>=n) break; if(!out.includes(q)) out.push(q); }
+  return shuffle(out);
+}
+function buildQueue(mode,opt){
+  if(mode==="quick"){ const per={},out=[]; for(const q of shuffle(BANK)){ if(out.length>=10) break; per[q.t]=per[q.t]||0; if(per[q.t]<2){per[q.t]++;out.push(q);} } return {queue:out}; }
+  if(mode==="mission"){ const rounds=TOPIC_KEYS.map(t=>({t,qs:pickVaried(BANK.filter(q=>q.t===t),5)})); return {queue:rounds.flatMap(r=>r.qs),rounds}; }
+  if(mode==="practice"){ const list=opt==="all"?BANK:BANK.filter(q=>q.t===opt); return {queue:shuffle(list)}; }
+  if(mode==="retry"){ return {queue:shuffle(opt)}; }
+}
+function start(mode,opt){
+  const b=buildQueue(mode,opt);
+  S={mode,opt,queue:b.queue,rounds:b.rounds||null,idx:0,score:0,streak:0,best:0,shields:MODES[mode].shields?3:0,answers:[],badges:new Set(),roundStars:[],startedAt:new Date(),name:playerName};
+  show("play"); renderHUD(); renderQ();
+}
+
+/* ---------- screens ---------- */
+function show(id){ $$(".screen").forEach(s=>s.hidden=s.id!==id); window.scrollTo(0,0); }
+function renderHUD(){
+  const m=MODES[S.mode];
+  $("#hudMode").textContent=m.name+(S.rounds?` · Door ${roundOf(S.idx)+1} of ${S.rounds.length}`:"");
+  $("#hudScore").textContent=S.score;
+  $("#hudStreak").innerHTML=ICON.fire+`<span>${S.streak}</span>`; $("#hudStreak").setAttribute("aria-label","Streak "+S.streak);
+  const sh=$("#hudShields"); sh.hidden=!m.shields;
+  if(m.shields){ sh.innerHTML=[0,1,2].map(i=>`<span class="sh ${i<S.shields?"on":""}">${ICON.shield}</span>`).join(""); sh.setAttribute("aria-label",`Shields ${S.shields} of 3`); }
+  const pct=Math.round(100*S.idx/S.queue.length);
+  $("#progFill").style.width=pct+"%"; $("#prog").setAttribute("aria-valuenow",pct);
+  $("#progText").textContent=`Question ${Math.min(S.idx+1,S.queue.length)} of ${S.queue.length}`;
+}
+function roundOf(i){ if(!S.rounds) return 0; let c=0; for(let r=0;r<S.rounds.length;r++){ c+=S.rounds[r].qs.length; if(i<c) return r; } return S.rounds.length-1; }
+
+/* ---------- question rendering ---------- */
+let cur=null;
+const plural=(n,w)=>n+" "+w+(n===1?"":"s");
+function howTo(q){
+  const ty=qType(q);
+  if(ty==="mc") return "Pick ONE answer. It is marked as soon as you tap it.";
+  if(ty==="scenario") return "Read the situation, then pick the ONE best answer. It is marked as soon as you tap it.";
+  if(ty==="tf") return "Tap True or False. It is marked as soon as you tap.";
+  if(ty==="multi") return `Tap the ${q.a.length} correct answers (tap again to untick), then tap Check.`;
+  if(ty==="match") return `Tap a term, then tap the description that matches it. Tap a matched description to undo it. Match all ${q.p.length}, then tap Check.`;
+  if(ty==="order"){ const e=q.ends||["First","Last"]; return `Use the ▲ ▼ buttons to move items. Top = ${e[0]}, bottom = ${e[1]}. Then tap Check.`; }
+  if(ty==="hotspot") return DIAGRAMS[q.d].keypad?"Tap ONE key. It is marked as soon as you tap.":"Tap ONE part on the diagram, or its yellow letter button below. It is marked as soon as you tap.";
+}
+function renderQ(){
+  const q=S.queue[S.idx]; cur={q,answered:false,t0:performance.now()};
+  setDoor("idle");
+  const tp=TOPICS[q.t], ty=qType(q);
+  const box=$("#qbox");
+  box.innerHTML=`<div class="qmeta"><span class="chip topic">${esc(tp.name)}</span><span class="chip type">${TYPE_LABEL[ty]}</span></div>
+   ${ty==="scenario"?'<div class="scen-tag">SITE SCENARIO</div>':""}
+   <h2 id="qtext" class="qtext" tabindex="-1">${ty==="tf"?'<span class="tfpre">True or false?</span> ':""}${esc(q.q)}</h2>
+   <div class="howto" id="howtoLine"><b>How to answer:</b> ${esc(howTo(q))}</div><div id="qbody"></div>`;
+  $("#feedback").hidden=true; $("#feedback").className="feedback";
+  const body=$("#qbody");
+  ({mc:rMC,tf:rTF,multi:rMulti,match:rMatch,order:rOrder,hotspot:rHot})[q.type](q,body);
+  renderHUD();
+  $("#qtext").focus({preventScroll:true});
+  startTimer(q);
+}
+function optBtn(html,cls,attrs){return `<button type="button" class="opt ${cls||""}" ${attrs||""}>${html}</button>`;}
+function rMC(q,body){
+  cur.order=shuffle(q.o.map((_,i)=>i));
+  body.innerHTML=`<div class="opts" role="group" aria-label="Answer options. Pick one.">${cur.order.map((oi,k)=>optBtn(`<span class="key">${"ABCD"[k]}</span><span>${esc(q.o[oi])}</span>`,"",`data-i="${oi}"`)).join("")}</div>`;
+  $$(".opt",body).forEach(b=>b.onclick=()=>{ if(cur.answered) return; const i=+b.dataset.i; markOpts(body,[b]); finish(i===0,q.o[i],q.o[0]); });
+}
+function markOpts(body,chosen){ $$(".opt",body).forEach(b=>{b.disabled=true; if(+b.dataset.i===0) b.classList.add("right");}); chosen.forEach(b=>{ if(+b.dataset.i!==0) b.classList.add("wrong"); b.classList.add("chosen");}); }
+function rTF(q,body){
+  body.innerHTML=`<div class="opts tf" role="group" aria-label="True or false">${optBtn("<span class='key'>T</span><span>True</span>","",'data-v="1"')}${optBtn("<span class='key'>F</span><span>False</span>","",'data-v="0"')}</div>`;
+  $$(".opt",body).forEach(b=>b.onclick=()=>{ if(cur.answered) return; const v=b.dataset.v==="1", ok=v===q.a;
+    $$(".opt",body).forEach(x=>{x.disabled=true; if((x.dataset.v==="1")===q.a) x.classList.add("right");}); b.classList.add("chosen"); if(!ok) b.classList.add("wrong");
+    finish(ok,v?"True":"False",q.a?"True":"False"); });
+}
+function rMulti(q,body){
+  cur.order=shuffle(q.o.map((_,i)=>i)); const sel=new Set(), need=q.a.length;
+  body.innerHTML=`<div class="opts" role="group" aria-label="Select ${need} answers">${cur.order.map(oi=>optBtn(`<span class="tick" aria-hidden="true"></span><span>${esc(q.o[oi])}</span>`,"multi",`data-i="${oi}" aria-pressed="false"`)).join("")}</div>
+   <p class="checkhint" id="chkHint" aria-live="polite"></p><button type="button" class="btn primary check" disabled aria-describedby="chkHint">Check answer</button>`;
+  const chk=$(".check",body), hint=$("#chkHint");
+  const upd=()=>{ const n=sel.size; chk.disabled=n!==need;
+    hint.textContent=n<need?`Picked ${n} of ${need}. Pick ${need-n} more to unlock Check.`:n>need?`You have picked ${n}, but only ${need} are correct. Untick ${n-need} to unlock Check.`:`Picked ${n} of ${need}. Tap Check when you are ready.`;
+    hint.classList.toggle("ready",n===need); };
+  upd();
+  $$(".opt",body).forEach(b=>b.onclick=()=>{ const i=+b.dataset.i; sel.has(i)?sel.delete(i):sel.add(i); b.setAttribute("aria-pressed",sel.has(i)); b.classList.toggle("on",sel.has(i)); upd(); });
+  chk.onclick=()=>{ const right=new Set(q.a), ok=sel.size===right.size&&[...sel].every(i=>right.has(i));
+    $$(".opt",body).forEach(b=>{ const i=+b.dataset.i; b.disabled=true; if(right.has(i)) b.classList.add("right"); if(sel.has(i)&&!right.has(i)) b.classList.add("wrong"); if(!sel.has(i)&&right.has(i)) b.classList.add("missed"); });
+    chk.hidden=true; hint.hidden=true;
+    const det=`<ul class="det">${cur.order.map(i=>{const r=right.has(i),s=sel.has(i); if(!r&&!s) return ""; const cls=r&&s?"ok":s?"no":"miss"; const lab=r&&s?"✓ Correct, and you picked it":s?"✗ You picked this, but it is NOT correct":"! Missed: this one IS correct"; return `<li class="${cls}"><b>${lab}:</b> ${esc(q.o[i])}</li>`;}).join("")}</ul>`;
+    finish(ok,[...sel].map(i=>q.o[i]).join("; ")||"(nothing)",q.a.map(i=>q.o[i]).join("; "),false,det,`<ul class="corrlist">${q.a.map(i=>`<li>${esc(q.o[i])}</li>`).join("")}</ul>`); };
+}
+const PAIRCOL=["#ffb020","#5aa9ff","#ff7ab6","#2ecc71","#b48cff","#36d6d6"];
+function rMatch(q,body){
+  const n=q.p.length, terms=shuffle(q.p.map((_,i)=>i)), defs=shuffle(q.p.map((_,i)=>i));
+  const pair={}; let selT=null;
+  body.innerHTML=`<div class="match"><div><div class="colhead">1. Tap a term</div><div class="terms" role="group" aria-label="Terms">${terms.map(i=>`<button type="button" class="term" data-t="${i}" aria-pressed="false"><span class="dot" aria-hidden="true"></span>${esc(q.p[i][0])}</button>`).join("")}</div></div>
+   <div><div class="colhead">2. Then tap the description it matches</div><div class="defs" role="group" aria-label="Descriptions">${defs.map(i=>`<button type="button" class="def" data-d="${i}"><span class="tag" aria-hidden="true"></span><span class="dtext">${esc(q.p[i][1])}</span><span class="res"></span></button>`).join("")}</div></div></div>
+   <p class="selnow" id="selNow" aria-live="polite"></p>
+   <p class="checkhint" id="chkHint"></p>
+   <div class="row"><button type="button" class="btn ghost clear">Clear all</button><button type="button" class="btn primary check" disabled aria-describedby="chkHint">Check answer</button></div>`;
+  const colOf=t=>PAIRCOL[terms.indexOf(t)%PAIRCOL.length];
+  function paint(){
+    $$(".term",body).forEach(b=>{const t=+b.dataset.t, d=Object.keys(pair).find(k=>pair[k]===t); b.classList.toggle("sel",selT===t); b.setAttribute("aria-pressed",selT===t);
+      b.classList.toggle("paired",d!==undefined); b.style.setProperty("--pc",colOf(t)); b.setAttribute("aria-label",q.p[t][0]+(d!==undefined?" (matched)":"")+(selT===t?" (selected)":"")); });
+    $$(".def",body).forEach(b=>{const d=+b.dataset.d, t=pair[d]; const tag=$(".tag",b);
+      if(t!==undefined){b.classList.add("paired");b.style.setProperty("--pc",colOf(t));tag.textContent="Matched to: "+q.p[t][0];b.setAttribute("aria-label",q.p[d][1]+". Matched to "+q.p[t][0]+". Tap to undo.");}
+      else {b.classList.remove("paired");tag.textContent="";b.setAttribute("aria-label",q.p[d][1]+(selT!==null?". Tap to match with "+q.p[selT][0]:""));} });
+    const done=Object.keys(pair).length;
+    $("#selNow").innerHTML=selT!==null?`Selected term: <b>${esc(q.p[selT][0])}</b>. Now tap its description.`:(done<n?"Tap a term to select it.":"");
+    const h=$("#chkHint"); h.textContent=done<n?`${done} of ${n} matched. Match all ${n} to unlock Check.`:`All ${n} matched. Tap Check when you are ready.`; h.classList.toggle("ready",done===n);
+    $(".check",body).disabled=done<n;
+  }
+  $$(".term",body).forEach(b=>b.onclick=()=>{ selT=+b.dataset.t; paint(); });
+  $$(".def",body).forEach(b=>b.onclick=()=>{ const d=+b.dataset.d;
+    if(pair[d]!==undefined){ selT=pair[d]; delete pair[d]; paint(); return; } /* tapping a matched description undoes it */
+    if(selT===null){ paint(); return; }
+    Object.keys(pair).forEach(k=>{ if(pair[k]===selT) delete pair[k]; });
+    pair[d]=selT;
+    const next=terms.find(t=>!Object.values(pair).includes(t)); selT=next===undefined?null:next; paint(); });
+  $(".clear",body).onclick=()=>{ Object.keys(pair).forEach(k=>delete pair[k]); selT=terms[0]; paint(); };
+  selT=terms[0]; paint();
+  $(".check",body).onclick=()=>{ let ok=true;
+    $$(".def",body).forEach(b=>{ const d=+b.dataset.d, good=pair[d]===d; if(!good) ok=false; b.disabled=true; b.classList.add(good?"right":"wrong"); $(".res",b).textContent=good?"✓ Correct":"✗ Should be: "+q.p[d][0]; });
+    $$(".term",body).forEach(b=>b.disabled=true); $(".row",body).hidden=true; $("#selNow").hidden=true; $("#chkHint").hidden=true;
+    const det=`<ul class="det">${defs.map(d=>{const good=pair[d]===d; return `<li class="${good?"ok":"no"}">“${esc(q.p[d][1])}”<br><b>${good?"✓ You chose "+esc(q.p[pair[d]][0])+". Correct.":"✗ You chose "+esc(q.p[pair[d]][0])+". Correct: "+esc(q.p[d][0])}</b></li>`;}).join("")}</ul>`;
+    finish(ok,defs.map(d=>`${q.p[pair[d]][0]} → ${q.p[d][1]}`).join("; "),q.p.map(p=>`${p[0]} → ${p[1]}`).join("; "),false,det,`<ul class="corrlist">${q.p.map(p=>`<li><b>${esc(p[0])}</b> → ${esc(p[1])}</li>`).join("")}</ul>`); };
+}
+function rOrder(q,body){
+  let ord=shuffle(q.o.map((_,i)=>i)); while(ord.every((v,i)=>v===i)) ord=shuffle(ord);
+  const ends=q.ends||["First","Last"];
+  body.innerHTML=`<div class="endlab top">▲ TOP = ${esc(ends[0])}</div><ol class="order" aria-label="Items to put in order. Top is ${esc(ends[0])}, bottom is ${esc(ends[1])}."></ol><div class="endlab bot">▼ BOTTOM = ${esc(ends[1])}</div>
+   <p class="checkhint ready" id="chkHint">Move the items, then tap Check when you are happy with the order.</p><button type="button" class="btn primary check" aria-describedby="chkHint">Check order</button>`;
+  const ol=$(".order",body);
+  function paint(focusIdx,dir){
+    ol.innerHTML=ord.map((oi,k)=>`<li class="oitem" data-i="${oi}"><span class="onum" aria-hidden="true">${k+1}</span><span class="otext">${esc(q.o[oi])}</span><span class="obtns">
+     <button type="button" class="mv up" data-k="${k}" ${k===0?"disabled":""} aria-label="Move up: ${esc(q.o[oi])}">${ICON.up}</button>
+     <button type="button" class="mv down" data-k="${k}" ${k===ord.length-1?"disabled":""} aria-label="Move down: ${esc(q.o[oi])}">${ICON.down}</button></span></li>`).join("");
+    $$(".mv",ol).forEach(b=>b.onclick=()=>{ const k=+b.dataset.k, up=b.classList.contains("up"), j=up?k-1:k+1; [ord[k],ord[j]]=[ord[j],ord[k]]; paint(j,up?"up":"down"); });
+    if(focusIdx!==undefined){ const li=ol.children[focusIdx]; li.classList.add("moved"); let f=$(".mv."+dir,li); if(!f||f.disabled) f=$(".mv:not([disabled])",li); f&&f.focus(); }
+  }
+  paint();
+  $(".check",body).onclick=()=>{ const ok=ord.every((v,i)=>v===i);
+    $$(".oitem",ol).forEach((li,k)=>{ const good=+li.dataset.i===k; li.classList.add(good?"right":"wrong"); li.insertAdjacentHTML("beforeend",good?`<span class="ores ok">✓ Right place</span>`:`<span class="ores">✗ Should be number ${(+li.dataset.i)+1}</span>`); });
+    $$(".mv",ol).forEach(b=>b.disabled=true); $(".check",body).hidden=true; $("#chkHint").hidden=true;
+    const nRight=ord.filter((v,i)=>v===i).length;
+    const det=`<p class="detp">${nRight} of ${ord.length} items were in the right place.</p>`;
+    finish(ok,ord.map(i=>q.o[i]).join(" → "),q.o.join(" → "),false,det,`<ol class="corrlist">${q.o.map(t=>`<li>${esc(t)}</li>`).join("")}</ol>`); };
+}
+function svgDiagram(d,key){
+  const boxes=!!d.boxes;
+  const hs=d.hs.map(h=>{ const [x,y,w,ht]=h.b;
+    if(d.keypad) return `<g class="hs key" role="button" tabindex="0" data-h="${h.id}" aria-label="Key ${h.L}"><rect x="${x}" y="${y}" width="${w}" height="${ht}" rx="10" class="keycap"/><text x="${x+w/2}" y="${y+ht/2+10}" text-anchor="middle" class="keytxt">${h.L}</text></g>`;
+    const bx=boxes?x+w/2:x+14, by=boxes?y+18:y+14;
+    return `<g class="hs" role="button" tabindex="0" data-h="${h.id}" aria-label="Part ${h.L}">
+     ${boxes?`<rect x="${x}" y="${y}" width="${w}" height="${ht}" rx="8" class="orgbox"/>`:""}
+     <rect x="${x}" y="${y}" width="${w}" height="${ht}" rx="8" class="hit"/>
+     <g class="badge"><circle cx="${bx}" cy="${by}" r="${boxes?15:14}"/><text x="${bx}" y="${by+6.5}" text-anchor="middle">${h.L}</text></g>
+     <text class="rev" x="${x+w/2}" y="${y+ht-4}" text-anchor="middle">${esc(h.s||h.name)}</text></g>`; }).join("");
+  return `<figure class="diagram"><svg viewBox="${d.vb}" role="group" aria-label="${esc(d.title)}">${d.art}${hs}</svg><figcaption>${esc(d.title)}</figcaption></figure>`;
+}
+function rHot(q,body){
+  const d=DIAGRAMS[q.d];
+  body.innerHTML=svgDiagram(d,q.d)+(d.keypad?"":`<div class="colhead">Or tap a letter:</div><div class="hsbtns" role="group" aria-label="Letter buttons. Pick one.">${d.hs.map(h=>`<button type="button" class="hsb" data-h="${h.id}" aria-label="Part ${h.L}"><b>${h.L}</b><span class="hsn"></span></button>`).join("")}</div>`);
+  const pick=id=>{ if(cur.answered) return; const ok=id===q.a, svg=$("svg",body); svg.classList.add("revealed");
+    $$(".hs",body).forEach(g=>{ g.setAttribute("tabindex","-1"); if(g.dataset.h===q.a) g.classList.add("right"); else if(g.dataset.h===id) g.classList.add("wrong"); });
+    $$(".hsb",body).forEach(b=>{ b.disabled=true; const h=d.hs.find(x=>x.id===b.dataset.h); $(".hsn",b).textContent=h.name; if(h.id===q.a) b.classList.add("right"); else if(h.id===id) b.classList.add("wrong"); });
+    const nm=id2=>{const h=d.hs.find(x=>x.id===id2);return (d.keypad?"Key ":h.L+": ")+(d.keypad?h.L:h.name);};
+    finish(ok,nm(id),nm(q.a)); };
+  $$(".hs",body).forEach(g=>{ g.addEventListener("click",()=>pick(g.dataset.h)); g.addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key===" "){e.preventDefault();pick(g.dataset.h);} }); });
+  $$(".hsb",body).forEach(b=>b.onclick=()=>pick(b.dataset.h));
+}
+
+/* ---------- timer (pausable, e.g. while How to play is open) ---------- */
+let tState=null;
+function startTimer(q){
+  stopTimer(); const tw=$("#timer"); if(!MODES[S.mode].timer){ tw.hidden=true; tState=null; return; }
+  tw.hidden=false; tState={lim:timeLimit(q)*1000,left:timeLimit(q)*1000,last:performance.now(),lastSec:null}; runTimer();
+}
+function runTimer(){ if(!tState) return; tState.last=performance.now(); const tick=()=>{ const now=performance.now(); tState.left=Math.max(0,tState.left-(now-tState.last)); tState.last=now; cur.left=tState.left/tState.lim;
+    $("#timerFill").style.width=(100*tState.left/tState.lim)+"%"; $("#timerFill").classList.toggle("low",tState.left<5000);
+    const sec=Math.ceil(tState.left/1000); $("#timerText").textContent=sec+"s"; if(sec<=5&&sec!==tState.lastSec&&sec>0){SFX.tick();} tState.lastSec=sec;
+    if(tState.left<=0){ stopTimer(); timeout(); } };
+  tick(); timerId=setInterval(tick,100); }
+function pauseTimer(){ if(timerId){ clearInterval(timerId); timerId=null; return true; } return false; }
+function stopTimer(){ if(timerId){clearInterval(timerId);timerId=null;} }
+function timeout(){ if(cur.answered) return; const q=cur.q;
+  $$("#qbody button, #qbody .hs").forEach(b=>{b.disabled=true;b.setAttribute&&b.setAttribute("tabindex","-1");});
+  if(q.type==="mc") $$('#qbody .opt[data-i="0"]').forEach(b=>b.classList.add("right"));
+  if(q.type==="tf") $$('#qbody .opt[data-v="'+(q.a?1:0)+'"]').forEach(b=>b.classList.add("right"));
+  if(q.type==="multi") q.a.forEach(i=>$$('#qbody .opt[data-i="'+i+'"]').forEach(b=>b.classList.add("right")));
+  if(q.type==="hotspot"){ const sv=$("#qbody svg"); sv&&sv.classList.add("revealed"); $$('#qbody [data-h="'+q.a+'"]').forEach(g=>g.classList.add("right")); }
+  ["#chkHint","#selNow"].forEach(s=>{const e=$(s); if(e) e.hidden=true;}); $$("#qbody .check, #qbody .row").forEach(e=>e.hidden=true);
+  let corrHTML=null;
+  if(q.type==="match") corrHTML=`<ul class="corrlist">${q.p.map(p=>`<li><b>${esc(p[0])}</b> → ${esc(p[1])}</li>`).join("")}</ul>`;
+  if(q.type==="order") corrHTML=`<ol class="corrlist">${q.o.map(t=>`<li>${esc(t)}</li>`).join("")}</ol>`;
+  if(q.type==="multi") corrHTML=`<ul class="corrlist">${q.a.map(i=>`<li>${esc(q.o[i])}</li>`).join("")}</ul>`;
+  finish(false,"(time ran out)",correctText(q),true,"",corrHTML); }
+function correctText(q){ if(q.type==="mc") return q.o[0]; if(q.type==="tf") return q.a?"True":"False"; if(q.type==="multi") return q.a.map(i=>q.o[i]).join("; ");
+  if(q.type==="match") return q.p.map(p=>`${p[0]} → ${p[1]}`).join("; "); if(q.type==="order") return q.o.join(" → "); const D=DIAGRAMS[q.d], h=D.hs.find(x=>x.id===q.a); return D.keypad?"Key "+h.L:h.L+": "+h.name; }
+
+/* ---------- marking & feedback ---------- */
+function finish(ok,given,correct,timedOut,detailHTML,correctHTML){
+  if(cur.answered) return; cur.answered=true; stopTimer();
+  const q=cur.q, secs=(performance.now()-cur.t0)/1000; let pts=0, note="";
+  if(ok){ S.streak++; S.best=Math.max(S.best,S.streak); pts=100;
+    if(MODES[S.mode].timer){ const sb=Math.round(50*(cur.left||0)); pts+=sb; if(sb) note+=`+${sb} speed bonus `; }
+    const st=10*Math.min(S.streak-1,5); if(st){pts+=st; note+=`+${st} streak bonus `;}
+    if(MODES[S.mode].shields&&S.streak>0&&S.streak%5===0&&S.shields<3){S.shields++; note+="· 5 in a row: shield recharged! ";}
+    if(S.streak>=5) S.badges.add("streak5"); if(S.streak>=10) S.badges.add("streak10");
+    SFX.ok(); setDoor("open");
+  } else {
+    if(MODES[S.mode].shields&&S.shields>0){ S.shields--; note="A shield took the hit, so your streak is safe. Shields left: "+S.shields+"."; }
+    else { if(S.streak>0) note="Streak reset to 0."; S.streak=0; }
+    SFX.bad(); setDoor("denied");
+  }
+  S.score+=pts;
+  S.answers.push({q,ok,given,correct,secs,timedOut:!!timedOut});
+  const fb=$("#feedback"); fb.hidden=false; fb.className="feedback "+(ok?"good":"bad")+(reduceMotion?"":" pop");
+  const isLast=S.idx>=S.queue.length-1, endOfRound=S.rounds&&!isLast&&roundOf(S.idx)!==roundOf(S.idx+1);
+  const head=ok?"Correct!":timedOut?"Time ran out, so this counts as wrong.":(q.type==="match"||q.type==="order"||q.type==="multi")?"Not quite. See which parts were right and wrong below.":"Not this time.";
+  fb.innerHTML=`<div class="stamp">${ok?"ACCESS GRANTED":(timedOut?"TIME OUT: ACCESS DENIED":"ACCESS DENIED")}</div>
+   <p class="fbhead">${esc(head)}</p>
+   ${ok?`<div class="pts">+${pts} points ${note?`<small>${esc(note)}</small>`:""}</div>`:(note?`<div class="pts"><small>${esc(note)}</small></div>`:"")}
+   ${(!ok&&detailHTML)?`<div class="detwrap"><b>Your answer:</b>${detailHTML}</div>`:""}
+   <div class="corr"><b>${ok?"The answer:":"Correct answer:"}</b> ${correctHTML||esc(correct)}</div>
+   <p class="expl"><b>Why:</b> ${esc(q.x)}</p>
+   <button type="button" class="btn primary next" id="nextBtn">${isLast?"See my results":endOfRound?"Open the next door":"Next question"} →</button>`;
+  $("#live").textContent=(ok?"Correct. ":"Incorrect. Correct answer: "+correct+". ")+q.x;
+  renderHUD();
+  const nb=$("#nextBtn"); nb.onclick=next; nb.focus({preventScroll:true}); setTimeout(()=>{ fb.scrollIntoView({behavior:reduceMotion?"auto":"smooth",block:"nearest"}); },60);
+}
+function next(){
+  const r0=roundOf(S.idx); S.idx++;
+  if(S.idx>=S.queue.length){ if(S.rounds) roundStars(r0); return endGame(); }
+  if(S.rounds&&roundOf(S.idx)!==r0){ roundStars(r0); return roundBreak(r0); }
+  renderQ();
+}
+function roundStars(r){ const qs=S.rounds[r].qs, got=S.answers.filter(a=>qs.includes(a.q)&&a.ok).length; const stars=got>=5?3:got>=4?2:got>=3?1:0; S.roundStars[r]={got,of:qs.length,stars}; if(stars===3) S.badges.add("flawless"); return S.roundStars[r]; }
+function roundBreak(r){
+  const rs=S.roundStars[r], t=TOPICS[S.rounds[r].t], nt=TOPICS[S.rounds[r+1].t], open=rs.stars>0;
+  show("round"); if(open) SFX.door();
+  $("#roundBox").innerHTML=`<div class="bigdoor ${open?"open":"shut"}" aria-hidden="true">${doorSVG(open?"open":"denied",true)}</div>
+   <h2 tabindex="-1" id="roundH">Door ${r+1}: ${open?"Unlocked!":"Still locked"}</h2>
+   <p class="rtopic">${esc(t.name)}: <b>${rs.got} / ${rs.of}</b> correct</p>
+   <div class="stars" aria-label="${rs.stars} of 3 stars">${[0,1,2].map(i=>`<span class="${i<rs.stars?"on":""}">${ICON.star}</span>`).join("")}</div>
+   <p class="muted">${open?(rs.stars===3?"Flawless. Perfect round!":"Nice work. Keep that streak going."):"Get 3 or more right to unlock a door. Revise: "+esc(t.notes)}</p>
+   <p class="nextup">Next up: <b>Door ${r+2}: ${esc(nt.name)}</b></p>
+   <button type="button" class="btn primary" id="contBtn">Enter Door ${r+2} →</button>`;
+  $("#contBtn").onclick=()=>{ show("play"); renderQ(); }; $("#roundH").focus();
+}
+
+/* ---------- door graphic ---------- */
+function doorSVG(state,big){ return `<svg viewBox="0 0 120 140" class="doorsvg ${state}" role="img" aria-label="${state==="open"?"Door unlocked":state==="denied"?"Access denied":"Door locked"}">
+ <rect x="18" y="8" width="64" height="128" fill="#3a5070" rx="2"/><rect x="22" y="12" width="56" height="124" fill="#101a29"/>
+ <g class="leaf"><rect x="22" y="12" width="56" height="124" fill="#9a6a43"/><rect x="28" y="20" width="44" height="46" fill="#a97a52" stroke="#7d5234"/><rect x="28" y="74" width="44" height="54" fill="#a97a52" stroke="#7d5234"/><rect x="66" y="70" width="9" height="4" rx="2" fill="#ddd"/></g>
+ <rect x="90" y="56" width="22" height="34" rx="4" fill="#20262e" stroke="#c4ccd6" stroke-width="2"/><circle class="led" cx="101" cy="66" r="5"/>
+ <path d="M95 80 q6 -5 12 0" stroke="#c4ccd6" stroke-width="2" fill="none"/></svg>`; }
+function setDoor(state){ const d=$("#door"); d.innerHTML=doorSVG(state); d.className="door "+state+(reduceMotion?"":" anim"); }
+
+/* ---------- end ---------- */
+function pctOf(a){ return a.length?Math.round(100*a.filter(x=>x.ok).length/a.length):0; }
+function endGame(){
+  stopTimer(); show("end");
+  const A=S.answers, right=A.filter(a=>a.ok).length, pct=pctOf(A), rk=rankFor(pct);
+  if(S.mode==="quick"&&right>=7&&A.length&&A.reduce((s,a)=>s+a.secs,0)/A.length<8) S.badges.add("speed");
+  if(S.mode==="mission"&&S.shields===3&&A.length===S.queue.length) S.badges.add("shield");
+  const BADGES={streak5:["Hot Streak","5 in a row"],streak10:["On Fire","10 in a row"],flawless:["Flawless Door","A perfect round"],speed:["Speed Demon","Average under 8 seconds"],shield:["Shield Wall","Finished with all 3 shields"]};
+  const topics=TOPIC_KEYS.map(t=>({t,a:A.filter(x=>x.q.t===t)})).filter(x=>x.a.length);
+  const ranked=(S.mode==="quick"||S.mode==="mission")&&A.length===S.queue.length;
+  let board=null; if(ranked){ board=LS.get("scores_"+S.mode,[]); board.push({n:S.name,s:S.score,p:pct,d:new Date().toISOString()}); board.sort((a,b)=>b.s-a.s||b.p-a.p); board=board.slice(0,10); LS.set("scores_"+S.mode,board); }
+  const wrong=A.filter(a=>!a.ok);
+  const dt=new Date().toLocaleString("en-GB",{day:"numeric",month:"short",year:"numeric",hour:"2-digit",minute:"2-digit"});
+  $("#endBox").innerHTML=`
+  <section class="card resultcard" id="resultCard" aria-label="Results card">
+    <div class="rc-top"><div><div class="rc-unit">J7X2 33 · Access Control · ${esc(QUIZ.label)}</div><div class="rc-name" id="rcName"></div><div class="rc-meta">${esc(MODES[S.mode].name)} · ${esc(dt)}</div></div>${rankBadge(rk,72)}</div>
+    <div class="rc-rank" style="color:${rk.col}">${rk.name}</div>
+    <div class="rc-stats"><div><b>${pct}%</b><span>score</span></div><div><b>${right}/${A.length}</b><span>correct</span></div><div><b>${S.score}</b><span>points</span></div><div><b>${S.best}</b><span>best streak</span></div></div>
+    <div class="rc-topics">${topics.map(x=>{const p=pctOf(x.a);return `<div class="rct"><span>${esc(TOPICS[x.t].short)}</span><span class="bar"><i style="width:${p}%;background:${p>=70?"#2ecc71":p>=50?"#ffb020":"#ff5d5d"}"></i></span><b>${p}%</b></div>`;}).join("")}</div>
+    ${S.badges.size?`<div class="rc-badges">${[...S.badges].map(b=>`<span class="bdg">${ICON.star}${BADGES[b][0]}</span>`).join("")}</div>`:""}
+    <div class="rc-foot">Screenshot this card to show your lecturer</div>
+  </section>
+  <p class="rankmsg">${esc(rk.msg)}</p>
+  <div class="row wrap">${wrong.length?`<button type="button" class="btn primary" id="retryBtn">Retry my ${wrong.length} wrong answer${wrong.length>1?"s":""}</button>`:""}
+   <button type="button" class="btn" id="againBtn">Play ${esc(MODES[S.mode].name)} again</button><button type="button" class="btn ghost" id="menuBtn">Change mode</button></div>
+  <section class="card"><h2>Topic breakdown</h2><div class="breakdown">${topics.map(x=>{const p=pctOf(x.a),weak=p<70;return `<div class="bd ${weak?"weak":""}"><div class="bdh"><b>${esc(TOPICS[x.t].name)}</b><span>${x.a.filter(a=>a.ok).length}/${x.a.length} · ${p}%</span></div><div class="bar"><i style="width:${p}%"></i></div>${weak?`<div class="rev">Revise: ${esc(TOPICS[x.t].notes)}</div>`:`<div class="okmsg">Secure</div>`}</div>`;}).join("")}</div></section>
+  <section class="card"><h2>Review ${wrong.length?"your wrong answers":"(all correct!)"}</h2>${wrong.length?wrong.map((a,i)=>`<div class="rv"><div class="rvq"><span class="chip topic">${esc(TOPICS[a.q.t].short)}</span> ${esc(a.q.q)}</div><div class="rvy"><b>Your answer:</b> ${esc(a.given)}</div><div class="rvc"><b>Correct answer:</b> ${esc(a.correct)}</div><div class="rvx">${esc(a.q.x)}</div></div>`).join(""):"<p>Every question correct. You've earned that key!</p>"}</section>
+  ${board?`<section class="card"><h2>${esc(MODES[S.mode].name)} high scores <small>(this device only)</small></h2>${boardHTML(board)}</section>`:""}`;
+  $("#rcName").textContent=S.name||"Learner"; if(board) fillBoardNames($("#endBox"),board);
+  if(wrong.length) $("#retryBtn").onclick=()=>start("retry",wrong.map(a=>a.q));
+  $("#againBtn").onclick=()=>start(S.mode==="retry"?"practice":S.mode,S.mode==="retry"?"all":S.opt);
+  $("#menuBtn").onclick=home;
+  $("#endH").focus();
+  if(pct>=70) SFX.door();
+}
+function boardHTML(b){ if(!b.length) return "<p class='muted'>No scores yet. Be the first!</p>";
+  return `<ol class="board">${b.map((r,i)=>`<li><span class="pos">${i+1}</span><span class="bn"></span><span class="bs">${r.s} pts</span><span class="bp">${r.p}%</span></li>`).join("")}</ol>`; }
+function fillBoardNames(root,b){ $$(".board .bn",root).forEach((el,i)=>el.textContent=b[i].n); }
+
+/* ---------- home ---------- */
+function home(){ stopTimer(); show("home"); $("#heroDoor").innerHTML=doorSVG("open"); renderBoards(); $("#homeH").focus(); }
+function renderBoards(){ const el=$("#boards"); const q=LS.get("scores_quick",[]), m=LS.get("scores_mission",[]);
+  el.innerHTML=`<div class="boards"><div id="bq"><h3>Quick Fire</h3>${boardHTML(q)}</div><div id="bm"><h3>Full Mission</h3>${boardHTML(m)}</div></div>${q.length||m.length?'<button type="button" class="btn ghost small" id="clearScores">Clear scores on this device</button>':""}`;
+  fillBoardNames($("#bq"),q); fillBoardNames($("#bm"),m);
+  const c=$("#clearScores"); if(c) c.onclick=()=>{ if(c.dataset.confirm){ LS.set("scores_quick",[]);LS.set("scores_mission",[]); renderBoards(); } else { c.dataset.confirm="1"; c.textContent="Tap again to clear all scores"; } };
+}
+function cleanName(v){ return v.replace(/[^A-Za-zÀ-ÿ' -]/g,"").trim().split(/\s+/)[0]?.slice(0,20)||""; }
+function init(){
+  $("#soundBtn").onclick=()=>setSound(!soundOn); setSound(soundOn);
+  const nm=$("#name"); nm.value=LS.get("name","");
+  $("#topicSel").innerHTML=`<option value="all">All topics (${BANK.length} questions)</option>`+TOPIC_KEYS.map(t=>`<option value="${t}">${esc(TOPICS[t].name)} (${BANK.filter(q=>q.t===t).length})</option>`).join("");
+  $$(".startbtn").forEach(b=>b.onclick=()=>{ const n=cleanName(nm.value); if(!n){ $("#nameErr").hidden=false; nm.focus(); return; } $("#nameErr").hidden=true; nm.value=n; LS.set("name",n);
+    playerName=n; const mode=b.dataset.mode; start(mode,mode==="practice"?$("#topicSel").value:null); });
+  nm.addEventListener("input",()=>{$("#nameErr").hidden=true;});
+  $("#quitBtn").onclick=()=>{ const b=$("#quitBtn"); if(b.dataset.confirm){ delete b.dataset.confirm; b.textContent="End"; if(S.answers.length) endGame(); else home(); } else { b.dataset.confirm="1"; b.textContent="Tap again to end"; setTimeout(()=>{delete b.dataset.confirm;b.textContent="End";},3000);} };
+  $("#homeLink").onclick=e=>{e.preventDefault(); home();};
+  document.addEventListener("keydown",e=>{ if(!$("#howto").hidden||$("#play").hidden||!cur||e.target.tagName==="INPUT"||e.target.tagName==="SELECT"||e.ctrlKey||e.metaKey||e.altKey) return;
+    if(cur.answered) return; const k=e.key.toUpperCase();
+    if(cur.q.type==="mc"){ const i="ABCD1234".indexOf(k); if(i>=0){ const b=$$("#qbody .opt")[i%4]; b&&b.click(); } }
+    if(cur.q.type==="tf"){ if(k==="T") $$("#qbody .opt")[0].click(); if(k==="F") $$("#qbody .opt")[1].click(); } });
+  $("#qcount").textContent=BANK.length;
+  let wasRunning=false, lastFocus=null;
+  const openHow=()=>{ lastFocus=document.activeElement; wasRunning=pauseTimer(); $("#howto").hidden=false; $("#howtoH").focus(); };
+  const closeHow=()=>{ $("#howto").hidden=true; LS.set("howto_seen",true); if(wasRunning&&cur&&!cur.answered) runTimer(); wasRunning=false; if(lastFocus&&lastFocus.focus) lastFocus.focus({preventScroll:true}); };
+  $("#helpBtn").onclick=openHow; $("#howtoClose").onclick=closeHow;
+  $("#howto").addEventListener("click",e=>{ if(e.target.id==="howto") closeHow(); });
+  document.addEventListener("keydown",e=>{ if(e.key==="Escape"&&!$("#howto").hidden) closeHow(); });
+  $("#howto").addEventListener("keydown",e=>{ if(e.key!=="Tab") return; const f=$$("#howto button, #howto [tabindex='-1']"); const btn=$("#howtoClose"); e.preventDefault(); btn.focus(); });
+  home();
+  if(!LS.get("howto_seen",false)) openHow();
+}
+document.addEventListener("DOMContentLoaded",init);
+window.__quiz={get S(){return S;},BANK,DIAGRAMS,start};
+})();
+</script>
+</body>
+</html>
